@@ -1,3 +1,5 @@
+getgenv().SecureMode = true
+
 repeat task.wait() until getgenv().IslandCaller and getgenv().IslandVariable and game.Players.LocalPlayer
 
 local CoreGui = game.CoreGui
