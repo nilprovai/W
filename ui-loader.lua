@@ -1,6 +1,7 @@
 repeat task.wait() until getgenv().IslandCaller and getgenv().IslandVariable and game.Players.LocalPlayer
 
 local CoreGui = game.CoreGui
+local PlaceId = game.PlaceId
 local JobId = game.JobId
 
 local TweenService = game:GetService("TweenService")
