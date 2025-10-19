@@ -1496,7 +1496,7 @@ getgenv().IslandVariable.MaterialSeaChecker = {
     ["Angel Wings"] = "2753915549",
 }
 
-RaceEntrances = {
+getgenv().IslandVariable.RaceEntrances = {
     ['Cyborg'] = CFrame.new(28492.52734375, 14895.9755859375, -422.6058654785156),
     ["Human"] = {
         CFrame.new(29019.9609375, 14891.1474609375, -389.439697265625),
@@ -1507,15 +1507,16 @@ RaceEntrances = {
     ["Ghoul"] = CFrame.new(28673.8555, 14890.334, 454.733765, -0.999887466, -3.48198981e-09, 0.0150030479, -3.48583518e-09, 1, -2.30164096e-10, -0.0150030479, -2.82436352e-10, -0.999887466),
     ["Skypiea"] = CFrame.new(28967.8086, 14919.2803, 234.668045, -0.00638482161, 3.80502279e-08, -0.999979615, 6.83823131e-08, 1, 3.76143845e-08, 0.999979615, -6.8140757e-08, -0.00638482161),
 }
-PlacesPosition = {
+
+getgenv().IslandVariable.PlacesPosition = {
     SpawnRipIndra = CFrame.new(-5564.91406, 313.950531, -2666.69287, -0.892237544, -1.03326805e-08, -0.451566368, 1.39742387e-08, 1, -5.04931776e-08, 0.451566368, -5.13622034e-08, -0.892237544),
     CenterCastle = Vector3.new(-5581.2353515625, 313.76556396484375, -3064.094970703125),
     DefaultSeaPosition = Vector3.new(0, -10010, 0)
 }
-LastClick = tick()
-AllFruitKeys = {"Z","X","C","V","F"}
-Weapon600Mas = {}
-GatesInfo = {
+
+getgenv().IslandVariable.AllFruitKeys = {"Z","X","C","V","F"}
+getgenv().IslandVariable.Weapon600Mas = {}
+getgenv().IslandVariable.GatesInfo = {
     ["Castle"] = {
         CanInstaTP = true,
         Pos = Vector3.new(-5069.12158203125, 314.5155029296875, -3000.46728515625),
@@ -1527,66 +1528,55 @@ GatesInfo = {
         end,
         Pos = Vector3.new(5657.0947265625, 1013.0795288085938, -340.00445556640625),
     },
-   -- ["Entrance"] = {
-    --    CanInstaTP = true,
-    --    Pos = Vector3.new(5369.29345703125, 25.22520637512207, -503.0862731933594),
-    --    Hitbox = function()
-    --        return game:GetService("Workspace").Map.Waterfall.BossRoom.Door.BossDoor.Hitbox
-    --    end,
-    --    
-    --},
-    --["Entrance2"] = {
-    --    CanInstaTP = true,
-    --    Pos = Vector3.new(-11996.9296875, 331.8427734375, -8839.8603515625),
-    --    Hitbox = function()
-    --        return game:GetService("Workspace").Map.Turtle.Entrance.Door.BossDoor.Hitbox
-    --    end,
-    --},
     ["Mansion"] = {
         CanInstaTP = true,
         Pos = Vector3.new(-12547.1396484375, 337.16827392578125, -7471.8818359375)
     }
 }
-ListNpc = {}
-NPCInstances = {}
-BlacklistNpcName = {"Boat Dealer","Quest Giver","Dealer","Set Home Point"}
-for i,v in pairs(workspace.NPCs:GetChildren()) do 
-    IsBlacklist=false
-    for _,v2 in pairs(BlacklistNpcName) do 
-        if string.find(v.Name,v2) then
+
+getgenv().IslandVariable.NPCs = {}
+getgenv().IslandVariable.NPCInstances = {}
+getgenv().IslandVariable.BlacklistNpcName = {"Boat Dealer","Quest Giver","Dealer","Set Home Point"}
+
+for _, NPC in pairs(workspace.NPCs:GetChildren()) do 
+    local IsBlacklist = false
+    for _, BlacklistNPC in pairs(getgenv().IslandVariable.BlacklistNpcName) do 
+        if string.find(NPC.Name, BlacklistNPC) then
             IsBlacklist = true
             break 
         end
     end
-    if (v:GetAttribute("FloorPos")-PlacesPosition.DefaultSeaPosition).magnitude < 100 then
+    if (
+        NPC:GetAttribute("FloorPos") 
+        - getgenv().IslandVariable.PlacesPosition.DefaultSeaPosition
+    ).magnitude < 100 then
         IsBlacklist = true 
     end
     if not IsBlacklist then
-        table.insert(ListNpc,v.Name) 
-        NPCInstances[v.Name]=v
-    end
-end
-for i,v in pairs(game:GetService("ReplicatedStorage").NPCs:GetChildren()) do 
-    IsBlacklist=false
-    for _,v2 in pairs(BlacklistNpcName) do 
-        if string.find(v.Name,v2) then
-            IsBlacklist = true
-            break 
-        end
-    end
-    if (v:GetAttribute("FloorPos")-PlacesPosition.DefaultSeaPosition).magnitude < 100 then
-        IsBlacklist = true 
-    end
-    if not IsBlacklist then
-        table.insert(ListNpc,v.Name) 
-        NPCInstances[v.Name]=v
+        table.insert(getgenv().IslandVariable.NPCs, NPC.Name) 
+        getgenv().IslandVariable.NPCInstances[NPC.Name] = NPC
     end
 end
 
-getgenv().IslandVariable.UIInfo = {
-    InCombat = game.Players.LocalPlayer.PlayerGui.Main.BottomHUDList.InCombat,
-    InCombatBottom = game.Players.LocalPlayer.PlayerGui.Main.BottomHUDList.InCombatBottom
-}
+for _, NPC in pairs(game:GetService("ReplicatedStorage").NPCs:GetChildren()) do 
+    local IsBlacklist = false
+    for _, BlacklistNPC in pairs(getgenv().IslandVariable.BlacklistNpcName) do 
+        if string.find(NPC.Name, BlacklistNPC) then
+            IsBlacklist = true
+            break 
+        end
+    end
+    if (
+        NPC:GetAttribute("FloorPos")
+        - getgenv().IslandVariable.DefaultSeaPosition
+    ).magnitude < 100 then
+        IsBlacklist = true 
+    end
+    if not IsBlacklist then
+        table.insert(getgenv().IslandVariable.NPCs, NPC.Name) 
+        getgenv().IslandVariable.NPCInstances[NPC.Name] = NPC
+    end
+end
 
 getgenv().IslandVariable.SkillsV3Name ={
     ["Mink"] = "Agility",
