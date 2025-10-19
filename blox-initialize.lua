@@ -12,6 +12,7 @@ elseif game.PlaceId == 7449423635 then
 else 
     return
 end
+
 getgenv().IslandVariable.MetaData = {}
 getgenv().IslandVariable.Places = {
     ["2753915549"] = {
@@ -1493,4 +1494,467 @@ getgenv().IslandVariable.MaterialSeaChecker = {
     ["Meteorite"] = "4442272183",
     ["Conjured Cocoa"] = "7449423635",
     ["Angel Wings"] = "2753915549",
+}
+
+RaceEntrances = {
+    ['Cyborg'] = CFrame.new(28492.52734375, 14895.9755859375, -422.6058654785156),
+    ["Human"] = {
+        CFrame.new(29019.9609375, 14891.1474609375, -389.439697265625),
+        CFrame.new(29237.48828125, 14891.052734375, -204.71849060058594),
+    },
+    ["Mink"] = CFrame.new(29020.9492, 14890.6328, -380.407867, -0.0712743625, 8.85832776e-08, -0.997456729, -3.87927805e-08, 1, 9.15811214e-08, 0.997456729, 4.52215083e-08, -0.0712743625),
+    ["Fishman"] = CFrame.new(28224.0938, 14891.2402, -212.507004, 0.0963651389, -3.22392211e-08, 0.995346069, 3.76359344e-09, 1, 3.20255857e-08, -0.995346069, 6.59927724e-10, 0.0963651389),
+    ["Ghoul"] = CFrame.new(28673.8555, 14890.334, 454.733765, -0.999887466, -3.48198981e-09, 0.0150030479, -3.48583518e-09, 1, -2.30164096e-10, -0.0150030479, -2.82436352e-10, -0.999887466),
+    ["Skypiea"] = CFrame.new(28967.8086, 14919.2803, 234.668045, -0.00638482161, 3.80502279e-08, -0.999979615, 6.83823131e-08, 1, 3.76143845e-08, 0.999979615, -6.8140757e-08, -0.00638482161),
+}
+PlacesPosition = {
+    SpawnRipIndra = CFrame.new(-5564.91406, 313.950531, -2666.69287, -0.892237544, -1.03326805e-08, -0.451566368, 1.39742387e-08, 1, -5.04931776e-08, 0.451566368, -5.13622034e-08, -0.892237544),
+    CenterCastle = Vector3.new(-5581.2353515625, 313.76556396484375, -3064.094970703125),
+    DefaultSeaPosition = Vector3.new(0, -10010, 0)
+}
+LastClick = tick()
+AllFruitKeys = {"Z","X","C","V","F"}
+Weapon600Mas = {}
+GatesInfo = {
+    ["Castle"] = {
+        CanInstaTP = true,
+        Pos = Vector3.new(-5069.12158203125, 314.5155029296875, -3000.46728515625),
+    },
+    ["Hydra"] = {
+        CanInstaTP = true,
+        Hitbox = function()
+            return game:GetService("Workspace").Map["Boat Castle"].MapTeleportB.Hitbox
+        end,
+        Pos = Vector3.new(5657.0947265625, 1013.0795288085938, -340.00445556640625),
+    },
+   -- ["Entrance"] = {
+    --    CanInstaTP = true,
+    --    Pos = Vector3.new(5369.29345703125, 25.22520637512207, -503.0862731933594),
+    --    Hitbox = function()
+    --        return game:GetService("Workspace").Map.Waterfall.BossRoom.Door.BossDoor.Hitbox
+    --    end,
+    --    
+    --},
+    --["Entrance2"] = {
+    --    CanInstaTP = true,
+    --    Pos = Vector3.new(-11996.9296875, 331.8427734375, -8839.8603515625),
+    --    Hitbox = function()
+    --        return game:GetService("Workspace").Map.Turtle.Entrance.Door.BossDoor.Hitbox
+    --    end,
+    --},
+    ["Mansion"] = {
+        CanInstaTP = true,
+        Pos = Vector3.new(-12547.1396484375, 337.16827392578125, -7471.8818359375)
+    }
+}
+ListNpc = {}
+NPCInstances = {}
+BlacklistNpcName = {"Boat Dealer","Quest Giver","Dealer","Set Home Point"}
+for i,v in pairs(workspace.NPCs:GetChildren()) do 
+    IsBlacklist=false
+    for _,v2 in pairs(BlacklistNpcName) do 
+        if string.find(v.Name,v2) then
+            IsBlacklist = true
+            break 
+        end
+    end
+    if (v:GetAttribute("FloorPos")-PlacesPosition.DefaultSeaPosition).magnitude < 100 then
+        IsBlacklist = true 
+    end
+    if not IsBlacklist then
+        table.insert(ListNpc,v.Name) 
+        NPCInstances[v.Name]=v
+    end
+end
+for i,v in pairs(game:GetService("ReplicatedStorage").NPCs:GetChildren()) do 
+    IsBlacklist=false
+    for _,v2 in pairs(BlacklistNpcName) do 
+        if string.find(v.Name,v2) then
+            IsBlacklist = true
+            break 
+        end
+    end
+    if (v:GetAttribute("FloorPos")-PlacesPosition.DefaultSeaPosition).magnitude < 100 then
+        IsBlacklist = true 
+    end
+    if not IsBlacklist then
+        table.insert(ListNpc,v.Name) 
+        NPCInstances[v.Name]=v
+    end
+end
+
+getgenv().IslandVariable.UIInfo = {
+    InCombat = game.Players.LocalPlayer.PlayerGui.Main.BottomHUDList.InCombat,
+    InCombatBottom = game.Players.LocalPlayer.PlayerGui.Main.BottomHUDList.InCombatBottom
+}
+
+getgenv().IslandVariable.SkillsV3Name ={
+    ["Mink"] = "Agility",
+    ["Skypiea"] = "Heavenly Blood",
+    ["Ghoul"] = "Heightened Senses",
+    ["Fishman"] = "Water Body",
+    ["Cyborg"] = "Energy Core",
+    ["Human"] = "Last Resort"
+}
+
+getgenv().IslandVariable.BossQuest = {
+    ["2753915549"] = {
+        ["The Gorilla King"] = {
+            Quest = "JungleQuest",
+            Require  = 25,
+            LvQuest = 3,
+            Pos = CFrame.new(-1604.12012, 36.8521118, 154.23732),
+        },
+        ["Bobby"] = {
+            Quest = "BuggyQuest1",
+            Require  = 55,
+            LvQuest = 3,
+            Pos = CFrame.new(-1139.59717, 4.75205183, 3825.16211),
+        },
+        ["Yeti"] = {
+            Quest = "SnowQuest",
+            LvQuest = 3,
+            Require  = 110,
+            Pos = CFrame.new(1384.90247, 87.3078308, -1296.6825),
+        },
+        ["Vice Admiral"] = {
+            Quest = "MarineQuest2",
+            LvQuest = 2,
+            Require  = 130,
+            Pos = CFrame.new(-5035.42285, 28.6520386, 4324.50293),
+        },
+        ["Warden"] = {
+            Quest = "ImpelQuest",
+            LvQuest = 1,
+            Require  = 220,
+            Pos = CFrame.new(5189.8603515625, 3.5371694564819336, 689.46923828125),
+        },
+        ["Chief Warden"] = {
+            Quest = "ImpelQuest",
+            LvQuest = 2,
+            Require  = 230,
+            Pos = CFrame.new(5189.8603515625, 3.5371694564819336, 689.46923828125),
+        },
+        ["Swan"] = {
+            Quest = "ImpelQuest",
+            LvQuest = 3,
+            Require  = 230,
+            Pos = CFrame.new(5189.8603515625, 3.5371694564819336, 689.46923828125),
+        },
+        ["Magma Admiral"] = {
+            Quest = "MagmaQuest",
+            LvQuest = 3,
+            Require  = 350,
+            Pos = CFrame.new(-5317.07666, 12.2721891, 8517.41699),
+        },
+        ["Fishman Lord"] = {
+            Quest = "FishmanQuest",
+            LvQuest = 3,
+            Require  = 425,
+            Pos = CFrame.new(61123.0859, 18.5066795, 1570.18018),
+        },
+        ["Wysper"] = {
+            Quest = "SkyExp1Quest",
+            LvQuest = 3,
+            Require  = 500,
+            Pos = CFrame.new(-7862.94629, 5545.52832, -379.833954),
+        },
+        ["Thunder God"] = {
+            Quest = "SkyExp2Quest",
+            LvQuest = 3,
+            Require  = 575,
+            Pos = CFrame.new(-7902.78613, 5635.99902, -1411.98706),
+        },
+        ["Cyborg"] = {
+            Quest = "FountainQuest",
+            LvQuest = 3,
+            Require  = 675,
+            Pos = CFrame.new(-5253.54834, 38.5361786, 4050.45166),
+        },
+    },
+    ["4442272183"] = {
+        ["Diamond"] = {
+            Quest = "Area1Quest",
+            LvQuest = 3,
+            Require  = 750,
+            Pos = CFrame.new(-424.080078, 73.0055847, 1836.91589),
+        },
+        ["Jeremy"] = {
+            Quest = "Area2Quest",
+            LvQuest = 3,
+            Require  = 850,
+            Pos = CFrame.new(632.698608, 73.1055908, 918.666321),
+        },
+        ["Fajita"] = {
+            Quest = "MarineQuest3",
+            LvQuest = 3,
+            Require  = 925,
+            Pos = CFrame.new(-2442.65015, 73.0511475, -3219.11523),          
+        },
+        ["Smoke Admiral"] = {
+            Quest = "IceSideQuest",
+            LvQuest = 3,
+            Require  = 1150,
+            Pos = CFrame.new(-6059.96191, 15.9868021, -4904.7373),          
+        },
+        ["Awakened Ice Admiral"] = {
+            Quest = "FrostQuest",
+            LvQuest = 3,
+            Require  = 1400,
+            Pos = CFrame.new(5669.33203, 28.2118053, -6481.55908),  
+        },
+        ["Tide Keeper"] = {
+            Quest = "ForgottenQuest",
+            LvQuest = 3,
+            Require  = 1475,
+            Pos = CFrame.new(-3053.89648, 236.881363, -10148.2324),  
+        },
+    },
+    ["7449423635"]  = {
+        ["Stone"] = {
+            Quest = "PiratePortQuest",
+            LvQuest = 3,
+            Require  = 1550,
+            Pos = CFrame.new(-288.003815, 43.7675667, 5573.12012),  
+        },
+        ["Island Empress"]  = {
+            Quest = "AmazonQuest2",
+            LvQuest = 3,
+            Require  = 1675,
+            Pos = CFrame.new(5444.14355, 601.603821, 751.306763),  
+        },
+        ["Kilo Admiral"] = {
+            Quest = "MarineTreeIsland",
+            LvQuest = 3,
+            Require  = 1750,
+            Pos = CFrame.new(2223.3645, 28.7049141, -6719.18408),
+        },
+        ["Captain Elephant"] = {
+            Quest = "DeepForestIsland",
+            LvQuest = 3,
+            Require  = 1875,
+            Pos = CFrame.new(-13231.1602, 333.744446, -7624.40723),
+        },
+        ["Cake Queen"] = {
+            Quest = "IceCreamIslandQuest",
+            LvQuest = 3,
+            Require  = 1875,
+            Pos = CFrame.new(-821.71612548828, 65.819519042969, -10965.169921875),
+        }
+    },
+}   
+
+getgenv().IslandVariable.AllBoss = {
+    ["2753915549"] = {
+        "Saber Expert","The Saw","Bobby","The Gorilla King","Yeti","Vice Admiral",
+        "Warden","Chief Warden","Swan","Magma Admiral","Fishman Lord","Wysper",
+        "Thunder God","Cyborg"
+    },
+    ["4442272183"] =  {
+        "Diamond","Jeremy","Fajita","Smoke Admiral","Awakened Ice Admiral","Tide Keeper",
+        "Don Swan","Cursed Captain"
+    },
+    ["7449423635"] = {
+        "Stone","Island Empress","Kilo Admiral","Captain Elephant","Cake Queen","Beautiful Pirate",
+        "Soul Reaper","rip_indra True Form","Cake Prince","Dough King"
+    },
+}
+
+getgenv().IslandVariable.AutoBlackSmithv1 = {
+    ["Dark Blade"] = {
+        ["Magma Ore"] = 10,
+        ["Dragon Scale"] = 15,
+        ["Dark Fragment"] = 1,
+    },
+    ["Cursed Dual Katana"] = {
+        ["Scrap Metal"] = 60,
+        ["Mini Tusk"] = 10,
+        ["Demonic Wisp"] = 10,
+    },
+    ["Hallow Scythe"] = {
+        ["Scrap Metal"] = 25,
+        ["Bones"] = 800,
+        ["Demonic Wisp"] = 8,
+    },
+    ["True Triple Katana"] = {
+        ["Leather"] = 50,
+        ["Mystic Droplet"] = 20,
+        ["Dragon Scale"] = 5,
+    },
+    ["Spikey Trident"] = {
+        ["Scrap Metal"] = 25,
+        ["Conjured Cocoa"] = 8,
+        ["Mystic Droplet"] = 5,
+    },
+    ["Koko"] = {
+        ["Scrap Metal"] = 15,
+        ["Vampire Fang"] = 10,
+    },
+    ["Tushita"] = {
+        ["Leather"] = 6,
+        ["Mini Tusk"] = 20,
+    },
+    ["Pole (2nd Form)"] = {
+        ["Scrap Metal"] = 12,
+        ["Mystic Droplet"] = 10,
+        ["Fish Tail"] = 15,
+    },
+    ["Saddi"] = {
+        ["Leather"] = 10,
+        ["Mystic Droplet"] = 8,
+    },
+    ["Saber"] = {
+        ["Scrap Metal"] = 10,
+        ["Radioactive Material"] = 5,
+        ["Magma Ore"] = 10,
+    },
+    ["Yama"] = {
+        ["Leather"] = 6,
+        ["Mini Tusk"] = 20,
+    },
+    ["Midnight Blade"] = {
+        ["Scrap Metal"] = 15,
+        ["Ectoplasm"] = 40,
+    },
+    ["Buddy Sword"] = {
+        ["Leather"] = 25,
+        ["Conjured Cocoa"] = 8,
+        ["Mystic Droplet"] = 5,
+    },
+    ["Shisui"] = {
+        ["Leather"] = 10,
+        ["Mystic Droplet"] = 8,
+    },
+    ["Bisento"] = {
+        ["Scrap Metal"] = 15,
+        ["Angel Wings"] = 12,
+        ["Magma Ore"] = 10,
+    },
+    ["Pole (1st Form)"] = {
+        ["Scrap Metal"] = 20,
+        ["Angel Wings"] = 10,
+        ["Radioactive Material"] = 10,
+    },
+    ["Canvander"] = {
+        ["Leather"] = 20,
+        ["Dragon Scale"] = 6,
+    },
+    ["Dark Dagger"] = {
+        ["Scrap Metal"] = 10,
+        ["Dragon Scale"] = 8,
+        ["Dark Fragment"] = 1,
+    },
+    ["Rengoku"] = {
+        ["Vampire Fang"] = 8,
+        ["Scrap Metal"] = 15,
+        ["Magma Ore"] = 20,
+    },
+    ["Wando"] = {
+        ["Leather"] = 10,
+        ["Mystic Droplet"] = 8,
+    },
+    ["Longsword"] = {
+        ["Scrap Metal"] = 10,
+        ["Radioactive Material"] = 10,
+    },
+    ["Pipe"] = {
+        ["Scrap Metal"] = 10,
+        ["Fish Tail"] = 12,
+    },
+    ["Dragon Trident"] = {
+        ["Leather"] = 10,
+        ["Dragon Scale"] = 10,
+    },
+    ["Jitte"] = {
+        ["Scrap Metal"] = 15,
+        ["Vampire Fang"] = 10,
+    },
+    ["Dual-Headed Blade"] = {
+        ["Scrap Metal"] = 10,
+        ["Fish Tail"] = 12,
+    },
+    ["Gravity Cane"] = {
+        ["Scrap Metal"] = 10,
+        ["Meteorite"] = 3,
+    },
+    ["Soul Cane"] = {
+        ["Leather"] = 20,
+        ["Radioactive Material"] = 5,
+    },
+    ["Iron Mace"] = {
+        ["Leather"] = 10,
+        ["Angel Wings"] = 10,
+    },
+    ["Shark Saw"] = {
+        ["Leather"] = 12,
+    },
+    ["Twin Hooks"] = {
+        ["Leather"] = 20,
+        ["Mini Tusk"] = 8,
+        ["Fish Tail"] = 10,
+    },
+    ["Triple Katana"] = {
+        ["Leather"] = 15,
+        ["Scrap Metal"] = 15,
+    },
+    ["Skull Guitar"] = {
+        ["Magma Ore"] = 10,
+        ["Dragon Scale"] = 15,
+        ["Dark Fragment"] = 1,
+    },
+    ["Kabucha"] = {
+        ["Leather"] = 50,
+        ["Dragon Scale"] = 15,
+        ["Vampire Fang"] = 3,
+    },
+    ["Serpent Bow"] = {
+        ["Meteorite"] = 1,
+        ["Scrap Metal"] = 10,
+        ["Vampire Fang"] = 10,
+    },
+    ["Bazooka"] = {
+        ["Magma Ore"] = 10,
+        ["Dragon Scale"] = 15,
+        ["Dark Fragment"] = 1,
+    },
+    ["Cannon"] = {
+        ["Leather"] = 5,
+        ["Fish Tail"] = 5,
+        ["Magma Ore"] = 5,
+    },
+    ["Refined Slingshot"] = {
+        ["Scrap Metal"] = 10,
+        ["Angel Wings"] = 10,
+    },
+    ["Bizarre Rifle"] = {
+        ["Leather"] = 20,
+        ["Angel Wings"] = 10,
+        ["Magma Ore"] = 5,
+    },
+    ["Musket"] = {
+        ["Leather"] = 5,
+        ["Fish Tail"] = 5,
+    },
+    ["Flintlock"] = {
+        ["Leather"] = 5,
+        ["Magma Ore"] = 5,
+    },  
+    ["Refined Musket"] = {
+        ["Scrap Metal"] = 10,
+        ["Fish Tail"] = 10,
+    },
+    ["Acidum Rifle"] = {
+        ["Leather"] = 10,
+        ["Vampire Fang"] = 8,
+    },
+}
+
+
+getgenv().IslandVariable.BloxFruitCodes = {"GAMERROBOT_YT","FUDD10","fudd10_v2","BIGNEWS","THEGREATACE","SUB2NOOBMASTER123","Sub2Daigrock","Axiore"
+,"TantaiGaming","STRAWHATMAINE","Sub2OfficialNoobie","UPD16","SUB2GAMERROBOT_EXP1","3BVISITS","Enyu_is_Pro","Sub2Fer999","Bluxxy","JCWK"
+,"Magicbus","Starcodeheo","kittgaming","ADMINGIVEAWAY","GAMER_ROBOT_1M","Sub2CaptainMaui","15B_BESTBROTHERS","DEVSCOOKING","krazydares","Sub2CaptainMaui","DEVSCOOKING",
+"KITT_RESET","Sub2UncleKizaru","SUB2GAMERROBOT_RESET1","NOMOREHACK","BANEXPLOIT","GIFTING_HOURS"}
+
+getgenv().IslandVariable.IsNightC = {
+    "18","19","20","21","23","24","00","01","02","03","04"
 }
