@@ -1568,7 +1568,7 @@ for _, NPC in pairs(game:GetService("ReplicatedStorage").NPCs:GetChildren()) do
     end
     if (
         NPC:GetAttribute("FloorPos")
-        - getgenv().IslandVariable.DefaultSeaPosition
+        - getgenv().IslandVariable.PlacesPosition.DefaultSeaPosition
     ).magnitude < 100 then
         IsBlacklist = true 
     end
