@@ -663,8 +663,8 @@ local Window = Starlight:CreateWindow({
     Icon = 89753210367517,
 
     LoadingSettings = {
-        Title = "W-Azure Rewrite",
-        Subtitle = "Welcome to W-Azure",
+        Title = "W-azure Rewrite",
+        Subtitle = "Welcome to W-azure",
     },
     LoadingEnabled = true
 })
