@@ -27,7 +27,6 @@ local UiOrders = {
     { title = "Sub Farming", icon = "leaf" },
     { title = "Vocalnic", icon = "flame" },
     { title = "Status", icon = "chart-no-axes-column" },
-    { title = "Player-Status", icon = "user" },
     { title = "Fruit", icon = "apple" },
     { title = "Local Player", icon = "map-pin" },
     { title = "Travel", icon = "navigation" },
@@ -56,15 +55,15 @@ local UiIntilize = {
             {Mode="Button",Title="Set Anchor Position",Callback=function()
                 pcall(function ()
                     getgenv().Settings["AnchorPosition"] = tostring(LocalPlayer.Character.HumanoidRootPart.Position)
+                    Starlight:Notification({
+                        Title = "W-azure",
+                        Icon = 89753210367517,
+                        Content = string.format("Anchor position has been set to: %s", tostring(LocalPlayer.Character.HumanoidRootPart.Position)),
+                        Duration = 2,
+                    }) 
                 end)
             end},
-            {Mode="Dropdown",Title="Distance From Anchor",Table = (function()
-                local Table = {}
-                for i=400,4000,400 do 
-                    table.insert(Table,i)
-                end
-                return Table
-            end)(),Default=getgenv().Settings["Distance From Anchor"] or 400,Id="Distance From Anchor"},
+            {Mode="Dropdown",Title="Distance From Anchor",Table = {400,800,1200,1600,2000,2400,2800,3200,3600,4000},Default=getgenv().Settings["Distance From Anchor"] or 400,Id="Distance From Anchor"},
         }},
         {Title="Weapon Settings", Children={
             {Mode="Toggle",Title="Use Sword",Id="Use Sword"},
@@ -182,7 +181,6 @@ local UiIntilize = {
         {Title="Game Status", Children={
             {Mode="Label",Title="Client Time"},
             {Mode="Label",Title="Farming Status"},
-            {Mode="Label",Title="Weapon Status [One Click]"},
             {Mode="Label",Title="Dimension Kill"},
             {Mode="Label",Title="Bribe Status"},
         }},
@@ -193,11 +191,6 @@ local UiIntilize = {
             {Mode="Label",Title="PrehistoricIsland Status"},
             {Mode="Label",Title="Kitsune Status"},
             {Mode="Label",Title="FullMoon Status"},
-        }}
-    },
-    ["Player-Status"] = {
-        {Title="Player Info", Children={
-            {Mode="Label",Title="W.I.P"}
         }}
     },
     ["Fruit"] = {
@@ -235,7 +228,7 @@ local UiIntilize = {
             {Mode = "Toggle",Title = "Dash Modify",Id = "Dash Modify"},
             {Mode = "Toggle",Title = "Dash No CD",Id = "Dash No CD"},
             {Mode = "Toggle",Title = "Change Dash Rage",Id = "Do Dash Rage"},
-            {Mode = "Dropdown",Title = "Dash Range",Id = "Dash Range",Table = {100,150,200,250,300,500,750,1000},Default = getgenv().Settings["Dash Range"], IsNumber=true},
+            {Mode = "Dropdown",Title = "Dash Range",Id = "Dash Range",Table = {100,150,200,250,300,500,750,1000},Default = getgenv().Settings["Dash Range"] or 300, IsNumber=true},
             {Mode = "Toggle",Title = "Infinity Geppo",Id = "Infinity Geppo"},
             {Mode = "Toggle",Title = "Speed Hack",Id = "Speed Hack"},
             {Mode = "Slider",Title = "Speed",Id = "Speed",Default = getgenv().Settings["Speed"] or 16,Min = 16,Max = 500}
@@ -281,7 +274,7 @@ local UiIntilize = {
     ["Raid-Material"] = {
         {Title = "Material Farming", Children={
             {Mode = "Toggle",Title = "Start Farming Material",Id = "Start Farming Material"},
-            {Mode="Dropdown",Title="Materials",Table=getgenv().IslandVariable["Materials Name"]},
+            {Mode="Dropdown",Title="Materials",Table=getgenv().IslandVariable.MaterialName},
         }},
         {Title = "Raid Settings", Children={
             {Mode="Dropdown",Title="Select Chip",Table={"Flame","Ice","Sand","Quake","Light","Dark","Spider","Rumble","Magma","Human: Buddha","Bird: Phoenix","Dough"},Id="Selected Chip", Default=getgenv().Settings["Selected Chip"]},
@@ -298,7 +291,7 @@ local UiIntilize = {
             {Mode = "Button",Title = "Change Night Atmosphere",Id="Night Atmosphere"},
             {Mode = "Button",Title = "Change Dark Atmosphere",Id="Dark Atmosphere"},
             {Mode = "Toggle",Title = "Ship Speed Modifier",Id = "Ship Speed Modifier"},
-            {Mode = "Slider",Title = "Ship Speed",Id = "Ship Speed",Default = getgenv().Settings["Ship Speed"]},
+            {Mode = "Slider",Title = "Ship Speed",Id = "Ship Speed",Default = getgenv().Settings["Ship Speed"] or 500, Min=1, Max=1000},
             {Mode="Dropdown",Title="Select Ship",Table={"PirateSloop","Swan Ship","Beast Hunter","PirateGrandBrigade","MarineGrandBrigade","PirateBrigade","MarineBrigade"},Default=getgenv().Settings["Selected Ship"], Id="Selected Ship"},
         }},
         {Title="Sea Farming", Children={
@@ -325,12 +318,12 @@ local UiIntilize = {
             {Mode = "Toggle",Title = "Auto Find Kitsune Island",Id = "Auto Find Kitsune Island"},
             {Mode = "Toggle",Title = "Auto Start Kitsune When In Island",Id = "Auto Start Kitsune When In Island"},
             {Mode = "Toggle",Title = "Auto Collect Azure Wisp",Id = "Auto Collect Azure Wisp"},
-            {Mode = "Dropdown",Title = "Azure Trade Min",Id = "Azure Ember Limit",Table = {15,20,25,30},Default = getgenv().Settings["Azure Ember Limit"],IsNumber=true},
+            {Mode = "Dropdown",Title = "Azure Trade Min",Id = "Azure Ember Limit",Table = {15,20,25,30},Default = getgenv().Settings["Azure Ember Limit"] or 30,IsNumber=true},
             {Mode = "Toggle",Title = "Auto Trade Azure Wisp",Id = "Auto Trade Azure Wisp"},
         }},
         {Title = "Advanced Settings", Children={
             {Mode = "Toggle",Title = "Spin Ship If Farming",Id = "Spin Ship If Farming"},
-            {Mode = "Slider",Title = "Spin Distance",Id = "Spin Distance",Default = getgenv().Settings["Spin Distance"],Min = 10,Max = 500},
+            {Mode = "Slider",Title = "Spin Distance",Id = "Spin Distance",Default = getgenv().Settings["Spin Distance"] or 10,Min = 10,Max = 500},
             {Mode = "Slider",Title = "Near Distance",Id = "Near Distance",Default = getgenv().Settings["Near Distance"] or 300,Min = 300,Max = 1000},
             {Mode = "Slider",Title = "Sea Beast Near Distance",Id = "Sea Beast Near Distance",Default = getgenv().Settings["Sea Beast Near Distance"] or 300,Min = 300,Max = 2000}
         }}
@@ -359,7 +352,7 @@ local UiIntilize = {
         {Title = "Trial Combat", Children={
             {Mode = "Toggle",Title = "Fully Auto Finish Trial",Id = "Fully Auto Finish Trial"},
             {Mode = "Toggle",Title = "Use Weapon In Kill Trial",Id = "Use Weapon In Kill Trial"},
-            {Mode = "Dropdown",Title = "Select Weapon For Kill trial",Id = "Selected Weapon For Kill trial",Multi = false,Table = {"Sword","Gun"},Default = getgenv().Settings["Selected Weapon For Kill trial"]},
+            {Mode = "Dropdown",Title = "Select Weapon For Kill trial",Id = "Selected Weapon For Kill trial",Multi = false,Table = {"Sword","Gun"},Default = getgenv().Settings["Selected Weapon For Kill trial"] or {}},
             {Mode = "Dropdown",Title = "Skills Weapon",Id = "Skills Weapon",Multi = true,Table = {"Z","X"},Default = getgenv().Settings["Skills Weapon"] or {}},
             {Mode = "Toggle",Title = "Auto Train",Id = "Auto Train"},
             {Mode = "Toggle",Title = "Auto Finish Trial",Id = "Auto Finish Trial"},
@@ -400,7 +393,7 @@ local UiIntilize = {
     },
     ["Settings"] = {
         {Title = "Movement", Children={
-            {Mode = "Dropdown",Title = "Tween Speed",Id = "Tween Speed",Table = {250,275,300,325,350},Default = getgenv().Settings["Tween Speed"], IsNumber=true},
+            {Mode = "Dropdown",Title = "Tween Speed",Id = "Tween Speed",Table = {250,275,300,325,350},Default = getgenv().Settings["Tween Speed"] or 250, IsNumber=true},
             {Mode = "Toggle",Title = "Tween Pause",Id = "Tween Pause"},
         }},
         {Title = "Mob Settings", Children={
@@ -413,17 +406,10 @@ local UiIntilize = {
             {Mode = "Toggle",Title = "On Mob",Id = "Fast Attack On Mob"},
         }},
         {Title = "Mastery Position", Children={
-            function ()
-                local MultiBuild = {}
-                local Pos = {"X","Y","Z"}
-                for i,v in pairs(Pos) do
-                    table.insert(MultiBuild,{Mode = "Slider",Title = "Position "..v,Id = "Position "..v,Default = getgenv().Settings["Mastery " .. v] or ( (v == "Y") and  30 or 0),Min = 0,Max = 60,OnChange = function(value)
-                        getgenv().Settings["Mastery " .. v] = value
-                    end})
-                end
-                return MultiBuild
-            end,
-            {Mode = "Dropdown",Title = "Weapon For Sea Events",Id = "Weapon For Sea Events",Multi = true,Table = {"Melee","Blox Fruit","Sword","Gun"},Default = getgenv().Settings["Weapon For Sea Events"]},
+            {Mode = "Slider", Title = "Position X", Id="Position X", Default=getgenv().Settings["Position X"] or 0, Min = 0, Max = 60},
+            {Mode = "Slider", Title = "Position Y", Id="Position Y", Default=getgenv().Settings["Position Y"] or 30, Min = 0, Max = 60},
+            {Mode = "Slider", Title = "Position Z", Id="Position Z", Default=getgenv().Settings["Position Z"] or 0, Min = 0, Max = 60},
+            {Mode = "Dropdown",Title = "Weapon For Sea Events",Id = "Weapon For Sea Events",Multi = true,Table = {"Melee","Blox Fruit","Sword","Gun"},Default = getgenv().Settings["Weapon For Sea Events"] or {}},
         }},
         {Title = "Fruit Skills", Children={
             {Mode = "Toggle",Title = "Click For fruit",Id = "Click For fruit"},
@@ -738,7 +724,8 @@ local BuildUi = function(GroupBox, Children)
         elseif arg.Mode == "Input" then
             MainArg.PlaceholderText = arg.Title
             if arg.Callback or arg.Id then
-                MainArg.Callback = arg.Callback or function(text)
+                MainArg.Callback = function(text)
+                    print(text)
                     if arg.Id then
                         getgenv().Settings[arg.Id] = text
                     end
