@@ -846,3 +846,5 @@ setmetatable(proxy, {
 })
 
 getgenv().Settings = proxy
+
+return Starlight
