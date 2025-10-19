@@ -786,7 +786,7 @@ task.spawn(BuildTabSection)
 
 local SettingsManager = {}
 function SettingsManager:LoadConfigPath()
-    self.Folder = "W-Azure_Rewrite"
+    self.Folder = "W-azure_Rewrite"
     self.ConfigPath = string.format("%s/%s.json", self.Folder, LocalPlayer.Name)
     if not isfolder(self.Folder) then
         makefolder(self.Folder)
