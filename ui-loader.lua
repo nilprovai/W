@@ -449,7 +449,7 @@ local UiIntilize = {
                 setclipboard(tostring(JobId))
             end},
             {Mode = "Input",Title = "Server Code", Id="Server Code"},
-            {Mode = "Toggle",Title = "Join Server Code", Id="Join Server Code"},
+            {Mode = "Button",Title = "Join Server Code", Id="Join Server Code"},
             {Mode = "Input",Title = "Job Id",Id="Job Id"},
             {Mode = "Button",Title = "Join Job Id", Id="Join Job Id", Callback=function()
                 ReplicatedStorage["__ServerBrowser"]:InvokeServer("teleport",getgenv().Settings["Job Id"])
