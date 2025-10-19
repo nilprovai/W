@@ -456,8 +456,8 @@ local UiIntilize = {
             end},
         }},
         {Title="Visual Settings", Children={
-            {Mode = "Toggle",Title = "No Fog",Id = "No Fog"},
-            {Mode = "Toggle",Title = "Remove Effect",Id = "Remove Effect"},
+            {Mode = "Button",Title = "Remove Fog",Id = "Remove Fog"},
+            {Mode = "Button",Title = "Remove Effects",Id = "Remove Effects"},
             {Mode = "Toggle",Title = "Disable 3D Render",Id = "Disable 3D Render"},
             {Mode = "Toggle",Title = "Disable Notifications",Id = "Disable Notifications"},
             {Mode = "Toggle",Title = "Disable DMG Counter",Id = "Disable DMG Counter"},
@@ -846,5 +846,3 @@ setmetatable(proxy, {
 })
 
 getgenv().Settings = proxy
-
-return Starlight
