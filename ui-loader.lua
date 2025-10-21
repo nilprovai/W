@@ -6,6 +6,7 @@ local CoreGui = game.CoreGui
 local PlaceId = game.PlaceId
 local JobId = game.JobId
 
+local MarketplaceService = game:GetService("MarketplaceService")
 local TweenService = game:GetService("TweenService")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local VirtualInputManager = game:GetService("VirtualInputManager")
@@ -714,6 +715,8 @@ local BuildUi = function(GroupBox, Children)
             GroupBox:CreateLabel(MainArg, arg.Id or arg.Title)
         elseif arg.Mode == "Input" then
             MainArg.PlaceholderText = arg.Title
+            MainArg.Enter = true
+            MainArg.RemoveTextAfterFocusLost = false
             if arg.Callback or arg.Id then
                 MainArg.Callback = function(text)
                     print(text)
