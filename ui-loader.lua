@@ -37,7 +37,6 @@ local UiOrders = {
     { title = "Sub Class", icon = "book-open" },
     { title = "Shop", icon = "shopping-cart" },
     { title = "Settings", icon = "cog" },
-    { title = "Webhook", icon = "link-2" },
     { title = "Game-Server", icon = "server" },
 }
 
@@ -421,14 +420,6 @@ local UiIntilize = {
             {Mode = "Dropdown", Title="Skill Hold Time F", Table={0,0.25,0.5,1,2,3},Default=getgenv().Settings["Skill Hold Time F"] or 0, Id="Skill Hold Time F"}
         }},
     },
-    ["Webhook"] = {
-        {Title="Webhook Settings", Children={
-            {Mode = "Input",Title = "Webhook",Default = getgenv().Settings["Webhook URL"], Id="Webhook URL"},
-            {Mode = "Button",Title = "Test Webhook",Callback = function()
-                getgenv().WebhookCenter.SimpleSend("Testing","Success")
-            end},
-        }}
-    },
     ["Game-Server"] = {
         {Title="Server Management", Children={
             {Mode = "Button",Title = "Copy Job Id",Callback = function ()
@@ -648,14 +639,14 @@ local Window = Starlight:CreateWindow({
     Subtitle = "Rewrite v1.0 | discord.gg/w-azure",
     Icon = 89753210367517,
 
+    LoadingEnabled = true,
     LoadingSettings = {
         Title = "W-azure Rewrite",
         Subtitle = "Welcome to W-azure",
-    },
-    LoadingEnabled = true
+    }
 })
 
-local TabSection = Window:CreateTabSection("Main")
+local TabSection = Window:CreateTabSection("Main", false)
 
 local BuildUi = function(GroupBox, Children)
     for _, arg in pairs(Children) do
