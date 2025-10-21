@@ -661,8 +661,10 @@ local BuildUi = function(GroupBox, Children)
         }
 
         if arg.Mode == "Button" then
-            if arg.Callback or arg.Id then
-                MainArg.Callback = arg.Callback or getgenv().IslandCaller[arg.Id]
+            if arg.Callback then
+                MainArg.Callback = arg.Callback
+            else
+                MainArg.Callback = getgenv().IslandCaller[arg.Id]
             end
             GroupBox:CreateButton(MainArg, arg.Id or arg.Title)
         elseif arg.Mode == "Toggle" then
