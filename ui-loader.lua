@@ -226,7 +226,6 @@ local UiIntilize = {
         }},
         {Title="Dash & Speed", Children={
             {Mode = "Toggle",Title = "Soru No CD",Id = "Soru No CD"},
-            {Mode = "Toggle",Title = "Dash Modify",Id = "Dash Modify"},
             {Mode = "Toggle",Title = "Dash No CD",Id = "Dash No CD"},
             {Mode = "Toggle",Title = "Change Dash Rage",Id = "Do Dash Rage"},
             {Mode = "Dropdown",Title = "Dash Range",Id = "Dash Range",Table = {100,150,200,250,300,500,750,1000},Default = getgenv().Settings["Dash Range"] or 300, IsNumber=true},
