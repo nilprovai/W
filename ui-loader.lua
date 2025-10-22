@@ -196,7 +196,8 @@ local UiIntilize = {
     ["Fruit"] = {
         {Title="Fruit Management", Children={
             {Mode = "Toggle",Title = "Auto Collect Fruit",Id = "Auto Collect Fruit"},
-            {Mode = "Toggle",Title = "Auto Store Fruit",Id = "Auto Store Fruit"}
+            {Mode = "Toggle",Title = "Auto Store Fruit",Id = "Auto Store Fruit"},
+            {Mode = "Toggle", Title = "Remove Random Fruit Gui", Id = "Remove Random Fruit Gui"}
         }},
         {Title="Auto Snipe Fruit", Children={
             {Mode = "Toggle",Title = "Snipe Fruit",Id = "Snipe Fruit"},
