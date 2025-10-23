@@ -435,12 +435,6 @@ local UiIntilize = {
                 ReplicatedStorage["__ServerBrowser"]:InvokeServer("teleport",getgenv().Settings["Job Id"])
             end},
         }},
-        {Title="Private Server", Children={
-            {Mode = "Input",Title = "Private Server Code", Id="Private Server Code"},
-            {Mode = "Button",Title = "Copy Private Server Code", Id="Copy Private Server Code"},
-            {Mode = "Button",Title = "Join Private Server", Id="Join Private Server"},
-            {Mode = "Button", Title = "Generate Private Server Code", Id="Generate Private Server Code"}
-        }},
         {Title="Visual Settings", Children={
             {Mode = "Button",Title = "Remove Fog",Id = "Remove Fog"},
             {Mode = "Button",Title = "Remove Effects",Id = "Remove Effects"},
