@@ -225,6 +225,8 @@ local UiIntilize = {
             {Mode = "Toggle",Title = "Auto Use Race V4",Id = "Auto Use Race V4"},
         }},
         {Title="Dash & Speed", Children={
+            {Mode="Label",Title="All of the functions below are dangerous. Use may result in a temporary ban, or even a permanent ban"},
+            {Mode="Label",Title="Đống chức năng dưới đây đều nguy hiểm, dùng ban cấm khóc"},
             {Mode = "Toggle",Title = "Soru No CD",Id = "Soru No CD"},
             {Mode = "Toggle",Title = "Dash No CD",Id = "Dash No CD"},
             {Mode = "Toggle",Title = "Change Dash Rage",Id = "Do Dash Rage"},
@@ -432,6 +434,12 @@ local UiIntilize = {
             {Mode = "Button",Title = "Join Job Id", Id="Join Job Id", Callback=function()
                 ReplicatedStorage["__ServerBrowser"]:InvokeServer("teleport",getgenv().Settings["Job Id"])
             end},
+        }},
+        {Title="Private Server", Children={
+            {Mode = "Input",Title = "Private Server Code", Id="Private Server Code"},
+            {Mode = "Button",Title = "Copy Private Server Code", Id="Copy Private Server Code"},
+            {Mode = "Button",Title = "Join Private Server", Id="Join Private Server"},
+            {Mode = "Button", Title = "Generate Private Server Code", Id="Generate Private Server Code"}
         }},
         {Title="Visual Settings", Children={
             {Mode = "Button",Title = "Remove Fog",Id = "Remove Fog"},
