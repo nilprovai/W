@@ -235,6 +235,14 @@ local UiIntilize = {
             {Mode = "Toggle",Title = "Infinity Geppo",Id = "Infinity Geppo"},
             {Mode = "Toggle",Title = "Speed Hack",Id = "Speed Hack"},
             {Mode = "Slider",Title = "Speed",Id = "Speed",Default = getgenv().Settings["Speed"] or 16,Min = 16,Max = 500}
+        }},
+        {Title="Player Stats", Children={
+            {Mode = "Slider", Title = "Stats To Add", Id = "Stats To Add", Min = 1, Max = 100, Default = getgenv().Settings["Stats To Add"] or 1},
+            {Mode = "Toggle",Title = "Add Stat Melee",Id = "Add Stat Melee"},
+            {Mode = "Toggle",Title = "Add Stat Defense",Id = "Add Stat Defense"},
+            {Mode = "Toggle",Title = "Add Stat Sword",Id = "Add Stat Sword"},
+            {Mode = "Toggle",Title = "Add Stat Gun",Id = "Add Stat Gun"},
+            {Mode = "Toggle",Title = "Add Stat Blox Fruit",Id = "Add Stat Blox Fruit"},
         }}
     },
     ["Travel"] = {
@@ -245,7 +253,8 @@ local UiIntilize = {
             {Mode="Button",Title="Travel Sea 3",Id="Travel Sea 3"},
         }},
         {Title="Location Travel", Children={
-            {Mode="Dropdown",Title="Insta Tp Place",Table={}, Id="Insta TP Place"},
+            {Mode="Dropdown",Title="Choost Insta Tp Place",Table=getgenv().RequestPlaces[tostring(game.PlaceId)] or {}, Id="Insta TP Place"},
+            {Mode="Button",Title="Insta TP",Id="Insta TP"},
             {Mode="Dropdown",Title="Travel Place", Id="Travel Place", Table=getgenv().IslandVariable["Places"]},
             {Mode="Button",Title="Start Traveling",Id="Travel To Place"},
         }},
@@ -380,6 +389,7 @@ local UiIntilize = {
             {Mode = "Toggle",Title = "Only Buy Legendary Haki Color",Id = "Only Buy Legendary Haki Color"},
         }},
         {Title="Manual Actions", Children={
+            {Mode = "Button", Title = "Redeem All Codes", Callback = getgenv().IslandCaller["Redeem All Codes"]},
             {Mode = "Button",Title = "Stats Refund",Callback = function()
                 CommF:InvokeServer("BlackbeardReward", "Refund", "2")
             end},
