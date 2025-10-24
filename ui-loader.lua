@@ -253,7 +253,7 @@ local UiIntilize = {
             {Mode="Button",Title="Travel Sea 3",Id="Travel Sea 3"},
         }},
         {Title="Location Travel", Children={
-            {Mode="Dropdown",Title="Choost Insta Tp Place",Table=getgenv().RequestPlaces[tostring(game.PlaceId)] or {}, Id="Insta TP Place"},
+            {Mode="Dropdown",Title="Choose Place",Table=getgenv().RequestPlaces[tostring(game.PlaceId)] or {}, Id="Place To Insta TP"},
             {Mode="Button",Title="Insta TP",Id="Insta TP"},
             {Mode="Dropdown",Title="Travel Place", Id="Travel Place", Table=getgenv().IslandVariable["Places"]},
             {Mode="Button",Title="Start Traveling",Id="Travel To Place"},
