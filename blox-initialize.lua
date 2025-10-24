@@ -196,12 +196,12 @@ getgenv().IslandVariable.TripleQuest = {
             QuestCFrame = CFrame.new(-4841.83447, 717.669617, -2623.96436),
             [1] = {
                 Requirement = 150,
-                Mob = "Sky Bandit [Lv. 150]",
+                Mob = "Sky Bandit",
                 QuestCheck = "Sky Bandit",
             },
             [2] = {
                 Requirement = 175,
-                Mob = "Dark Master [Lv. 175]",
+                Mob = "Dark Master",
                 QuestCheck = "Dark Master",
             },
         },
@@ -210,12 +210,12 @@ getgenv().IslandVariable.TripleQuest = {
             QuestCFrame = CFrame.new(5311.4677734375, 1.6553531885147095, 478.103271484375),
             [1] = {
                 Requirement = 190,
-                Mob = "Prisoner [Lv. 190]",
+                Mob = "Prisoner",
                 QuestCheck = "Prisoner",
             },
             [2] = {
                 Requirement = 210,
-                Mob = "Dangerous Prisoner [Lv. 210]",
+                Mob = "Dangerous Prisoner",
                 QuestCheck = "Dangerous Prisoner",
             },
         },
@@ -224,12 +224,12 @@ getgenv().IslandVariable.TripleQuest = {
             QuestCFrame = CFrame.new(-1576.11743, 7.38933945, -2983.30762),
             [1] = {
                 Requirement = 250,
-                Mob = "Toga Warrior [Lv. 250]",
+                Mob = "Toga Warrior",
                 QuestCheck = "Toga Warrior",
             },
             [2] = {
                 Requirement = 275,
-                Mob = "Gladiator [Lv. 275]",
+                Mob = "Gladiator",
                 QuestCheck = "Gladiator",
             },
         },
@@ -238,17 +238,17 @@ getgenv().IslandVariable.TripleQuest = {
             QuestCFrame = CFrame.new(-5316.55859, 12.2370615, 8517.2998),
             [1] = {
                 Requirement = 300,
-                Mob = "Military Soldier [Lv. 300]",
+                Mob = "Military Soldier",
                 QuestCheck = "Military Soldier",
             },
             [2] = {
                 Requirement = 325,
-                Mob = "Military Spy [Lv. 325]",
+                Mob = "Military Spy",
                 QuestCheck = "Military Spy",
             },
             [3] = {
                 Requirement = 350,
-                Boss = "Magma Admiral [Lv. 350] [Boss]",
+                Boss = "Magma Admiral",
                 QuestCheck = "Magma Admiral",
                 ["Quest"] = "MagmaQuest",
                 QuestCFrame = CFrame.new(-5316.55859, 12.2370615, 8517.2998),
@@ -259,17 +259,17 @@ getgenv().IslandVariable.TripleQuest = {
             QuestCFrame = CFrame.new(61122.5625, 18.4716396, 1568.16504),
             [1] = {
                 Requirement = 375,
-                Mob = "Fishman Warrior [Lv. 375]",
+                Mob = "Fishman Warrior",
                 QuestCheck = "Fishman Warrior",
             },
             [2] = {
                 Requirement = 400,
-                Mob = "Fishman Commando [Lv. 400]",
+                Mob = "Fishman Commando",
                 QuestCheck = "Fishman Commando",
             },
             [3] = {
                 Requirement = 425,
-                Boss = "Fishman Lord [Lv. 425] [Boss]",
+                Boss = "Fishman Lord",
                 QuestCheck = "Fishman Lord",
                 ["Quest"] = "FishmanQuest",
                 QuestCFrame = CFrame.new(61122.5625, 18.4716396, 1568.16504),
@@ -280,17 +280,17 @@ getgenv().IslandVariable.TripleQuest = {
             QuestCFrame = CFrame.new(-4720.853515625, 845.2769775390625, -1947.7744140625),
             [1] = {
                 Requirement = 450,
-                Mob = "God's Guard [Lv. 450]",
+                Mob = "God's Guard",
                 QuestCheck = "God's Guard",
             },
             [2] = {
                 Requirement = 475,
-                Mob = "Shanda [Lv. 475]",
+                Mob = "Shanda",
                 QuestCheck = "Shanda",
             },
             [3] = {
                 Requirement = 500,
-                Boss = "Wysper [Lv. 500] [Boss]",
+                Boss = "Wysper",
                 QuestCheck = "Wysper",
                 ["Quest"] = "SkyExp1Quest",
                 QuestCFrame = CFrame.new(-4720.853515625, 845.2769775390625, -1947.7744140625),
@@ -301,17 +301,17 @@ getgenv().IslandVariable.TripleQuest = {
             QuestCFrame = CFrame.new(-7905.25732421875, 5636.03857421875, -1409.6732177734375),
             [1] = {
                 Requirement = 525,
-                Mob = "Royal Squad [Lv. 525]",
+                Mob = "Royal Squad",
                 QuestCheck = "Royal Squad",
             },
             [2] = {
                 Requirement = 550,
-                Mob = "Royal Soldier [Lv. 550]",
+                Mob = "Royal Soldier",
                 QuestCheck = "Royal Soldier",
             },
             [3] = {
                 Requirement = 575,
-                Boss = "Thunder God [Lv. 575] [Boss]",
+                Boss = "Thunder God",
                 QuestCheck = "Thunder God",
                 ["Quest"] = "SkyExp2Quest",
                 QuestCFrame = CFrame.new(-7905.25732421875, 5636.03857421875, -1409.6732177734375),
@@ -322,17 +322,17 @@ getgenv().IslandVariable.TripleQuest = {
             QuestCFrame = CFrame.new(5257.68505859375, 38.50114059448242, 4046.49560546875),
             [1] = {
                 Requirement = 625,
-                Mob = "Galley Pirate [Lv. 625]",
+                Mob = "Galley Pirate",
                 QuestCheck = "Galley Pirate",
             },
             [2] = {
                 Requirement = 650,
-                Mob = "Galley Captain [Lv. 650]",
+                Mob = "Galley Captain",
                 QuestCheck = "Galley Captain",
             },
             [3] = {
                 Requirement = 675,
-                Boss = "Cyborg [Lv. 675] [Boss]",
+                Boss = "Cyborg",
                 QuestCheck = "Cyborg",
                 ["Quest"] = "FountainQuest",
                 QuestCFrame = CFrame.new(5257.68505859375, 38.50114059448242, 4046.49560546875),
@@ -345,17 +345,17 @@ getgenv().IslandVariable.TripleQuest = {
             QuestCFrame = CFrame.new(-424.080078, 73.0055847, 1836.91589),
             [1] = {
                 Requirement = 700,
-                Mob = "Raider [Lv. 700]",
+                Mob = "Raider",
                 QuestCheck = "Raider",
             },
             [2] = {
                 Requirement = 725,
-                Mob = "Mercenary [Lv. 725]",
+                Mob = "Mercenary",
                 QuestCheck = "Mercenary",
             },
             [3] = {
                 Requirement = 750,
-                Boss = "Diamond [Lv. 750] [Boss]",
+                Boss = "Diamond",
                 QuestCheck = "Diamond",
                 ["Quest"] = "Area1Quest",
                 QuestCFrame = CFrame.new(-424.080078, 73.0055847, 1836.91589),
@@ -366,17 +366,17 @@ getgenv().IslandVariable.TripleQuest = {
             QuestCFrame = CFrame.new(934.597229, 73.3029785, 1250.96814),
             [1] = {
                 Requirement = 775,
-                Mob = "Swan Pirate [Lv. 775]",
+                Mob = "Swan Pirate",
                 QuestCheck = "Swan Pirate",
             },
             [2] = {
                 Requirement = 800,
-                Mob = "Factory Staff [Lv. 800]",
+                Mob = "Factory Staff",
                 QuestCheck = "Factory Staff",
             },
             [3] = {
                 Requirement = 800,
-                Boss = "Jeremy [Lv. 850] [Boss]",
+                Boss = "Jeremy",
                 QuestCheck = "Jeremy",
                 ["Quest"] = "Area2Quest",
                 QuestCFrame = CFrame.new(934.597229, 73.3029785, 1250.96814),
@@ -387,17 +387,17 @@ getgenv().IslandVariable.TripleQuest = {
             QuestCFrame = CFrame.new(-2442.65015, 73.0511475, -3219.11523),
             [1] = {
                 Requirement = 875,
-                Mob = "Marine Lieutenant [Lv. 875]",
+                Mob = "Marine Lieutenant",
                 QuestCheck = "Marine Lieutenant",
             },
             [2] = {
                 Requirement = 900,
-                Mob = "Marine Captain [Lv. 900]",
+                Mob = "Marine Captain",
                 QuestCheck = "Marine Captain",
             },
             [3] = {
                 Requirement = 925,
-                Boss = "Fajita [Lv. 925] [Boss]",
+                Boss = "Fajita",
                 QuestCheck = "Fajita",
                 ["Quest"] = "MarineQuest3",
                 QuestCFrame = CFrame.new(-2442.65015, 73.0511475, -3219.11523),
@@ -408,12 +408,12 @@ getgenv().IslandVariable.TripleQuest = {
             QuestCFrame = CFrame.new(-5492.79395, 48.5151672, -793.710571),
             [1] = {
                 Requirement = 950,
-                Mob = "Zombie [Lv. 950]",
+                Mob = "Zombie",
                 QuestCheck = "Zombie",
             },
             [2] = {
                 Requirement = 975,
-                Mob = "Vampire [Lv. 975]",
+                Mob = "Vampire",
                 QuestCheck = "Vampire",
             },       
         },
@@ -422,12 +422,12 @@ getgenv().IslandVariable.TripleQuest = {
             QuestCFrame = CFrame.new(604.964966, 401.457062, -5371.69287),
             [1] = {
                 Requirement = 1000,
-                Mob = "Snow Trooper [Lv. 1000]",
+                Mob = "Snow Trooper",
                 QuestCheck = "Snow Trooper",
             },
             [2] = {
                 Requirement = 1050,
-                Mob = "Winter Warrior [Lv. 1050]",
+                Mob = "Winter Warrior",
                 QuestCheck = "Winter Warrior",
             }, 
         },
@@ -436,17 +436,17 @@ getgenv().IslandVariable.TripleQuest = {
             QuestCFrame = CFrame.new(-6060.10693, 15.9868021, -4904.7876),
             [1] = {
                 Requirement = 1100,
-                Mob = "Lab Subordinate [Lv. 1100]",
+                Mob = "Lab Subordinate",
                 QuestCheck = "Lab Subordinate",
             },
             [2] = {
                 Requirement = 1125,
-                Mob = "Horned Warrior [Lv. 1125]",
+                Mob = "Horned Warrior",
                 QuestCheck = "Horned Warrior",
             },     
             [3] = {
                 Requirement = 1150,
-                Boss = "Smoke Admiral [Lv. 1150] [Boss]",
+                Boss = "Smoke Admiral",
                 QuestCheck = "Smoke Admiral",
                 ["Quest"] = "IceSideQuest",
                 QuestCFrame = CFrame.new(-6060.10693, 15.9868021, -4904.7876),
@@ -457,17 +457,17 @@ getgenv().IslandVariable.TripleQuest = {
             QuestCFrame = CFrame.new(-5431.09473, 15.9868021, -5296.53223),
             [1] = {
                 Requirement = 1175,
-                Mob = "Magma Ninja [Lv. 1175]",
+                Mob = "Magma Ninja",
                 QuestCheck = "Magma Ninja",
             },
             [2] = {
                 Requirement = 1200,
-                Mob = "Lava Pirate [Lv. 1200]",
+                Mob = "Lava Pirate",
                 QuestCheck = "Lava Pirate",
             },     
             [3] = {
                 Requirement = 1150,
-                Boss = "Smoke Admiral [Lv. 1150] [Boss]",
+                Boss = "Smoke Admiral",
                 QuestCheck = "Smoke Admiral",
                 ["Quest"] = "IceSideQuest",
                 QuestCFrame = CFrame.new(-6060.10693, 15.9868021, -4904.7876),
@@ -478,12 +478,12 @@ getgenv().IslandVariable.TripleQuest = {
             QuestCFrame = CFrame.new(1037.80127, 125.092171, 32911.6016),
             [1] = {
                 Requirement = 1250,
-                Mob = "Ship Deckhand [Lv. 1250]",
+                Mob = "Ship Deckhand",
                 QuestCheck = "Ship Deckhand",
             },
             [2] = {
                 Requirement = 1275,
-                Mob = "Ship Engineer [Lv. 1275]",
+                Mob = "Ship Engineer",
                 QuestCheck = "Ship Engineer",
             },     
         },
@@ -492,12 +492,12 @@ getgenv().IslandVariable.TripleQuest = {
             QuestCFrame = CFrame.new(968.80957, 125.092171, 33244.125),
             [1] = {
                 Requirement = 1300,
-                Mob = "Ship Steward [Lv. 1300]",
+                Mob = "Ship Steward",
                 QuestCheck = "Ship Steward",
             },
             [2] = {
                 Requirement = 1325,
-                Mob = "Ship Officer [Lv. 1325]",
+                Mob = "Ship Officer",
                 QuestCheck = "Ship Officer",
             },     
         },
@@ -506,17 +506,17 @@ getgenv().IslandVariable.TripleQuest = {
             QuestCFrame = CFrame.new(5669.43506, 28.2117786, -6482.60107),
             [1] = {
                 Requirement = 1350,
-                Mob = "Arctic Warrior [Lv. 1350]",
+                Mob = "Arctic Warrior",
                 QuestCheck = "Arctic Warrior",
             },
             [2] = {
                 Requirement = 1375,
-                Mob = "Snow Lurker [Lv. 1375]",
+                Mob = "Snow Lurker",
                 QuestCheck = "Snow Lurker",
             },      
             [3] = {
                 Requirement = 1400,
-                Boss = "Awakened Ice Admiral [Lv. 1400] [Boss]",
+                Boss = "Awakened Ice Admiral",
                 QuestCheck = "Awakened Ice Admiral",
                 ["Quest"] = "FrostQuest",
                 QuestCFrame = CFrame.new(5669.43506, 28.2117786, -6482.60107),
@@ -527,17 +527,17 @@ getgenv().IslandVariable.TripleQuest = {
             QuestCFrame = CFrame.new(-3053.89648, 236.881363, -10148.2324),
             [1] = {
                 Requirement = 1425,
-                Mob = "Sea Soldier [Lv. 1425]",
+                Mob = "Sea Soldier",
                 QuestCheck = "Sea Soldier",
             },
             [2] = {
                 Requirement = 1450,
-                Mob = "Water Fighter [Lv. 1450]",
+                Mob = "Water Fighter",
                 QuestCheck = "Water Fighter",
             },      
             [3] = {
                 Requirement = 1475,
-                Boss = "Tide Keeper [Lv. 1475] [Boss]",
+                Boss = "Tide Keeper",
                 QuestCheck = "Tide Keeper",
                 ["Quest"] = "ForgottenQuest",
                 QuestCFrame = CFrame.new(-3053.89648, 236.881363, -10148.2324),
@@ -550,17 +550,17 @@ getgenv().IslandVariable.TripleQuest = {
             QuestCFrame = CFrame.new(-292.5743713378906, 43.79322052001953, 5583.04052734375),
             [1] = {
                 Requirement = 1500,
-                Mob = "Pirate Millionaire [Lv. 1500]",
+                Mob = "Pirate Millionaire",
                 QuestCheck = "Pirate Millionaire",
             },
             [2] = {
                 Requirement = 1525,
-                Mob = "Pistol Billionaire [Lv. 1525]",
+                Mob = "Pistol Billionaire",
                 QuestCheck = "Pistol Billionaire",
             },
             [3] = {
                 Requirement = 1550,
-                Boss = "Stone [Lv. 1550] [Boss]",
+                Boss = "Stone",
                 QuestCheck = "Stone",
                 ["Quest"] = "PiratePortQuest",
                 QuestCFrame = CFrame.new(-292.5743713378906, 43.79322052001953, 5583.04052734375),
@@ -572,12 +572,12 @@ getgenv().IslandVariable.TripleQuest = {
             QuestCFrame = CFrame.new(5833.5776367188, 51.575191497803, -1102.7550048828),
             [1] = {
                 Requirement = 1575,
-                Mob = "Dragon Crew Warrior [Lv. 1575]",
+                Mob = "Dragon Crew Warrior",
                 QuestCheck = "Dragon Crew Warrior",
             },
             [2] = {
                 Requirement = 1600,
-                Mob = "Dragon Crew Archer [Lv. 1600]",
+                Mob = "Dragon Crew Archer",
                 QuestCheck = "Dragon Crew Archer",
             },
         },
@@ -587,17 +587,17 @@ getgenv().IslandVariable.TripleQuest = {
             QuestCFrame = CFrame.new(5216.09521484375, 1004.1062622070312, 758.3895874023438),
             [1] = {
                 Requirement = 1625,
-                Mob = "Hydra Enforcer [Lv. 1625]",
+                Mob = "Hydra Enforcer",
                 QuestCheck = "Hydra Enforcer",
             },
             [2] = {
                 Requirement = 1650,
-                Mob = "Venomous Assailant [Lv. 1650]",
+                Mob = "Venomous Assailant",
                 QuestCheck = "Venomous Assailant",
             },
             [3] = {
                 Requirement = 1675,
-                Boss = "Island Empress [Lv. 1675] [Boss]",
+                Boss = "Island Empress",
                 QuestCheck = "Island Empress",
                 ["Quest"] = "VenomCrewQuest",
                 QuestCFrame = CFrame.new(5216.09521484375, 1004.1062622070312, 758.3895874023438),
@@ -608,17 +608,17 @@ getgenv().IslandVariable.TripleQuest = {
             QuestCFrame = CFrame.new(2179.2548828125, 28.701448440552, -6739.7299804688),
             [1] = {
                 Requirement = 1700,
-                Mob = "Marine Commodore [Lv. 1700]",
+                Mob = "Marine Commodore",
                 QuestCheck = "Marine Commodore",
             },
             [2] = {
                 Requirement = 1725,
-                Mob = "Marine Rear Admiral [Lv. 1725]",
+                Mob = "Marine Rear Admiral",
                 QuestCheck = "Marine Rear Admiral",
             },
             [3] = {
                 Requirement = 1750,
-                Boss = "Kilo Admiral [Lv. 1750] [Boss]",
+                Boss = "Kilo Admiral",
                 QuestCheck = "Kilo Admiral",
                 ["Quest"] = "MarineTreeIsland",
                 QuestCFrame = CFrame.new(2179.2548828125, 28.701448440552, -6739.7299804688),
@@ -629,12 +629,12 @@ getgenv().IslandVariable.TripleQuest = {
             QuestCFrame = CFrame.new(-10580.998046875, 331.75863647461, -8758.193359375),
             [1] = {
                 Requirement = 1775,
-                Mob = "Fishman Raider [Lv. 1775]",
+                Mob = "Fishman Raider",
                 QuestCheck = "Fishman Raider",
             },
             [2] = {
                 Requirement = 1800,
-                Mob = "Fishman Captain [Lv. 1800]",
+                Mob = "Fishman Captain",
                 QuestCheck = "Fishman Captain",
             },
         },
@@ -645,17 +645,17 @@ getgenv().IslandVariable.TripleQuest = {
             QuestCFrame = CFrame.new(-13231.467773438, 332.37414550781, -7626.6860351563),
             [1] = {
                 Requirement = 1825,
-                Mob = "Forest Pirate [Lv. 1825]",
+                Mob = "Forest Pirate",
                 QuestCheck = "Forest Pirate",
             },
             [2] = {
                 Requirement = 1850,
-                Mob = "Mythological Pirate [Lv. 1850]",
+                Mob = "Mythological Pirate",
                 QuestCheck = "Mythological Pirate",
             },
             [3] = {
                 Requirement = 1875,
-                Boss = "Captain Elephant [Lv. 1875] [Boss]",
+                Boss = "Captain Elephant",
                 QuestCheck = "Captain Elephant",
                 ["Quest"] = "DeepForestIsland",
                 QuestCFrame = CFrame.new(-13231.467773438, 332.37414550781, -7626.6860351563),
@@ -666,17 +666,17 @@ getgenv().IslandVariable.TripleQuest = {
             QuestCFrame = CFrame.new(-12683.189453125, 390.85668945313, -9902.15625),
             [1] = {
                 Requirement = 1900,
-                Mob = "Jungle Pirate [Lv. 1900]",
+                Mob = "Jungle Pirate",
                 QuestCheck = "Jungle Pirate",
             },
             [2] = {
                 Requirement = 1925,
-                Mob = "Musketeer Pirate [Lv. 1925]",
+                Mob = "Musketeer Pirate",
                 QuestCheck = "Musketeer Pirate",
             },
             [3] = {
                 Requirement = 1875,
-                Boss = "Captain Elephant [Lv. 1875] [Boss]",
+                Boss = "Captain Elephant",
                 QuestCheck = "Captain Elephant",
                 ["Quest"] = "DeepForestIsland",
                 QuestCFrame = CFrame.new(-13231.467773438, 332.37414550781, -7626.6860351563),
@@ -687,12 +687,12 @@ getgenv().IslandVariable.TripleQuest = {
             QuestCFrame = CFrame.new(-9490.2793, 142.104858, 5565.8501),
             [1] = {
                 Requirement = 1975,
-                Mob = "Reborn Skeleton [Lv. 1975]",
+                Mob = "Reborn Skeleton",
                 QuestCheck = "Reborn Skeleton",
             },
             [2] = {
                 Requirement = 2000,
-                Mob = "Living Zombie [Lv. 2000]",
+                Mob = "Living Zombie",
                 QuestCheck = "Living Zombie",
             },
         },
@@ -701,12 +701,12 @@ getgenv().IslandVariable.TripleQuest = {
             QuestCFrame = CFrame.new(-9506.95313, 172.104858, 6074.63086),
             [1] = {
                 Requirement = 2025,
-                Mob = "Demonic Soul [Lv. 2025]",
+                Mob = "Demonic Soul",
                 QuestCheck = "Demonic Soul",
             },
             [2] = {
                 Requirement = 2050,
-                Mob = "Posessed Mummy [Lv. 2050]",
+                Mob = "Posessed Mummy",
                 QuestCheck = "Posessed Mummy",
             },
         },
@@ -715,12 +715,12 @@ getgenv().IslandVariable.TripleQuest = {
             QuestCFrame = CFrame.new(-2104.3908691406, 38.104167938232, -10194.21875),
             [1] = {
                 Requirement = 2075,
-                Mob = "Peanut Scout [Lv. 2075]",
+                Mob = "Peanut Scout",
                 QuestCheck = "Peanut Scout",
             },
             [2] = {
                 Requirement = 2100,
-                Mob = "Peanut President [Lv. 2100]",
+                Mob = "Peanut President",
                 QuestCheck = "Peanut President",
             },
         },
@@ -729,17 +729,17 @@ getgenv().IslandVariable.TripleQuest = {
             QuestCFrame = CFrame.new(-820.64825439453, 65.819526672363, -10965.795898438),
             [1] = {
                 Requirement = 2125,
-                Mob = "Ice Cream Chef [Lv. 2125]",
+                Mob = "Ice Cream Chef",
                 QuestCheck = "Ice Cream Chef",
             },
             [2] = {
                 Requirement = 2150,
-                Mob = "Ice Cream Commander [Lv. 2150]",
+                Mob = "Ice Cream Commander",
                 QuestCheck = "Ice Cream Commander",
             },
             [3] = {
                 Requirement = 2175,
-                Boss = "Cake Queen [Lv. 2175] [Boss]",
+                Boss = "Cake Queen",
                 QuestCheck = "Cake Queen",
                 ["Quest"] = "IceCreamIslandQuest",
                 QuestCFrame = CFrame.new(-820.64825439453, 65.819526672363, -10965.79589843),
@@ -750,17 +750,17 @@ getgenv().IslandVariable.TripleQuest = {
             QuestCFrame = CFrame.new(-2021.32007, 37.7982254, -12028.7295),
             [1] = {
                 Requirement = 2200,
-                Mob = "Cookie Crafter [Lv. 2200]",
+                Mob = "Cookie Crafter",
                 QuestCheck = "Cookie Crafter",
             },
             [2] = {
                 Requirement = 2225,
-                Mob = "Cake Guard [Lv. 2225]",
+                Mob = "Cake Guard",
                 QuestCheck = "Cake Guard",
             },
             [3] = {
                 Requirement = 2175,
-                Boss = "Cake Queen [Lv. 2175] [Boss]",
+                Boss = "Cake Queen",
                 QuestCheck = "Cake Queen",
                 ["Quest"] = "IceCreamIslandQuest",
                 QuestCFrame = CFrame.new(-820.64825439453, 65.819526672363, -10965.79589843),
@@ -771,17 +771,17 @@ getgenv().IslandVariable.TripleQuest = {
             QuestCFrame = CFrame.new(-1927.91602, 37.7981339, -12842.5391),
             [1] = {
                 Requirement = 2250,
-                Mob = "Baking Staff [Lv. 2250]",
+                Mob = "Baking Staff",
                 QuestCheck = "Baking Staff",
             },
             [2] = {
                 Requirement = 2275,
-                Mob = "Head Baker [Lv. 2275]",
+                Mob = "Head Baker",
                 QuestCheck = "Head Baker",
             },
             [3] = {
                 Requirement = 2175,
-                Boss = "Cake Queen [Lv. 2175] [Boss]",
+                Boss = "Cake Queen",
                 QuestCheck = "Cake Queen",
                 ["Quest"] = "IceCreamIslandQuest",
                 QuestCFrame = CFrame.new(-820.64825439453, 65.819526672363, -10965.79589843),
@@ -792,17 +792,17 @@ getgenv().IslandVariable.TripleQuest = {
             QuestCFrame = CFrame.new(231.2322235107422, 24.73427391052246, -12195.1396484375),
             [1] = {
                 Requirement = 2300,
-                Mob = "Cocoa Warrior [Lv. 2300]",
+                Mob = "Cocoa Warrior",
                 QuestCheck = "Cocoa Warrior",
             },
             [2] = {
                 Requirement = 2325,
-                Mob = "Chocolate Bar Battler [Lv. 2325]",
+                Mob = "Chocolate Bar Battler",
                 QuestCheck = "Chocolate Bar Battler",
             },
             [3] = {
                 Requirement = 2175,
-                Boss = "Cake Queen [Lv. 2175] [Boss]",
+                Boss = "Cake Queen",
                 QuestCheck = "Cake Queen",
                 ["Quest"] = "IceCreamIslandQuest",
                 QuestCFrame = CFrame.new(-820.64825439453, 65.819526672363, -10965.79589843),
@@ -813,17 +813,17 @@ getgenv().IslandVariable.TripleQuest = {
             QuestCFrame = CFrame.new(148.080322265625, 24.79383087158203, -12775.1650390625),
             [1] = {
                 Requirement = 2350,
-                Mob = "Sweet Thief [Lv. 2350]",
+                Mob = "Sweet Thief",
                 QuestCheck = "Sweet Thief",
             },
             [2] = {
                 Requirement = 2375,
-                Mob = "Candy Rebel [Lv. 2375]",
+                Mob = "Candy Rebel",
                 QuestCheck = "Candy Rebel",
             },
             [3] = {
                 Requirement = 2175,
-                Boss = "Cake Queen [Lv. 2175] [Boss]",
+                Boss = "Cake Queen",
                 QuestCheck = "Cake Queen",
                 ["Quest"] = "IceCreamIslandQuest",
                 QuestCFrame = CFrame.new(-820.64825439453, 65.819526672363, -10965.79589843),
@@ -834,12 +834,12 @@ getgenv().IslandVariable.TripleQuest = {
             QuestCFrame = CFrame.new(-1147.919677734375, 16.107261657714844, -14444.125),
             [1] = {
                 Requirement = 2400,
-                Mob = "Candy Pirate [Lv. 2400]",
+                Mob = "Candy Pirate",
                 QuestCheck = "Candy Pirate",
             },
             [2] = {
                 Requirement = 2425,
-                Mob = "Snow Demon [Lv. 2425]",
+                Mob = "Snow Demon",
                 QuestCheck = "Snow Demon",
             },           
         },
@@ -848,12 +848,12 @@ getgenv().IslandVariable.TripleQuest = {
             QuestCFrame = CFrame.new(-1147.919677734375, 16.107261657714844, -14444.125),
             [1] = {
                 Requirement = 2400,
-                Mob = "Candy Pirate [Lv. 2400]",
+                Mob = "Candy Pirate",
                 QuestCheck = "Candy Pirate",
             },
             [2] = {
                 Requirement = 2425,
-                Mob = "Snow Demon [Lv. 2425]",
+                Mob = "Snow Demon",
                 QuestCheck = "Snow Demon",
             },   
         },
@@ -872,6 +872,7 @@ getgenv().IslandVariable.TripleQuest = {
         }
     },
 }
+
 getgenv().IslandVariable.MapPos = {
     ["2753915549"] = {
         [0] = {
@@ -2054,4 +2055,11 @@ getgenv().IslandVariable.BloxFruitCodes = {"GAMERROBOT_YT","FUDD10","fudd10_v2",
 
 getgenv().IslandVariable.IsNightC = {
     "18","19","20","21","23","24","00","01","02","03","04"
+}
+
+getgenv().IslandVariable.BlacklistedItems = getgenv().IslandVariable.BlacklistedItems or {
+    "Hallow Essence",
+    "God's Chalice",
+    "Sweet Chalice",
+    "Microchip"
 }
