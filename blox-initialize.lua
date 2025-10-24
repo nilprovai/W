@@ -8,9 +8,9 @@ elseif game.PlaceId == 4442272183 then
     getgenv().IslandVariable["MaxLevelSea"] = 1450
 elseif game.PlaceId == 7449423635 then
     getgenv().IslandVariable["IsSea3"] = true
-    getgenv().IslandVariable["MaxLevelSea"] = 2650
+    getgenv().IslandVariable["MaxLevelSea"] = 2800
 else 
-    game.Players.LocalPlayer:Kick(string.format("Unspported game | %s", tostring(game.PlaceId)))
+    game.Players.LocalPlayer:Kick(string.format("Unsupported game | %s", tostring(game.PlaceId)))
     while task.wait() do end
 end
 
@@ -2061,5 +2061,7 @@ getgenv().IslandVariable.BlacklistedItems = getgenv().IslandVariable.Blacklisted
     "Hallow Essence",
     "God's Chalice",
     "Sweet Chalice",
-    "Microchip"
+    "Microchip",
+    "Special Microchip",
+    "Fist of Darkness"
 }
