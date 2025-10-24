@@ -408,7 +408,7 @@ local UiIntilize = {
         {Title = "Combat", Children={
             {Mode = "Toggle",Title = "Auto Click",Id = "Auto Click"},
             {Mode = "Toggle",Title = "On Player",Id = "Auto Click On Player"},
-            {Mode = "Toggle",Title = "On Mob",Id = "Auto Click  On Mob"},
+            {Mode = "Toggle",Title = "On Mob",Id = "Auto Click On Mob"},
         }},
         {Title = "Mastery Position", Children={
             {Mode = "Slider", Title = "Position X", Id="Position X", Default=getgenv().Settings["Position X"] or 0, Min = 0, Max = 60},
