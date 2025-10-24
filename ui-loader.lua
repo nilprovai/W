@@ -47,6 +47,7 @@ local UiIntilize = {
             {Mode="Dropdown",Title="Auto Farm Mode",Table={"Level", "Katakuri", "Bone"}, Id="Farm Mode"},
             {Mode="Toggle", Title="Auto Farm", Id="Auto Farm"},
             {Mode="Toggle",Title="Accept Quest",Id="Accept Quest"},
+            {Mode="Toggle",Title="Triple Quest",Id="Triple Quest"},
             {Mode="Toggle",Title="Kill Aura",Id="Kill Aura"},
             {Mode="Toggle",Title="Fully Auto Dough King",Id="Fully Auto Dough King"},
         }},
@@ -397,15 +398,17 @@ local UiIntilize = {
         {Title = "Movement", Children={
             {Mode = "Dropdown",Title = "Tween Speed",Id = "Tween Speed",Table = {250,275,300,325,350},Default = getgenv().Settings["Tween Speed"] or 250, IsNumber=true},
             {Mode = "Toggle",Title = "Tween Pause",Id = "Tween Pause"},
+            {Mode = "Toggle", Title = "Tween Bypass", Id="Tween Bypass"},
+            {Mode = "Toggle", Title = "Pause If Have Any Special Items", Id = "Pause Special Items"}
         }},
         {Title = "Mob Settings", Children={
             {Mode = "Toggle",Title = "Bring Mob",Id = "Bring Mob"},
             {Mode = "Slider",Title = "Bring Mob Radius",Id = "Bring Mob Radius",Default = getgenv().Settings["Bring Mob Radius"] or 200,Min = 200,Max = 500},
         }},
         {Title = "Combat", Children={
-            {Mode = "Toggle",Title = "Fast Attack",Id = "Fast Attack"},
-            {Mode = "Toggle",Title = "On Player",Id = "Fast Attack On Player"},
-            {Mode = "Toggle",Title = "On Mob",Id = "Fast Attack On Mob"},
+            {Mode = "Toggle",Title = "Auto Click",Id = "Auto Click"},
+            {Mode = "Toggle",Title = "On Player",Id = "Auto Click On Player"},
+            {Mode = "Toggle",Title = "On Mob",Id = "Auto Click  On Mob"},
         }},
         {Title = "Mastery Position", Children={
             {Mode = "Slider", Title = "Position X", Id="Position X", Default=getgenv().Settings["Position X"] or 0, Min = 0, Max = 60},
