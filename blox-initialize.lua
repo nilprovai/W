@@ -57,7 +57,7 @@ getgenv().IslandVariable.RequestPlacesName = {
     }
 }
 
-getgenv().IslandVariable.SeaPlaces = {
+getgenv().IslandVariable.PlacesName = {
     ["2753915549"] = {
         "Pirate Start Island",
         "Marine Start Island",
