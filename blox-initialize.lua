@@ -8,9 +8,9 @@ elseif game.PlaceId == 4442272183 then
     getgenv().IslandVariable["MaxLevelSea"] = 1450
 elseif game.PlaceId == 7449423635 then
     getgenv().IslandVariable["IsSea3"] = true
-    getgenv().IslandVariable["MaxLevelSea"] = 2800
+    getgenv().IslandVariable["MaxLevelSea"] = 2650
 else 
-    game.Players.LocalPlayer:Kick(string.format("Unsupported game | %s", tostring(game.PlaceId)))
+    game.Players.LocalPlayer:Kick(string.format("Unspported game | %s", tostring(game.PlaceId)))
     while task.wait() do end
 end
 
@@ -33,6 +33,93 @@ getgenv().IslandVariable.RequestPlaces = {
         ["Mansion"] = CFrame.new(-12548.998046875, 332.40396118164, -7603.1865234375),
         ["Hydra Island"] = CFrame.new(5661.53027, 1013.38354, -334.961914),
         ["Temple Of Time"] = CFrame.new(28286.35546875, 14895.3017578125, 102.62469482421875),
+    }
+}
+
+getgenv().IslandVariable.RequestPlacesName = {
+    ["2753915549"] = {
+        "Whirl Pool",
+        "Sky Area 1",
+        "Sky Area 2",
+        "Fish Man"
+    },
+    ["4442272183"] = {
+        "Swan's room",
+        "Mansion",
+        "Ghost Ship",
+        "Ghost Ship Entrance"
+    },
+    ["7449423635"] = {
+        "Castle on the sea",
+        "Mansion",
+        "Hydra Island",
+        "Temple Of Time"
+    }
+}
+
+getgenv().IslandVariable.SeaPlaces = {
+    ["2753915549"] = {
+        "Pirate Start Island",
+        "Marine Start Island",
+        "Middle Town",
+        "Jungle",
+        "Shank's Room",
+        "Pirate Village",
+        "Desert",
+        "Frozen Village",
+        "Marine Fortress",
+        "Mob Leader Place",
+        "Prison",
+        "Colosseum",
+        "Skylands",
+        "SkyArea1",
+        "SkyArea2",
+        "Sky Secret Temple",
+        "Magma Village",
+        "Fish Entrance Island",
+        "UnderWater City Gate",
+        "UnderWater City",
+        "Fountain City"
+    },
+    ["4442272183"] = {
+        "First Spot",
+        "Cafe",
+        "Swan Mansion",
+        "Swan Room",
+        "Factory",
+        "Colosseum",
+        "Dark Arena",
+        "Green bit",
+        "Graveyard Island",
+        "Snow Mountain",
+        "Hot And Cold Island",
+        "Cursed Ship Gate",
+        "Cursed Ship",
+        "Ice Castle",
+        "Forgotten Island",
+        "Usoap Island",
+        "Minisky Island",
+        "Indra Island"
+    },
+    ["7449423635"] = {
+        "Port Town",
+        "Hydra Island",
+        "Secret Temple",
+        "Great Tree",
+        "Castle on the sea",
+        "Pineapple Town",
+        "Mansion",
+        "Floating Turtle",
+        "Beautiful Pirate Gate",
+        "Beautiful Pirate Domain",
+        "Friendly Arena",
+        "Haunted Castle",
+        "Soul Reaper Raid Room",
+        "Peanut Island",
+        "Ice Cream Island",
+        "Sea Of Treats",
+        "Tiki Outpost",
+        "Mob Trade Anchor"
     }
 }
 
