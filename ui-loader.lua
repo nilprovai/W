@@ -226,8 +226,7 @@ local UiIntilize = {
             {Mode = "Toggle",Title = "Auto Use Race V4",Id = "Auto Use Race V4"},
         }},
         {Title="Dash & Speed", Children={
-            {Mode="Label",Title="All of the functions below are dangerous. Use may result in a temporary ban, or even a permanent ban"},
-            {Mode="Label",Title="Đống chức năng dưới đây đều nguy hiểm, dùng ban cấm khóc"},
+            {Mode="Label",Title="DANGEROUS FUNCTIONS !!!"},
             {Mode = "Toggle",Title = "Soru No CD",Id = "Soru No CD"},
             {Mode = "Toggle",Title = "Dash No CD",Id = "Dash No CD"},
             {Mode = "Toggle",Title = "Change Dash Rage",Id = "Do Dash Rage"},
@@ -253,9 +252,9 @@ local UiIntilize = {
             {Mode="Button",Title="Travel Sea 3",Id="Travel Sea 3"},
         }},
         {Title="Location Travel", Children={
-            {Mode="Dropdown",Title="Choose Place",Table=getgenv().IslandVariable.RequestPlaces[tostring(game.PlaceId)] or {}, Id="Place To Insta TP"},
+            {Mode="Dropdown",Title="Choose Place",Table=getgenv().IslandVariable.RequestPlacesName[tostring(game.PlaceId)] or {}, Id="Place To Insta TP"},
             {Mode="Button",Title="Insta TP",Id="Insta TP"},
-            {Mode="Dropdown",Title="Travel Place", Id="Travel Place", Table=getgenv().IslandVariable["Places"]},
+            {Mode="Dropdown",Title="Travel Place", Id="Travel Place", Table=getgenv().IslandVariable.SeaPlaces},
             {Mode="Button",Title="Start Traveling",Id="Travel To Place"},
         }},
         {Title="NPC Travel", Children={
@@ -409,7 +408,9 @@ local UiIntilize = {
             {Mode = "Dropdown",Title = "Tween Speed",Id = "Tween Speed",Table = {250,275,300,325,350},Default = getgenv().Settings["Tween Speed"] or 250, IsNumber=true},
             {Mode = "Toggle",Title = "Tween Pause",Id = "Tween Pause"},
             {Mode = "Toggle", Title = "Tween Bypass", Id="Tween Bypass"},
-            {Mode = "Toggle", Title = "Pause If Have Any Special Items", Id = "Pause Special Items"}
+            {Mode = "Toggle", Title = "Pause If Have Any Special Items", Id = "Pause Special Items"},
+            {Mode = "Toggle", Title = "Spin Around Mob When Farm", Id = "Spin Around Mob When Farm"},
+            {Mode = "Toggle", Title = "Spin Around Boss When Farm", Id = "Spin Around Boss When Farm"},
         }},
         {Title = "Mob Settings", Children={
             {Mode = "Toggle",Title = "Bring Mob",Id = "Bring Mob"},
@@ -429,7 +430,7 @@ local UiIntilize = {
         }},
         {Title = "Fruit Skills", Children={
             {Mode = "Toggle",Title = "Click For fruit",Id = "Click For fruit"},
-            {Mode = "Dropdown",Title = "Skills For fruit",Id = "Skills For fruit",Multi = true,Table = {"Z","X","C","V","F"},Default = getgenv().Settings["Skills For fruit"]},
+            {Mode = "Dropdown",Title = "Skills For Fruit",Id = "Skills For Fruit",Multi = true,Table = {"Z","X","C","V","F"},Default = getgenv().Settings["Skills For fruit"]},
             {Mode = "Dropdown", Title="Skill Hold Time Z", Table={0,0.25,0.5,1,2,3},Default=getgenv().Settings["Skill Hold Time Z"] or 0, Id="Skill Hold Time Z"},
             {Mode = "Dropdown", Title="Skill Hold Time X", Table={0,0.25,0.5,1,2,3},Default=getgenv().Settings["Skill Hold Time X"] or 0, Id="Skill Hold Time X"},
             {Mode = "Dropdown", Title="Skill Hold Time C", Table={0,0.25,0.5,1,2,3},Default=getgenv().Settings["Skill Hold Time C"] or 0, Id="Skill Hold Time C"},
