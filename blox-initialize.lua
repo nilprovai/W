@@ -2150,5 +2150,6 @@ getgenv().IslandVariable.BlacklistedItems = getgenv().IslandVariable.Blacklisted
     "Sweet Chalice",
     "Microchip",
     "Special Microchip",
-    "Fist of Darkness"
+    "Fist of Darkness",
+    "Core Brain"
 }
