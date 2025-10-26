@@ -10,7 +10,7 @@ elseif game.PlaceId == 7449423635 then
     getgenv().IslandVariable["IsSea3"] = true
     getgenv().IslandVariable["MaxLevelSea"] = 2650
 else 
-    game.Players.LocalPlayer:Kick(string.format("Unspported game | %s", tostring(game.PlaceId)))
+    game.Players.LocalPlayer:Kick(string.format("Unsupported game | %s", tostring(game.PlaceId)))
     while task.wait() do end
 end
 
@@ -1938,11 +1938,11 @@ getgenv().IslandVariable.AllBoss = {
     },
     ["4442272183"] =  {
         "Diamond","Jeremy","Fajita","Smoke Admiral","Awakened Ice Admiral","Tide Keeper",
-        "Don Swan","Cursed Captain"
+        "Don Swan","Cursed Captain", "Order"
     },
     ["7449423635"] = {
         "Stone","Island Empress","Kilo Admiral","Captain Elephant","Cake Queen","Beautiful Pirate",
-        "Soul Reaper","rip_indra True Form","Cake Prince","Dough King", "Order"
+        "Soul Reaper","rip_indra True Form","Cake Prince","Dough King"
     },
 }
 
