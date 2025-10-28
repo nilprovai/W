@@ -29,9 +29,9 @@ getgenv().IslandVariable.RequestPlaces = {
         ["Ghost Ship Entrance"] = CFrame.new(-6508.5581054688, 120.034996032715, -132.83953857422)
     },
     ["7449423635"] = {
-        ["Castle on the sea"] = CFrame.new(-5075.50927734375, 314.5155029296875, -3150.0224609375),
+        ["Castle on the sea"] = CFrame.new(-5075.50927734375, 188.5155029296875, -3150.0224609375),
         ["Mansion"] = CFrame.new(-12548.998046875, 332.40396118164, -7603.1865234375),
-        ["Hydra Island"] = CFrame.new(5661.53027, 1013.38354, -334.961914),
+        ["Hydra Island"] = CFrame.new(5661.53027, 900.38354, -334.961914),
         ["Temple Of Time"] = CFrame.new(28286.35546875, 14895.3017578125, 102.62469482421875),
     }
 }
