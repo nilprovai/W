@@ -23,6 +23,26 @@ getgenv().IslandVariable.RequestPlaces = {
         ["Fish Man"] = CFrame.new(61163.8515625, 11.6796875, 1819.7841796875)
     },
     ["4442272183"] = {
+        ["Swan's room"] = CFrame.new(2284.912109375, 15.152046203613281, 905.48291015625),
+        ["Mansion"] = CFrame.new(-288.46246337890625, 306.130615234375, 597.9988403320312),
+        ["Ghost Ship"] = CFrame.new(923.21252441406, 126.9760055542, 32852.83203125),
+        ["Ghost Ship Entrance"] = CFrame.new(-6508.5581054688, 89.034996032715, -132.83953857422)
+    },
+    ["7449423635"] = {
+        ["Castle on the sea"] = CFrame.new(-5075.50927734375, 314.5155029296875, -3150.0224609375),
+        ["Mansion"] = CFrame.new(-12548.998046875, 332.40396118164, -7603.1865234375),
+        ["Hydra Island"] = CFrame.new(5661.53027, 1013.38354, -334.961914),
+        ["Temple Of Time"] = CFrame.new(28286.35546875, 14895.3017578125, 102.62469482421875),
+    }
+}
+getgenv().IslandVariable.RequestPlacesForFarm = {
+    ["2753915549"] = {
+        ["Whirl Pool"] = CFrame.new(3864.6884765625, 6.736950397491455, -1926.214111328125),
+        ["Sky Area 1"] = CFrame.new(-4607.82275, 872.54248, -1667.55688),
+        ["Sky Area 2"] = CFrame.new(-7894.61767578125, 5547.1416015625, -380.29119873046875),
+        ["Fish Man"] = CFrame.new(61163.8515625, 11.6796875, 1819.7841796875)
+    },
+    ["4442272183"] = {
         ["Swan's room"] = CFrame.new(2284.912109375, 100.152046203613281, 905.48291015625),
         ["Mansion"] = CFrame.new(-288.46246337890625, 250.130615234375, 597.9988403320312),
         ["Ghost Ship"] = CFrame.new(923.21252441406, 126.9760055542, 32852.83203125),
@@ -32,7 +52,7 @@ getgenv().IslandVariable.RequestPlaces = {
         ["Castle on the sea"] = CFrame.new(-5075.50927734375, 188.5155029296875, -3150.0224609375),
         ["Mansion"] = CFrame.new(-12548.998046875, 332.40396118164, -7603.1865234375),
         ["Hydra Island"] = CFrame.new(5661.53027, 900.38354, -334.961914),
-        ["Temple Of Time"] = CFrame.new(28286.35546875, 14895.3017578125, 102.62469482421875),
+        ["Temple Of Time"] = CFrame.new(28286.35546875, 14895.3017578125, 102.62469482421875)
     }
 }
 
@@ -119,7 +139,8 @@ getgenv().IslandVariable.PlacesName = {
         "Ice Cream Island",
         "Sea Of Treats",
         "Tiki Outpost",
-        "Mob Trade Anchor"
+        "Mob Trade Anchor",
+        "Submerged Island"
     }
 }
 
@@ -186,7 +207,8 @@ getgenv().IslandVariable.Places = {
         ['Ice Cream Island'] = CFrame.new(-851.74633789062, 65.819496154785, -10932.150390625),
         ['Sea Of Treats'] = CFrame.new(-1907.1773681640625, 9.565654754638672, -11539.8251953125),
         ["Tiki Outpost"] = CFrame.new(-16256.5566, 9.06057358, 430.995422),
-        ["Mob Trade Anchor"] = CFrame.new(-16529.705078125, 108.0355224609375, 748.5739135742188)
+        ["Mob Trade Anchor"] = CFrame.new(-16529.705078125, 108.0355224609375, 748.5739135742188),
+        ["Submerged Island"] = CFrame.new(11317.915, -2139.20947, 9725.34863)
     }
 }
 
@@ -273,7 +295,13 @@ getgenv().IslandVariable.MobCFrames = {
     ["Isle Outlaw"] = CFrame.new(-16479.900390625, 226.6117401123047, -300.3114318847656),
     ["Island Boy"] = CFrame.new(-16849.396484375, 192.86505126953125, -150.7853240966797),
     ["Sun-kissed Warrior"] = CFrame.new(-16347, 64, 984),
-    ["Isle Champion"] = CFrame.new(-16602.1015625, 130.38734436035156, 1087.24560546875)
+    ["Isle Champion"] = CFrame.new(-16602.1015625, 130.38734436035156, 1087.24560546875),
+    ["Reef Bandits"] = CFrame.new(10951.1923828125, -2129.016357421875, 9204.857421875),
+    ["Coral Pirate"] = CFrame.new(10719.966796875, -2057.72705078125, 9335.9169921875),
+    ["Sea Chanter"] = CFrame.new(10627.85546875, -2020.623291015625, 10054.09375),
+    ["Ocean Prophet"] = CFrame.new(10987.8828125, -1893.29638671875, 10142.75390625),
+    ["High Disciple"] = CFrame.new(9810.33984375, -1942.426025390625, 9675.396484375),
+    ["Grand Devotee"] = CFrame.new(9594.40234375, -1959.7091064453125, 9851.576171875),
 }
 
 getgenv().IslandVariable.TripleQuest = {
