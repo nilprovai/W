@@ -32,7 +32,7 @@ getgenv().IslandVariable.RequestPlaces = {
         ["Castle on the sea"] = CFrame.new(-5075.50927734375, 314.5155029296875, -3150.0224609375),
         ["Mansion"] = CFrame.new(-12548.998046875, 332.40396118164, -7603.1865234375),
         ["Hydra Island"] = CFrame.new(5661.53027, 1013.38354, -334.961914),
-        ["Temple Of Time"] = CFrame.new(28286.35546875, 14895.3017578125, 102.62469482421875),
+        ["Temple Of Time"] = CFrame.new(28286.35546875, 14895.3017578125, 102.62469482421875)
     }
 }
 getgenv().IslandVariable.RequestPlacesForFarm = {
@@ -52,7 +52,8 @@ getgenv().IslandVariable.RequestPlacesForFarm = {
         ["Castle on the sea"] = CFrame.new(-5075.50927734375, 188.5155029296875, -3150.0224609375),
         ["Mansion"] = CFrame.new(-12548.998046875, 332.40396118164, -7603.1865234375),
         ["Hydra Island"] = CFrame.new(5661.53027, 900.38354, -334.961914),
-        ["Temple Of Time"] = CFrame.new(28286.35546875, 14895.3017578125, 102.62469482421875)
+        ["Temple Of Time"] = CFrame.new(28286.35546875, 14895.3017578125, 102.62469482421875),
+        ["Template Of Time Back"] = CFrame.new(3029, 200, -7325)
     }
 }
 
@@ -189,7 +190,7 @@ getgenv().IslandVariable.Places = {
         ['Indra Island'] = CFrame.new(-27007.9363, 9.033, 466.6544),
     },
     ["7449423635"] = {
-        ['Port Town'] = CFrame.new(-447.46743774414, 6.7299399375916, 5306.3686523438),
+        ['Port Town'] = CFrame.new(-527.2267456054688, 20.71989631652832, 5398.4462890625),
         ['Hydra Island'] = CFrame.new(5335.88623046875, 1004.7794799804688, 241.50193786621094),
         ['Secret Temple'] = CFrame.new(5231.6831054688, 7.3780846595764, 1102.6005859375),
         ['Great Tree'] = CFrame.new(2253.0600585938, 24.144220352173, -6405.6694335938),
