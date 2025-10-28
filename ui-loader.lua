@@ -64,7 +64,7 @@ local UiIntilize = {
                     }) 
                 end)
             end},
-            {Mode="Dropdown",Title="Distance From Anchor",Table = {400,800,1200,1600,2000,2400,2800,3200,3600,4000},Default=getgenv().Settings["Distance From Anchor"] or 400,Id="Distance From Anchor"},
+            {Mode="Dropdown",Title="Distance From Anchor",Table = {400,800,1200,1600,2000,2400,2800,3200,3600,4000},Default=getgenv().Settings["Distance From Anchor"] or 400,Id="Distance From Anchor", IsNumber=true},
         }},
         {Title="Weapon Settings", Children={
             {Mode="Toggle",Title="Use Sword",Id="Use Sword"},
@@ -196,7 +196,7 @@ local UiIntilize = {
     },
     ["Fruit"] = {
         {Title="Fruit Management", Children={
-            {Mode = "Toggle",Title = "Auto Collect Fruit",Id = "Auto Collect Fruit"},
+            {Mode = "Toggle",Title = "Auto Collect Fruit",Id = "Collect Fruit"},
             {Mode = "Toggle",Title = "Auto Store Fruit",Id = "Auto Store Fruit"},
             {Mode = "Toggle", Title = "Remove Random Fruit Gui", Id = "Remove Random Fruit Gui"}
         }},
