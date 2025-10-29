@@ -45,6 +45,7 @@ local UiIntilize = {
     ["Main Farm"] = {
         {Title="Farm Settings", Children={
             {Mode="Dropdown",Title="Auto Farm Mode",Table={"Level", "Katakuri", "Bone"}, Id="Farm Mode"},
+            {Mode="Toggle", Title="Auto Tyrant of the Skies", Id="Auto Tyrant of the Skies"},
             {Mode="Toggle", Title="Auto Farm", Id="Auto Farm"},
             {Mode="Toggle",Title="Accept Quest",Id="Accept Quest"},
             {Mode="Toggle",Title="Triple Quest",Id="Triple Quest"},
