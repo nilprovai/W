@@ -1974,7 +1974,7 @@ getgenv().IslandVariable.AllBoss = {
     },
     ["Sea 3"] = {
         "Stone","Island Empress","Kilo Admiral","Captain Elephant","Cake Queen","Beautiful Pirate",
-        "Soul Reaper","rip_indra True Form","Cake Prince","Dough King"
+        "Soul Reaper","rip_indra True Form","Cake Prince","Dough King", "Tyrant of the Skies"
     },
 }
 
