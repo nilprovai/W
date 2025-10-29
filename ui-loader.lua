@@ -100,7 +100,7 @@ local UiIntilize = {
             {Mode="Toggle",Title="Auto Cake Prince",Id = "Auto Cake Prince"},
             {Mode="Toggle",Title="Auto Spawn Soul Reaper",Id = "Auto Spawn Soul Reaper"},
             {Mode="Toggle",Title="Auto Soul Reaper",Id = "Auto Soul Reaper"},
-            {Mode="Dropdown",Title = "Select Boss To Snipe",Id = "Selected Boss To Snipe",Multi = true,Table = getgenv().IslandVariable.AllBoss[tostring(PlaceId)],Default = getgenv().Settings["Selected Boss To Snipe"] or {}},     
+            {Mode="Dropdown",Title = "Select Boss To Snipe",Id = "Selected Boss To Snipe",Multi = true,Table = getgenv().IslandVariable.AllBoss[getgenv().IslandVariable["CurrentSea"]],Default = getgenv().Settings["Selected Boss To Snipe"] or {}},     
             {Mode="Toggle",Title="Start Boss Snipe",Id="Start Boss Snipe"},
         }},
         {Title="Sea 2 Functions", Children={
@@ -252,9 +252,9 @@ local UiIntilize = {
             {Mode="Button",Title="Travel Sea 3",Id="Travel Sea 3"},
         }},
         {Title="Location Travel", Children={
-            {Mode="Dropdown",Title="Choose Place",Table=getgenv().IslandVariable.RequestPlacesName[tostring(game.PlaceId)] or {}, Id="Place To Insta TP"},
+            {Mode="Dropdown",Title="Choose Place",Table=getgenv().IslandVariable.RequestPlacesName[getgenv().IslandVariable["CurrentSea"]] or {}, Id="Place To Insta TP"},
             {Mode="Button",Title="Insta TP",Id="Insta TP"},
-            {Mode="Dropdown",Title="Travel Place", Id="Travel Place", Table=getgenv().IslandVariable.PlacesName[tostring(game.PlaceId)]},
+            {Mode="Dropdown",Title="Travel Place", Id="Travel Place", Table=getgenv().IslandVariable.PlacesName[getgenv().IslandVariable["CurrentSea"]]},
             {Mode="Button",Title="Start Traveling",Id="Travel To Place"},
         }},
         {Title="NPC Travel", Children={
