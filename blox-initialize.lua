@@ -3,12 +3,15 @@ getgenv().IslandVariable = {}
 if game.PlaceId == 2753915549 then
     getgenv().IslandVariable["IsSea1"] = true
     getgenv().IslandVariable["MaxLevelSea"] = 675
+    getgenv().IslandVariable["CurrentSea"] = "Sea 1"
 elseif game.PlaceId == 4442272183 then
     getgenv().IslandVariable["IsSea2"] = true
     getgenv().IslandVariable["MaxLevelSea"] = 1450
-elseif game.PlaceId == 7449423635 then
+    getgenv().IslandVariable["CurrentSea"] = "Sea 2"
+elseif game.PlaceId == 7449423635 or game.PlaceId == 100117331123089 then
     getgenv().IslandVariable["IsSea3"] = true
-    getgenv().IslandVariable["MaxLevelSea"] = 2650
+    getgenv().IslandVariable["MaxLevelSea"] = 2800
+    getgenv().IslandVariable["CurrentSea"] = "Sea 3"
 else 
     game.Players.LocalPlayer:Kick(string.format("Unsupported game | %s", tostring(game.PlaceId)))
     while task.wait() do end
@@ -16,19 +19,19 @@ end
 
 getgenv().IslandVariable.MetaData = {}
 getgenv().IslandVariable.RequestPlaces = {
-    ["2753915549"] = {
+    ["Sea 1"] = {
         ["Whirl Pool"] = CFrame.new(3864.6884765625, 6.736950397491455, -1926.214111328125),
         ["Sky Area 1"] = CFrame.new(-4607.82275, 872.54248, -1667.55688),
         ["Sky Area 2"] = CFrame.new(-7894.61767578125, 5547.1416015625, -380.29119873046875),
         ["Fish Man"] = CFrame.new(61163.8515625, 11.6796875, 1819.7841796875)
     },
-    ["4442272183"] = {
+    ["Sea 2"] = {
         ["Swan's room"] = CFrame.new(2284.912109375, 15.152046203613281, 905.48291015625),
         ["Mansion"] = CFrame.new(-288.46246337890625, 306.130615234375, 597.9988403320312),
         ["Ghost Ship"] = CFrame.new(923.21252441406, 126.9760055542, 32852.83203125),
         ["Ghost Ship Entrance"] = CFrame.new(-6508.5581054688, 89.034996032715, -132.83953857422)
     },
-    ["7449423635"] = {
+    ["Sea 3"] = {
         ["Castle on the sea"] = CFrame.new(-5075.50927734375, 314.5155029296875, -3150.0224609375),
         ["Mansion"] = CFrame.new(-12548.998046875, 332.40396118164, -7603.1865234375),
         ["Hydra Island"] = CFrame.new(5661.53027, 1013.38354, -334.961914),
@@ -36,41 +39,41 @@ getgenv().IslandVariable.RequestPlaces = {
     }
 }
 getgenv().IslandVariable.RequestPlacesForFarm = {
-    ["2753915549"] = {
+    ["Sea 1"] = {
         ["Whirl Pool"] = CFrame.new(3864.6884765625, 6.736950397491455, -1926.214111328125),
         ["Sky Area 1"] = CFrame.new(-4607.82275, 872.54248, -1667.55688),
         ["Sky Area 2"] = CFrame.new(-7894.61767578125, 5547.1416015625, -380.29119873046875),
         ["Fish Man"] = CFrame.new(61163.8515625, 11.6796875, 1819.7841796875)
     },
-    ["4442272183"] = {
+    ["Sea 2"] = {
         ["Swan's room"] = CFrame.new(2284.912109375, 100.152046203613281, 905.48291015625),
         ["Mansion"] = CFrame.new(-288.46246337890625, 250.130615234375, 597.9988403320312),
         ["Ghost Ship"] = CFrame.new(923.21252441406, 126.9760055542, 32852.83203125),
         ["Ghost Ship Entrance"] = CFrame.new(-6508.5581054688, 120.034996032715, -132.83953857422)
     },
-    ["7449423635"] = {
+    ["Sea 3"] = {
         ["Castle on the sea"] = CFrame.new(-5075.50927734375, 188.5155029296875, -3150.0224609375),
         ["Mansion"] = CFrame.new(-12548.998046875, 332.40396118164, -7603.1865234375),
         ["Hydra Island"] = CFrame.new(5661.53027, 900.38354, -334.961914),
         ["Temple Of Time"] = CFrame.new(28286.35546875, 14895.3017578125, 102.62469482421875),
-        ["Template Of Time Back"] = CFrame.new(3029, 200, -7325)
+        ["Template Of Time Back"] = CFrame.new(3029.064453125, 199.98846435546875, -7324.943359375)
     }
 }
 
 getgenv().IslandVariable.RequestPlacesName = {
-    ["2753915549"] = {
+    ["Sea 1"] = {
         "Whirl Pool",
         "Sky Area 1",
         "Sky Area 2",
         "Fish Man"
     },
-    ["4442272183"] = {
+    ["Sea 2"] = {
         "Swan's room",
         "Mansion",
         "Ghost Ship",
         "Ghost Ship Entrance"
     },
-    ["7449423635"] = {
+    ["Sea 3"] = {
         "Castle on the sea",
         "Mansion",
         "Hydra Island",
@@ -79,7 +82,7 @@ getgenv().IslandVariable.RequestPlacesName = {
 }
 
 getgenv().IslandVariable.PlacesName = {
-    ["2753915549"] = {
+    ["Sea 1"] = {
         "Pirate Start Island",
         "Marine Start Island",
         "Middle Town",
@@ -102,7 +105,7 @@ getgenv().IslandVariable.PlacesName = {
         "UnderWater City",
         "Fountain City"
     },
-    ["4442272183"] = {
+    ["Sea 2"] = {
         "First Spot",
         "Cafe",
         "Swan Mansion",
@@ -122,7 +125,7 @@ getgenv().IslandVariable.PlacesName = {
         "Minisky Island",
         "Indra Island"
     },
-    ["7449423635"] = {
+    ["Sea 3"] = {
         "Port Town",
         "Hydra Island",
         "Secret Temple",
@@ -146,7 +149,7 @@ getgenv().IslandVariable.PlacesName = {
 }
 
 getgenv().IslandVariable.Places = {
-    ["2753915549"] = {
+    ["Sea 1"] = {
         ['Pirate Start Island'] = CFrame.new(781.37255859375, 5.7767753601074, 1437.2399902344),
         ['Marine Start Island'] = CFrame.new(-2606.2143554688, 6.7695031166077, 2043.04553222667),
         ['Middle Town'] = CFrame.new(-655.824158, 7.88708115, 1436.67908),
@@ -169,7 +172,7 @@ getgenv().IslandVariable.Places = {
         ['UnderWater City'] = CFrame.new(61092.36328125, 18.471633911133, 1711.1674804688),
         ['Fountain City'] = CFrame.new(5053.0297851562, 1.5012743473053, 4054.8439941406),
     },
-    ["4442272183"] = {
+    ["Sea 2"] = {
         ['First Spot'] = CFrame.new(-11.845784187317, 29.276727676392, 2768.9770507812),
         ['Cafe'] = CFrame.new(-384.03524780273, 73.020072937012, 353.2282409668),
         ['Swan Mansion'] = CFrame.new(-390.096313, 331.886475, 673.464966),
@@ -189,7 +192,7 @@ getgenv().IslandVariable.Places = {
         ['Minisky Island'] = CFrame.new(-260.358917, 49325.7031, -35259.3008),
         ['Indra Island'] = CFrame.new(-27007.9363, 9.033, 466.6544),
     },
-    ["7449423635"] = {
+    ["Sea 3"] = {
         ['Port Town'] = CFrame.new(-527.2267456054688, 20.71989631652832, 5398.4462890625),
         ['Hydra Island'] = CFrame.new(5335.88623046875, 1004.7794799804688, 241.50193786621094),
         ['Secret Temple'] = CFrame.new(5231.6831054688, 7.3780846595764, 1102.6005859375),
@@ -306,7 +309,7 @@ getgenv().IslandVariable.MobCFrames = {
 }
 
 getgenv().IslandVariable.TripleQuest = {
-    ["2753915549"] = {
+    ["Sea 1"] = {
         [150] = {
             ["Quest"] = "SkyQuest",
             QuestCFrame = CFrame.new(-4841.83447, 717.669617, -2623.96436),
@@ -455,7 +458,7 @@ getgenv().IslandVariable.TripleQuest = {
             },    
         },
     },
-    ["4442272183"] = {
+    ["Sea 2"] = {
         [700] = {
             ["Quest"] = "Area1Quest",
             QuestCFrame = CFrame.new(-424.080078, 73.0055847, 1836.91589),
@@ -660,7 +663,7 @@ getgenv().IslandVariable.TripleQuest = {
             },   
         },
     },    
-    ["7449423635"] = {
+    ["Sea 3"] = {
         [1500] = {
             ["Quest"] = "PiratePortQuest",
             QuestCFrame = CFrame.new(-292.5743713378906, 43.79322052001953, 5583.04052734375),
@@ -990,7 +993,7 @@ getgenv().IslandVariable.TripleQuest = {
 }
 
 getgenv().IslandVariable.MapPos = {
-    ["2753915549"] = {
+    ["Sea 1"] = {
         [0] = {
             ["NameIS"] = "Default",
             ["Pos"] = CFrame.new(977.038269, 16.5166149, 1420.94336),
@@ -1048,7 +1051,7 @@ getgenv().IslandVariable.MapPos = {
             ["Pos"] = CFrame.new(5187.77197, 38.5011406, 4141.60791),
         },
     },
-    ["4442272183"] = {
+    ["Sea 2"] = {
         [700] = {
             ["NameIS"] = "Default",
             ["Pos"] = CFrame.new(-32.1582031, 29.2783928, 2766.5874),       
@@ -1086,7 +1089,7 @@ getgenv().IslandVariable.MapPos = {
             ["Pos"] = CFrame.new(-3066.82715, 236.847992, -10159.6846),     
         },
     },
-    ["7449423635"] = {
+    ["Sea 3"] = {
         [1500] = {
             ["NameIS"] = "Default",
             ["Pos"] = CFrame.new(-346.9264221191406, 29.412704467773438, 5377.86376953125),
@@ -1144,7 +1147,7 @@ getgenv().IslandVariable.MapPos = {
 }
 
 getgenv().IslandVariable.SpawnPosition = {
-    ["2753915549"] = {
+    ["Sea 1"] = {
         ["Pirate [Lv. 35]"] = { "-1269.51318359375, 5.60001277923584, 3857.15771484375", "-967.43310546875, 13.599993705749512, 4034.2470703125", "-972.43310546875, 13.599993705749512, 3939.2470703125", "-1140.51318359375, 5.60001277923584, 3902.15771484375", "-1289.51318359375, 5.60001277923584, 3940.15771484375", "-1182.51318359375, 5.60001277923584, 3972.15771484375" },
         ["Royal Soldier [Lv. 550]"] = { "-7759.458984375, 5606.9365234375, -1862.7027587890625", "-7762.33984375, 5606.9365234375, -1721.01318359375", "-7916.9501953125, 5606.9365234375, -1721.0130615234375", "-7936.9501953125, 5606.9365234375, -1625.0130615234375", "-7946.9501953125, 5606.9365234375, -1824.0130615234375" },
         ["God's Guard [Lv. 450]"] = { "-4820.5673828125, 844.13525390625, -2049.015380859375", "-4863.4169921875, 844.13525390625, -1909.6802978515625", "-4830.609375, 844.13525390625, -1779.0906982421875", "-4700.3125, 844.13525390625, -1792.79638671875", "-4583.8720703125, 843.195556640625, -1938.433837890625", "-4616.88671875, 844.13525390625, -2043.19140625" },
@@ -1171,7 +1174,7 @@ getgenv().IslandVariable.SpawnPosition = {
         ["Snow Bandit [Lv. 90]"] = { "1458.7076416015625, 88.79003143310547, -1447.1497802734375", "1199.32763671875, 88.79003143310547, -1329.03759765625", "1273.747802734375, 88.79003143310547, -1345.840087890625", "1316.162841796875, 88.79003143310547, -1396.5244140625", "1381.32470703125, 88.79003143310547, -1464.943359375" },
         ["Dangerous Prisoner [Lv. 210]"] = { "5554.5029296875, -0.4999849796295166, 584.723388671875", "5645.556640625, -0.4999849796295166, 764.613525390625", "5442.03857421875, -0.4999847412109375, 1078.8802490234375", "5561.36572265625, -0.4999849796295166, 964.7432250976562", "4955.9150390625, -0.4999847412109375, 925.52978515625", "5485.28271484375, -0.4999847412109375, 468.0664978027344", "5099.65673828125, -0.4999847412109375, 1055.7525634765625" }
     },
-    ["4442272183"] = {
+    ["Sea 2"] = {
         ["Lab Subordinate [Lv. 1100]"] = { "-5590.3037109375, 14.292499542236328, -4436.53466796875", "-5640.390625, 14.292499542236328, -4680.9375", "-5897.822265625, 14.292499542236328, -4554.6240234375", "-5963.48046875, 14.292499542236328, -4340.27587890625", "-5766.35302734375, 14.292499542236328, -4249.67041015625" },
         ["Ship Engineer [Lv. 1275]"] = { "815.62890625, 43.692771911621094, 33111.33984375", "729.23046875, 43.69268035888672, 32950.34375", "834.796875, 43.69255828857422, 32720.92578125", "1025.6572265625, 43.69258117675781, 32740.85546875", "1088.251708984375, 43.69266891479492, 32890.09375", "1016.777587890625, 43.69276809692383, 33074.1328125" },
         ["Winter Warrior [Lv. 1050]"] = { "1142.4378662109375, 428.80767822265625, -5043.052734375", "1043.3046875, 428.80767822265625, -5049.7861328125", "1205.4586181640625, 428.80767822265625, -5397.35888671875", "1371.870849609375, 428.80767822265625, -5194.70263671875", "1446.2698974609375, 428.80767822265625, -5369.21533203125", "1226.30908203125, 428.80767822265625, -5215.9755859375" },
@@ -1195,7 +1198,7 @@ getgenv().IslandVariable.SpawnPosition = {
         ["Horned Warrior [Lv. 1125]"] = { "-6499.001953125, 14.292499542236328, -5512.51171875", "-6589.38671875, 14.292499542236328, -5718.66650390625", "-6516.3408203125, 14.292499542236328, -5868.70458984375", "-6093.66748046875, 14.292499542236328, -6061.12353515625", "-6221.7490234375, 14.292499542236328, -5951.302734375", "-6331.76513671875, 14.292499542236328, -5778.94189453125" },
     
     },
-    ["7449423635"] = {
+    ["Sea 3"] = {
         ["Isle Champion [Lv. 2525]"] = { "-16618.74609375, 58.377708435058594, 1099.5087890625", "-16735.67578125, 23.346088409423828, 1110.5850830078125", "-16787.3203125, 25.204872131347656, 992.1318359375", "-16940.798828125, 14.192967414855957, 1070.8662109375", "-16901.23046875, 12.45141887664795, 969.9686279296875" },
         ["Isle Outlaw [Lv. 2450]"] = { "-16351.77734375, 23.49412727355957, -282.4541015625", "-16433.71875, 57.22137451171875, -195.47314453125", "-16122.4052734375, 11.778807640075684, -257.353515625", "-16289.48828125, 22.874197006225586, -179.4443359375", "-16163.4248046875, 11.945096969604492, -99.35986328125" },
         ["Island Boy [Lv. 2475]"] = { "-16991.73046875, 12.766878128051758, -186.18252563476562", "-16736.21875, 22.171125411987305, -131.72105407714844", "-16661.57421875, 57.37247085571289, -252.96337890625", "-16883.048828125, 23.34747314453125, -250.8740234375", "-16905.3046875, 13.09433364868164, -73.5067367553711" },
@@ -1704,21 +1707,21 @@ getgenv().IslandVariable.MaterialName = {
 }
 
 getgenv().IslandVariable.MaterialSeaChecker = {
-    ["Leather"] = "7449423635",
-    ["Scrap Metal"] = "7449423635",
-    ["Mystic Droplet"] = "4442272183",
-    ["Magma Ore"] = "4442272183",
-    ["Ectoplasm"] = "4442272183",
-    ["Bones"]= "7449423635",
-    ["Demonic Wisp"]= "7449423635",
-    ["Fish Tail"] = "7449423635",
-    ["Dragon Scale"] = "7449423635",
-    ["Radioactive Material"] = "4442272183",
-    ["Mini Tusk"] = "7449423635",
-    ["Vampire Fang"] = "4442272183",
-    ["Meteorite"] = "4442272183",
-    ["Conjured Cocoa"] = "7449423635",
-    ["Angel Wings"] = "2753915549",
+    ["Leather"] = "Sea 3",
+    ["Scrap Metal"] = "Sea 3",
+    ["Mystic Droplet"] = "Sea 2",
+    ["Magma Ore"] = "Sea 2",
+    ["Ectoplasm"] = "Sea 2",
+    ["Bones"]= "Sea 3",
+    ["Demonic Wisp"]= "Sea 3",
+    ["Fish Tail"] = "Sea 3",
+    ["Dragon Scale"] = "Sea 3",
+    ["Radioactive Material"] = "Sea 2",
+    ["Mini Tusk"] = "Sea 3",
+    ["Vampire Fang"] = "Sea 2",
+    ["Meteorite"] = "Sea 2",
+    ["Conjured Cocoa"] = "Sea 3",
+    ["Angel Wings"] = "Sea 1",
 }
 
 getgenv().IslandVariable.RaceEntrances = {
@@ -1813,7 +1816,7 @@ getgenv().IslandVariable.SkillsV3Name ={
 }
 
 getgenv().IslandVariable.BossQuest = {
-    ["2753915549"] = {
+    ["Sea 1"] = {
         ["The Gorilla King"] = {
             Quest = "JungleQuest",
             Require  = 25,
@@ -1887,7 +1890,7 @@ getgenv().IslandVariable.BossQuest = {
             Pos = CFrame.new(-5253.54834, 38.5361786, 4050.45166),
         },
     },
-    ["4442272183"] = {
+    ["Sea 2"] = {
         ["Diamond"] = {
             Quest = "Area1Quest",
             LvQuest = 3,
@@ -1925,7 +1928,7 @@ getgenv().IslandVariable.BossQuest = {
             Pos = CFrame.new(-3053.89648, 236.881363, -10148.2324),  
         },
     },
-    ["7449423635"]  = {
+    ["Sea 3"]  = {
         ["Stone"] = {
             Quest = "PiratePortQuest",
             LvQuest = 3,
@@ -1960,16 +1963,16 @@ getgenv().IslandVariable.BossQuest = {
 }   
 
 getgenv().IslandVariable.AllBoss = {
-    ["2753915549"] = {
+    ["Sea 1"] = {
         "Saber Expert","The Saw","Bobby","The Gorilla King","Yeti","Vice Admiral",
         "Warden","Chief Warden","Swan","Magma Admiral","Fishman Lord","Wysper",
         "Thunder God","Cyborg"
     },
-    ["4442272183"] =  {
+    ["Sea 2"] =  {
         "Diamond","Jeremy","Fajita","Smoke Admiral","Awakened Ice Admiral","Tide Keeper",
         "Don Swan","Cursed Captain", "Order"
     },
-    ["7449423635"] = {
+    ["Sea 3"] = {
         "Stone","Island Empress","Kilo Admiral","Captain Elephant","Cake Queen","Beautiful Pirate",
         "Soul Reaper","rip_indra True Form","Cake Prince","Dough King"
     },
