@@ -35,7 +35,9 @@ getgenv().IslandVariable.RequestPlaces = {
         ["Castle on the sea"] = CFrame.new(-5075.50927734375, 314.5155029296875, -3150.0224609375),
         ["Mansion"] = CFrame.new(-12548.998046875, 332.40396118164, -7603.1865234375),
         ["Hydra Island"] = CFrame.new(5661.53027, 1013.38354, -334.961914),
-        ["Temple Of Time"] = CFrame.new(28286.35546875, 14895.3017578125, 102.62469482421875)
+        ["Temple Of Time"] = CFrame.new(28286.35546875, 14895.3017578125, 102.62469482421875),
+        ["Tiki Outpost"] = CFrame.new(-16813.439453125, 58.2912712097168, 304.87396240234375),
+        ["Submerged Island"] = CFrame.new(11520.80078125, -2154.98583984375, 9829.513671875)
     }
 }
 getgenv().IslandVariable.RequestPlacesForFarm = {
@@ -56,7 +58,9 @@ getgenv().IslandVariable.RequestPlacesForFarm = {
         ["Mansion"] = CFrame.new(-12548.998046875, 332.40396118164, -7603.1865234375),
         ["Hydra Island"] = CFrame.new(5661.53027, 900.38354, -334.961914),
         ["Temple Of Time"] = CFrame.new(28286.35546875, 14895.3017578125, 102.62469482421875),
-        ["Template Of Time Back"] = CFrame.new(3029.064453125, 199.98846435546875, -7324.943359375)
+        ["Template Of Time Back"] = CFrame.new(3029.064453125, 199.98846435546875, -7324.943359375),
+        ["Tiki Outpost"] = CFrame.new(-16813.439453125, 20.2912712097168, 304.87396240234375),
+        ["Submerged Island"] = CFrame.new(11520.80078125, -2154.98583984375, 9829.513671875)
     }
 }
 
@@ -77,7 +81,9 @@ getgenv().IslandVariable.RequestPlacesName = {
         "Castle on the sea",
         "Mansion",
         "Hydra Island",
-        "Temple Of Time"
+        "Temple Of Time",
+        "Tiki Outpost",
+        "Submerged Island"
     }
 }
 
