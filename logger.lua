@@ -15,19 +15,23 @@ local Modules = {
 }
 
 Modules.ChangeColor = function() 
+    local DevConsoleMaster = Modules.Services.CoreGui:WaitForChild("DevConsoleMaster")
+    
     local Loop;
     Loop = Modules.Services.RunService.Heartbeat:Connect(function()
         local success, err = pcall(function()
-            for _, label in pairs(Modules.Services.CoreGui:FindFirstChild("DevConsoleMaster"):GetDescendants()) do 
+            for _, label in pairs(DevConsoleMaster:GetDescendants()) do 
                 if label:IsA("TextLabel") then 
                     label.RichText = true 
                 end 
-            end 
+            end
         end)
 
         if not success then 
-            warn(`A error occured {err}`)
+            warn(`[W-ERROR] An error occurred: {err}`)
             Loop:Disconnect()
+            task.wait(2)
+            Modules.ChangeColor()
         end 
     end)
 end
@@ -132,5 +136,6 @@ Modules.AdvancedLoadingBar = function(watermark, stages)
 end
 
 -- Initialize
-Modules.ChangeColor()
+task.spawn(Modules.ChangeColor)
+
 return Modules
