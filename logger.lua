@@ -15,8 +15,11 @@ local Modules = {
 }
 
 Modules.ChangeColor = function() 
-    local DevConsoleMaster = Modules.Services.CoreGui:WaitForChild("DevConsoleMaster")
-    
+    local DevConsoleMaster
+    repeat task.wait()
+        DevConsoleMaster = Modules.Services.CoreGui:FindFirstChild("DevConsoleMaster")
+    until DevConsoleMaster
+
     local Loop;
     Loop = Modules.Services.RunService.Heartbeat:Connect(function()
         local success, err = pcall(function()
