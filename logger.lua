@@ -5,6 +5,7 @@ local Modules = {
         ["RED"] = "255, 85, 85",    
         ["YELLOW"] = "255, 255, 85",
         ["GREEN"] = "85, 255, 85",  
+        ["MAGENTA"] = "255, 85, 255",  
         ["WHITE"] = "255, 255, 255",
     },
     Services = {
@@ -31,7 +32,7 @@ Modules.ChangeColor = function()
     end)
 end
 
-Modules.Print = function(message, arguments, messageType, customColor)
+Modules.Print = function(message, messageType, customColor)
     messageType = messageType or "INFO"
     local color = customColor or Modules.Colors["WHITE"]
     local prefix = ""
@@ -55,42 +56,28 @@ Modules.Print = function(message, arguments, messageType, customColor)
         prefix = `[{messageType}]`
     end
     
-    local finalMessage = message
-    if arguments then
-        if type(arguments) == "table" then
-            local argIndex = 1
-            finalMessage = message:gsub("%%(%*)", function()
-                local value = arguments[argIndex]
-                argIndex = argIndex + 1
-                return tostring(value)
-            end)
-        else
-            finalMessage = message:gsub("%%(%*)", tostring(arguments))
-        end
-    end
-    
-    local formattedMessage = string.format("<font color='rgb(%s)' size='15'>%s %s</font>", color, prefix, finalMessage)
+    local formattedMessage = string.format("<font color='rgb(%s)' size='15'>%s %s</font>", color, prefix, tostring(message))
     print(formattedMessage)
 end
 
-Modules.Debug = function(message, arguments)
-    Modules.Print(message, arguments, "DEBUG")
+Modules.Debug = function(message)
+    Modules.Print(message, "DEBUG")
 end
 
-Modules.Info = function(message, arguments)
-    Modules.Print(message, arguments, "INFO")
+Modules.Info = function(message)
+    Modules.Print(message, "INFO")
 end
 
-Modules.Error = function(message, arguments)
-    Modules.Print(message, arguments, "ERROR")
+Modules.Error = function(message)
+    Modules.Print(message, "ERROR")
 end
 
-Modules.Success = function(message, arguments)
-    Modules.Print(message, arguments, "SUCCESS")
+Modules.Success = function(message)
+    Modules.Print(message, "SUCCESS")
 end
 
-Modules.Warning = function(message, arguments)
-    Modules.Print(message, arguments, "WARNING")
+Modules.Warning = function(message)
+    Modules.Print(message, "WARNING")
 end
 
 Modules.AdvancedLoadingBar = function(watermark, stages)
