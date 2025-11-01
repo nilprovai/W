@@ -1741,7 +1741,7 @@ end
 --// SECTION : Interface Management
 
 -- Interface Model
-local modelId = debugV and 136653172778765 or 115378917859034
+local modelId = debugV and 116669479487828 or 115378917859034
 
 local StarlightUI : ScreenGui = isStudio and script.Parent:WaitForChild("Starlight V2") or game:GetObjects("rbxassetid://" .. modelId)[1]
 local buildAttempts = 0
@@ -3541,7 +3541,7 @@ function Starlight:CreateWindow(WindowSettings)
 							if v.ClassName == "Frame" then v:Destroy() end
 						end
 					else
-						Groupbox.Instance = tabs["Tab_TEMPLATE"].ScrollingCollumnTemplate2["Groupbox_Style2"]:Clone()
+						Groupbox.Instance = tabs["Tab_TEMPLATE"].ScrollingCollumnTemplate["Groupbox_Style2"]:Clone()
 					end
 					Groupbox.Instance.PART_Content:GetPropertyChangedSignal("AbsoluteSize"):Connect(function()
 						Groupbox.Instance.PART_Backdrop.Inner.Visible = false
@@ -3599,7 +3599,7 @@ function Starlight:CreateWindow(WindowSettings)
 							if v.ClassName == "Frame" then v:Destroy() end
 						end
 					else
-						Groupbox.Instance = tabs["Tab_TEMPLATE"].ScrollingCollumnTemplate2["Groupbox_Style2"]:Clone()
+						Groupbox.Instance = tabs["Tab_TEMPLATE"].ScrollingCollumnTemplate["Groupbox_Style2"]:Clone()
 					end
 
 
