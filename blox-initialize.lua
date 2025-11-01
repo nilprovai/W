@@ -87,6 +87,35 @@ getgenv().IslandVariable.RequestPlacesName = {
     }
 }
 
+getgenv().IslandVariable.HalloweenPortals = {
+    ["Port"] = CFrame.new(-342.4343566894531, 20.64616584777832, 5547.345703125),
+    ["Tiki Outpostt"] = CFrame.new(-16456.462890625, 527.7887573242188, 436.2318115234375),
+    ["Hydra Town"] = CFrame.new(5288.62158203125, 1005.3887939453125, 392.4296875),
+    ["Chocolate Land"] = CFrame.new(379.1396179199219, 126.62691497802734, -12720.83984375),
+    ["Haunted Castle"] = CFrame.new(-9515.0009765625, 142.1398468017578, 5534.05029296875),
+    ["Peanut Land"] = CFrame.new(-2037.8001708984375, 9.712361335754395, -9948.2021484375),
+    ["Great Tree"] = CFrame.new(4345.09375, 565.8427124023438, -6159.00439453125),
+    ["Hydra Arena"] = CFrame.new(5020.94580078125, 173.56398010253906, -2011.18505859375),
+    ["Ice Cream Land"] = CFrame.new(-917.5485229492188, 56.285797119140625, -10858.6962890625),
+    ["Cake Land"] = CFrame.new(-2098.970458984375, 70.01806640625, -12128.359375),
+    ["Turtle Center"] = CFrame.new(-12007.9794921875, 331.7582702636719, -9178.580078125),
+}
+
+getgenv().IslandVariable.HalloweenPortalsName = {
+    "Tiki Outpost",
+    "Hydra Town",
+    "Chocolate Land",
+    "Sea Castle",
+    "Haunted Castle",
+    "Port",
+    "Peanut Land",
+    "Great Tree",
+    "Hydra Arena",
+    "Ice Cream Land",
+    "Cake Land",
+    "Turtle Center"
+}
+
 getgenv().IslandVariable.PlacesName = {
     ["Sea 1"] = {
         "Pirate Start Island",
