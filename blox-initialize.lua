@@ -1,17 +1,17 @@
 getgenv().IslandVariable = {}
 
-if game.PlaceId == 2753915549 then
+local MAP = workspace:GetAttribute("MAP")
+getgenv().IslandVariable["CurrentSea"] = MAP:gsub("(%a+)(%d+)", "%1 %2")
+
+if MAP == "Sea1" then
     getgenv().IslandVariable["IsSea1"] = true
     getgenv().IslandVariable["MaxLevelSea"] = 675
-    getgenv().IslandVariable["CurrentSea"] = "Sea 1"
-elseif game.PlaceId == 4442272183 then
+elseif MAP == "Sea2" then
     getgenv().IslandVariable["IsSea2"] = true
     getgenv().IslandVariable["MaxLevelSea"] = 1450
-    getgenv().IslandVariable["CurrentSea"] = "Sea 2"
-elseif game.PlaceId == 7449423635 or game.PlaceId == 100117331123089 then
+elseif MAP == "Sea3" then
     getgenv().IslandVariable["IsSea3"] = true
     getgenv().IslandVariable["MaxLevelSea"] = 2800
-    getgenv().IslandVariable["CurrentSea"] = "Sea 3"
 else 
     game.Players.LocalPlayer:Kick(string.format("Unsupported game | %s", tostring(game.PlaceId)))
     while task.wait() do end
