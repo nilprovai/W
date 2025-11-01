@@ -273,4 +273,4 @@ function ServerHopLibrary:CreateScreen(Config)
     return Status
 end
 
-ServerHopLibrary:CreateScreen({Duration=5, Reason="Random"})
+return ServerHopLibrary
