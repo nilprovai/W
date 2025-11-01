@@ -117,6 +117,10 @@ local UiIntilize = {
         }}
     },
     ["Sub Farming"] = {
+        {Title="Halloween Event", Children={
+            {Mode="Toggle",Title="Auto Halloween Event", Id="Auto Halloween Event"},
+            {Mode="Toggle",Title="Ignore Halloween Boss", Id="Ignore Halloween Boss"},
+        }},
         {Title="Yoru Upgrade", Children={
             {Mode="Button",Title="Upgrade Yoru V2",Id="Upgrade Your V2"},
             {Mode="Toggle",Title="Yoru V3",Id = "Yoru V3"},
@@ -803,7 +807,6 @@ function SettingsManager:LoadConfig()
     if getgenv().Settings and type(getgenv().Settings) == "table" and #getgenv().Settings > 0 then
         return getgenv().Settings
     end
-    
     local success, data = pcall(function()
         return HttpService:JSONDecode(readfile(self.ConfigPath))
     end)
