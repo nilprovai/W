@@ -800,6 +800,10 @@ function SettingsManager:LoadConfigPath()
 end
 
 function SettingsManager:LoadConfig()
+    if getgenv().Settings and type(getgenv().Settings) == "table" and #getgenv().Settings > 0 then
+        return getgenv().Settings
+    end
+    
     local success, data = pcall(function()
         return HttpService:JSONDecode(readfile(self.ConfigPath))
     end)
