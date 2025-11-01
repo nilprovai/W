@@ -204,7 +204,7 @@ function ServerHopLibrary:CreateScreen(Config)
             task.wait(UpdateRate)
             
             if Aborted then
-                local CloseTimeout = 10
+                local CloseTimeout = 15
                 local CloseStartTime = tick()
                 local CloseEndTime = CloseStartTime + CloseTimeout
                 
