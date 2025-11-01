@@ -1741,7 +1741,7 @@ end
 --// SECTION : Interface Management
 
 -- Interface Model
-local modelId = debugV and 116669479487828 or 116669479487828
+local modelId = debugV and 136653172778765 or 115378917859034
 
 local StarlightUI : ScreenGui = isStudio and script.Parent:WaitForChild("Starlight V2") or game:GetObjects("rbxassetid://" .. modelId)[1]
 local buildAttempts = 0
