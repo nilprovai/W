@@ -558,78 +558,6 @@ utils.dragify = function(object, hoverobj, speed, additionalObject, n)
     end)
 end
 
-task.spawn(function()
-    if getgenv().NoUi then return end
-    local ScreenGui = utils.create('ScreenGui', {
-        Parent = CoreGui,
-        IgnoreGuiInset = true,
-        ResetOnSpawn = false,
-        DisplayOrder = 100,
-        ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-    })
-    
-    local ToggleWindow = utils.create('Frame', {
-        Name = "ToggleWindow",
-        Parent = ScreenGui,
-        AnchorPoint = Vector2.new(0.5, 0.5),
-        BackgroundColor3 = Color3.fromRGB(0,0,0),
-        BorderColor3 = Color3.fromRGB(0, 0, 0),
-        BorderSizePixel = 0,
-        Position = UDim2.new(0.0284789652, 0, 0.054862842, 0),
-        Size = UDim2.new(0.0384789652, 0, 0.054862842, 0),
-    })
-
-    utils.create('UIAspectRatioConstraint', {
-        Parent = ToggleWindow,
-        AspectRatio = 1.011
-    })
-
-    utils.create('UICorner', {
-        CornerRadius = UDim.new(0, 4000),
-        Parent = ToggleWindow,
-    })
-
-    utils.create('ImageButton', {
-        Name = "ToggleWindowIcon",
-        Parent = ToggleWindow,
-        AnchorPoint = Vector2.new(0.5, 0.5),
-        BackgroundColor3 = Color3.fromRGB(255, 255, 255),
-        BackgroundTransparency = 1.000,
-        BorderColor3 = Color3.fromRGB(0, 0, 0),
-        BorderSizePixel = 0,
-        Position = UDim2.new(0.5, 0, 0.5, 0),
-        Size = UDim2.new(0.681818187, 0, 0.681818187, 0),
-        Image = "http://www.roblox.com/asset/?id=13286125855",
-        ImageColor3 = Color3.fromRGB(107, 218, 255),
-    })
-
-    utils.create('UIStroke', {
-        Color = Color3.fromRGB(107, 218, 255),
-        Thickness = 1.600,
-        Parent = ToggleWindow,
-    })
-
-    local ToggleWindowButton = utils.create('TextButton', {
-        Parent = ToggleWindow,
-        BackgroundColor3 = Color3.fromRGB(255, 255, 255),
-        BackgroundTransparency = 1.000,
-        BorderColor3 = Color3.fromRGB(0, 0, 0),
-        BorderSizePixel = 0,
-        Size = UDim2.new(1, 0, 1, 0),
-        Font = Enum.Font.SourceSans,
-        Text = "",
-        TextColor3 = Color3.fromRGB(0, 0, 0),
-        TextSize = 14.000,
-    })
-
-    utils.dragify(ToggleWindow, ToggleWindowButton, 0.08, ToggleWindow, true)
-
-    ToggleWindowButton.MouseButton1Click:Connect(function()
-        VirtualInputManager:SendKeyEvent(true,"K",false,game)
-        VirtualInputManager:SendKeyEvent(false,"K",false,game)
-    end)
-end)
-
 for ShopName, Items in pairs(getgenv().IslandVariable.ShopItems) do
     if getgenv().NoUi then return end
     local CallBuy = {}
@@ -670,7 +598,8 @@ if not getgenv().NoUi then
         LoadingSettings = {
             Title = "W-azure Rewrite",
             Subtitle = "Welcome to W-azure",
-        }
+        },
+        DefaultSize = getgenv().UiSize
     })
 
     local TabSection = Window:CreateTabSection("Main", false)
@@ -782,7 +711,7 @@ if not getgenv().NoUi then
             local Tab = TabSection:CreateTab({
                 Name = arg.title,
                 Icon = NebulaIcons:GetIcon(arg.icon, 'Lucide'),
-                Columns = 2
+                Columns = 1
             }, arg.title)
 
             task.spawn(function()
