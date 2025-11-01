@@ -1748,7 +1748,7 @@ local buildAttempts = 0
 local correctBuild = false
 local warned = false
 
-repeat
+repeat task.wait()
 
 	if StarlightUI.Resources:FindFirstChild('Build') and StarlightUI.Resources.Build.Value == Starlight.InterfaceBuild then
 		correctBuild = true
@@ -1853,13 +1853,17 @@ end
 
 if PlayerGui:FindFirstChild("TouchGui") then
 	function check()
-		if PlayerGui:FindFirstChild("TouchGui").TouchControlFrame.JumpButton.Visible then
+		local TouchControlFrame = PlayerGui:FindFirstChild("TouchGui") and PlayerGui.TouchGui.TouchControlFrame
+
+		if TouchControlFrame and TouchControlFrame:FindFirstChild("JumpButton") and TouchControlFrame.JumpButton.Visible then
 			StarlightUI.Notifications.Position = UDim2.new(1,-20,1,-(24 + PlayerGui:FindFirstChild("TouchGui").TouchControlFrame.JumpButton.AbsoluteSize.Y))
 		else
-	StarlightUI.Notifications.Position = UDim2.new(1,-20,1,-20)
+			StarlightUI.Notifications.Position = UDim2.new(1,-20,1,-20)
 		end
 	end
-	PlayerGui:FindFirstChild("TouchGui").TouchControlFrame.JumpButton:GetPropertyChangedSignal("Visible"):Connect(check)
+	if PlayerGui:FindFirstChild("TouchGui").TouchControlFrame:FindFirstChild("JumpButton") then
+		PlayerGui:FindFirstChild("TouchGui").TouchControlFrame.JumpButton:GetPropertyChangedSignal("Visible"):Connect(check)
+	end
 	check()
 end
 
