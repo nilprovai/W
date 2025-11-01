@@ -1324,21 +1324,27 @@ local function Hide(Interface , JustHide : boolean?, Notify : boolean?, Bind : s
 
 			-- Actually Hide The Stuff
 			if v.ClassName == "Frame" then
-				Tween(v, {BackgroundTransparency = 1})
+				-- Tween(v, {BackgroundTransparency = 1})
+				v.BackgroundTransparency = 1
 			end
 
 			if v.ClassName == "TextLabel" or v.ClassName == "TextBox" or v.ClassName == "TextButton" then
-				Tween(v, {BackgroundTransparency = 1})
-				Tween(v, {TextTransparency = 1})
+				-- Tween(v, {BackgroundTransparency = 1})
+				-- Tween(v, {TextTransparency = 1})
+				v.BackgroundTransparency = 1
+				v.TextTransparency = 1
 			end
 
 			if v.ClassName == "ImageLabel" or v.ClassName == "ImageButton" then
-				Tween(v, {BackgroundTransparency = 1})
-				Tween(v, {ImageTransparency = 1})
+				-- Tween(v, {BackgroundTransparency = 1})
+				-- Tween(v, {ImageTransparency = 1})
+				v.BackgroundTransparency = 1
+				v.ImageTransparency = 1
 			end
 
 			if v.ClassName == "UIStroke" or Interface.ClassName == "UIGradient" then
-				Tween(v, {Transparency = 1})
+				-- Tween(v, {Transparency = 1})
+				v.Transparency = 1
 			end
 		end
 	end
@@ -1374,21 +1380,27 @@ local function Hide(Interface , JustHide : boolean?, Notify : boolean?, Bind : s
 
 		-- Actually Hide The Stuff
 		if Interface.ClassName == "Frame" then
-			Tween(Interface, {BackgroundTransparency = 1})
+			-- Tween(Interface, {BackgroundTransparency = 1})
+			Interface.BackgroundTransparency = 1
 		end
 
 		if Interface.ClassName == "TextLabel" or Interface.ClassName == "TextBox" or Interface.ClassName == "TextButton" then
-			Tween(Interface, {BackgroundTransparency = 1})
-			Tween(Interface, {TextTransparency = 1})
+			-- Tween(Interface, {BackgroundTransparency = 1})
+			-- Tween(Interface, {TextTransparency = 1})
+			Interface.BackgroundTransparency = 1
+			Interface.TextTransparency = 1
 		end
 
 		if Interface.ClassName == "ImageLabel" or Interface.ClassName == "ImageButton" then
-			Tween(Interface, {BackgroundTransparency = 1})
-			Tween(Interface, {ImageTransparency = 1})
+			-- Tween(Interface, {BackgroundTransparency = 1})
+			-- Tween(Interface, {ImageTransparency = 1})
+			Interface.BackgroundTransparency = 1
+			Interface.ImageTransparency = 1
 		end
 
 		if Interface.ClassName == "UIStroke" or Interface.ClassName == "UIGradient" then
-			Tween(Interface, {Transparency = 1})
+			-- Tween(Interface, {Transparency = 1})
+			Interface.Transparency = 1
 		end
 	end
 
@@ -1444,21 +1456,27 @@ local function Unhide(Interface)
 
 			pcall(function()
 				if (v.ClassName == "Frame") and TransparencyValues[Interface.Name][v:GetAttribute("InstanceID")].BackgroundTransparency ~= nil then
-					Tween(v, {BackgroundTransparency = TransparencyValues[Interface.Name][v:GetAttribute("InstanceID")].BackgroundTransparency})
+					-- Tween(v, {BackgroundTransparency = TransparencyValues[Interface.Name][v:GetAttribute("InstanceID")].BackgroundTransparency})
+					v.BackgroundTransparency = TransparencyValues[Interface.Name][v:GetAttribute("InstanceID")].BackgroundTransparency
 				end
 
 				if (v.ClassName == "TextLabel" or v.ClassName == "TextBox" or v.ClassName == "TextButton") and TransparencyValues[Interface.Name][v:GetAttribute("InstanceID")].BackgroundTransparency ~= nil  and TransparencyValues[Interface.Name][v:GetAttribute("InstanceID")].TextTransparency ~= nil then
-					Tween(v, {BackgroundTransparency = TransparencyValues[Interface.Name][v:GetAttribute("InstanceID")].BackgroundTransparency})
-					Tween(v, {TextTransparency = TransparencyValues[Interface.Name][v:GetAttribute("InstanceID")].TextTransparency})
+					-- Tween(v, {BackgroundTransparency = TransparencyValues[Interface.Name][v:GetAttribute("InstanceID")].BackgroundTransparency})
+					-- Tween(v, {TextTransparency = TransparencyValues[Interface.Name][v:GetAttribute("InstanceID")].TextTransparency})
+					v.BackgroundTransparency = TransparencyValues[Interface.Name][v:GetAttribute("InstanceID")].BackgroundTransparency
+					v.TextTransparency = TransparencyValues[Interface.Name][v:GetAttribute("InstanceID")].TextTransparency
 				end
 
 				if (v.ClassName == "ImageLabel" or v.ClassName == "ImageButton") and TransparencyValues[Interface.Name][v:GetAttribute("InstanceID")].BackgroundTransparency ~= nil and TransparencyValues[Interface.Name][v:GetAttribute("InstanceID")].ImageTransparency then
-					Tween(v, {BackgroundTransparency = TransparencyValues[Interface.Name][v:GetAttribute("InstanceID")].BackgroundTransparency})
-					Tween(v, {ImageTransparency = TransparencyValues[Interface.Name][v:GetAttribute("InstanceID")].ImageTransparency})
+					-- Tween(v, {BackgroundTransparency = TransparencyValues[Interface.Name][v:GetAttribute("InstanceID")].BackgroundTransparency})
+					-- Tween(v, {ImageTransparency = TransparencyValues[Interface.Name][v:GetAttribute("InstanceID")].ImageTransparency})
+					v.BackgroundTransparency = TransparencyValues[Interface.Name][v:GetAttribute("InstanceID")].BackgroundTransparency
+					v.ImageTransparency = TransparencyValues[Interface.Name][v:GetAttribute("InstanceID")].ImageTransparency
 				end
 
 				if (v.ClassName == "UIStroke" or Interface.ClassName == "UIGradient") and TransparencyValues[Interface.Name][v:GetAttribute("InstanceID")].Transparency then
-					Tween(v, {Transparency = TransparencyValues[Interface.Name][v:GetAttribute("InstanceID")].Transparency})
+					-- Tween(v, {Transparency = TransparencyValues[Interface.Name][v:GetAttribute("InstanceID")].Transparency})
+					v.Transparency = TransparencyValues[Interface.Name][v:GetAttribute("InstanceID")].Transparency
 				end
 			end)
 
@@ -1468,21 +1486,27 @@ local function Unhide(Interface)
 	pcall(function()
 		if Interface.ClassName ~= "ScreenGui" then
 			if (Interface.ClassName == "Frame") and TransparencyValues[Interface.Name][Interface:GetAttribute("InstanceID")].BackgroundTransparency ~= nil then
-				Tween(Interface, {BackgroundTransparency = TransparencyValues[Interface.Name][Interface:GetAttribute("InstanceID")].BackgroundTransparency})
+				-- Tween(Interface, {BackgroundTransparency = TransparencyValues[Interface.Name][Interface:GetAttribute("InstanceID")].BackgroundTransparency})
+				Interface.BackgroundTransparency = TransparencyValues[Interface.Name][Interface:GetAttribute("InstanceID")].BackgroundTransparency
 			end
 
 			if (Interface.ClassName == "TextLabel" or Interface.ClassName == "TextBox" or Interface.ClassName == "TextButton") and TransparencyValues[Interface.Name][Interface:GetAttribute("InstanceID")].BackgroundTransparency ~= nil  and TransparencyValues[Interface.Name][Interface:GetAttribute("InstanceID")].TextTransparency ~= nil then
-				Tween(Interface, {BackgroundTransparency = TransparencyValues[Interface.Name][Interface:GetAttribute("InstanceID")].BackgroundTransparency})
-				Tween(Interface, {TextTransparency = TransparencyValues[Interface.Name][Interface:GetAttribute("InstanceID")].TextTransparency})
+				-- Tween(Interface, {BackgroundTransparency = TransparencyValues[Interface.Name][Interface:GetAttribute("InstanceID")].BackgroundTransparency})
+				-- Tween(Interface, {TextTransparency = TransparencyValues[Interface.Name][Interface:GetAttribute("InstanceID")].TextTransparency})
+				Interface.BackgroundTransparency = TransparencyValues[Interface.Name][Interface:GetAttribute("InstanceID")].BackgroundTransparency
+				Interface.TextTransparency = TransparencyValues[Interface.Name][Interface:GetAttribute("InstanceID")].TextTransparency
 			end
 
 			if (Interface.ClassName == "ImageLabel" or Interface.ClassName == "ImageButton") and TransparencyValues[Interface.Name][Interface:GetAttribute("InstanceID")].BackgroundTransparency ~= nil and TransparencyValues[Interface.Name][Interface:GetAttribute("InstanceID")].ImageTransparency then
-				Tween(Interface, {BackgroundTransparency = TransparencyValues[Interface.Name][Interface:GetAttribute("InstanceID")].BackgroundTransparency})
-				Tween(Interface, {ImageTransparency = TransparencyValues[Interface.Name][Interface:GetAttribute("InstanceID")].ImageTransparency})
+				-- Tween(Interface, {BackgroundTransparency = TransparencyValues[Interface.Name][Interface:GetAttribute("InstanceID")].BackgroundTransparency})
+				-- Tween(Interface, {ImageTransparency = TransparencyValues[Interface.Name][Interface:GetAttribute("InstanceID")].ImageTransparency})
+				Interface.BackgroundTransparency = TransparencyValues[Interface.Name][Interface:GetAttribute("InstanceID")].BackgroundTransparency
+				Interface.ImageTransparency = TransparencyValues[Interface.Name][Interface:GetAttribute("InstanceID")].ImageTransparency
 			end
 
 			if (Interface.ClassName == "UIStroke" or Interface.ClassName == "UIGradient") and TransparencyValues[Interface.Name][Interface:GetAttribute("InstanceID")].Transparency then
-				Tween(Interface, {Transparency = TransparencyValues[Interface.Name][Interface:GetAttribute("InstanceID")].Transparency})
+				-- Tween(Interface, {Transparency = TransparencyValues[Interface.Name][Interface:GetAttribute("InstanceID")].Transparency})
+				Interface.Transparency = TransparencyValues[Interface.Name][Interface:GetAttribute("InstanceID")].Transparency
 			end
 		end
 	end)
