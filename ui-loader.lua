@@ -3,10 +3,8 @@ getgenv().SecureMode = true
 repeat task.wait() until getgenv().IslandCaller and getgenv().IslandVariable and game.Players.LocalPlayer
 
 local CoreGui = game.CoreGui
-local PlaceId = game.PlaceId
 local JobId = game.JobId
 
-local MarketplaceService = game:GetService("MarketplaceService")
 local TweenService = game:GetService("TweenService")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local VirtualInputManager = game:GetService("VirtualInputManager")
@@ -557,6 +555,7 @@ utils.dragify = function(object, hoverobj, speed, additionalObject, n)
 end
 
 task.spawn(function()
+    if getgenv().NoUi then return end
     local ScreenGui = utils.create('ScreenGui', {
         Parent = CoreGui,
         IgnoreGuiInset = true,
@@ -628,6 +627,7 @@ task.spawn(function()
 end)
 
 for ShopName, Items in pairs(getgenv().IslandVariable.ShopItems) do
+    if getgenv().NoUi then return end
     local CallBuy = {}
     local ItemsName = {}
 
@@ -655,138 +655,140 @@ for ShopName, Items in pairs(getgenv().IslandVariable.ShopItems) do
     })
 end
 
-Starlight:SetTheme("W-azure")
-local Window = Starlight:CreateWindow({
-    Name = "W-azure",
-    Subtitle = "Rewrite v1.0 | discord.gg/w-azure",
-    Icon = 89753210367517,
+if not getgenv().NoUi then
+    Starlight:SetTheme("W-azure")
+    local Window = Starlight:CreateWindow({
+        Name = "W-azure",
+        Subtitle = "Rewrite v1.0 | discord.gg/w-azure",
+        Icon = 89753210367517,
 
-    LoadingEnabled = true,
-    LoadingSettings = {
-        Title = "W-azure Rewrite",
-        Subtitle = "Welcome to W-azure",
-    }
-})
-
-local TabSection = Window:CreateTabSection("Main", false)
-
-local BuildUi = function(GroupBox, Children)
-    for _, arg in pairs(Children) do
-        local success, _ = pcall(function()
-            local _ = arg.Title
-        end)
-        if not success then continue end
-        
-        local MainArg = {
-            Name = arg.Title
+        LoadingEnabled = true,
+        LoadingSettings = {
+            Title = "W-azure Rewrite",
+            Subtitle = "Welcome to W-azure",
         }
+    })
 
-        if arg.Mode == "Button" then
-            if arg.Callback then
-                MainArg.Callback = arg.Callback
-            else
-                MainArg.Callback = getgenv().IslandCaller[arg.Id]
-            end
-            GroupBox:CreateButton(MainArg, arg.Id or arg.Title)
-        elseif arg.Mode == "Toggle" then
-            MainArg.CurrentValue = getgenv().Settings[arg.Id] or arg.Default or false
-            MainArg.Callback = function(value)
-                if arg.Id then
-                    getgenv().Settings[arg.Id] = value
-                end
-            end
-            GroupBox:CreateToggle(MainArg, arg.Id or arg.Title)
-        elseif arg.Mode == "Slider" then
-            MainArg.CurrentValue = getgenv().Settings[arg.Id] or arg.Default or 1
-            MainArg.Range = {arg.Min or 1, arg.Max or 100}
-            MainArg.Callback = function(value)
-                if arg.Id then
-                    getgenv().Settings[arg.Id] = value
-                end
-            end
-            GroupBox:CreateSlider(MainArg, arg.Id or arg.Title)
-        elseif arg.Mode == "Dropdown" then
-            local Label = GroupBox:CreateLabel(MainArg, arg.Id or arg.Title)
-            local Default = {}
-            local ArgDefaut = getgenv().Settings[arg.Id] or arg.Default or {}
-            if ArgDefaut then
-                if typeof(ArgDefaut) ~= "table" then
-                    table.insert(Default, ArgDefaut)
+    local TabSection = Window:CreateTabSection("Main", false)
+
+    local BuildUi = function(GroupBox, Children)
+        for _, arg in pairs(Children) do
+            local success, _ = pcall(function()
+                local _ = arg.Title
+            end)
+            if not success then continue end
+            
+            local MainArg = {
+                Name = arg.Title
+            }
+
+            if arg.Mode == "Button" then
+                if arg.Callback then
+                    MainArg.Callback = arg.Callback
                 else
-                    Default = ArgDefaut
+                    MainArg.Callback = getgenv().IslandCaller[arg.Id]
                 end
-            end
-
-            local DropdownArg = {
-                Options = arg.Table or {},
-                CurrentOption = Default,
-                Placeholder = arg.Title or "Select value",
-                MultipleOptions = arg.Multi or false,
-                Special = arg.Special or 0,
-                Callback = arg.Callback or function(options)
+                GroupBox:CreateButton(MainArg, arg.Id or arg.Title)
+            elseif arg.Mode == "Toggle" then
+                MainArg.CurrentValue = getgenv().Settings[arg.Id] or arg.Default or false
+                MainArg.Callback = function(value)
                     if arg.Id then
-                        if not arg.Multi then
-                            getgenv().Settings[arg.Id] = arg.IsNumber and tonumber(options[1]) or tostring(options[1])
-                        else
-                            getgenv().Settings[arg.Id] = options
+                        getgenv().Settings[arg.Id] = value
+                    end
+                end
+                GroupBox:CreateToggle(MainArg, arg.Id or arg.Title)
+            elseif arg.Mode == "Slider" then
+                MainArg.CurrentValue = getgenv().Settings[arg.Id] or arg.Default or 1
+                MainArg.Range = {arg.Min or 1, arg.Max or 100}
+                MainArg.Callback = function(value)
+                    if arg.Id then
+                        getgenv().Settings[arg.Id] = value
+                    end
+                end
+                GroupBox:CreateSlider(MainArg, arg.Id or arg.Title)
+            elseif arg.Mode == "Dropdown" then
+                local Label = GroupBox:CreateLabel(MainArg, arg.Id or arg.Title)
+                local Default = {}
+                local ArgDefaut = getgenv().Settings[arg.Id] or arg.Default or {}
+                if ArgDefaut then
+                    if typeof(ArgDefaut) ~= "table" then
+                        table.insert(Default, ArgDefaut)
+                    else
+                        Default = ArgDefaut
+                    end
+                end
+
+                local DropdownArg = {
+                    Options = arg.Table or {},
+                    CurrentOption = Default,
+                    Placeholder = arg.Title or "Select value",
+                    MultipleOptions = arg.Multi or false,
+                    Special = arg.Special or 0,
+                    Callback = arg.Callback or function(options)
+                        if arg.Id then
+                            if not arg.Multi then
+                                getgenv().Settings[arg.Id] = arg.IsNumber and tonumber(options[1]) or tostring(options[1])
+                            else
+                                getgenv().Settings[arg.Id] = options
+                            end
+                        end
+                    end
+                }
+                Label:AddDropdown(DropdownArg, (arg.Id or arg.Title) .. "dropdown")
+            elseif arg.Mode == "Label" then
+                GroupBox:CreateLabel(MainArg, arg.Id or arg.Title)
+            elseif arg.Mode == "Input" then
+                MainArg.PlaceholderText = arg.Title
+                MainArg.Enter = true
+                MainArg.RemoveTextAfterFocusLost = false
+                if arg.Callback or arg.Id then
+                    MainArg.Callback = function(text)
+                        print(text)
+                        if arg.Id then
+                            getgenv().Settings[arg.Id] = text
                         end
                     end
                 end
-            }
-            Label:AddDropdown(DropdownArg, (arg.Id or arg.Title) .. "dropdown")
-        elseif arg.Mode == "Label" then
-            GroupBox:CreateLabel(MainArg, arg.Id or arg.Title)
-        elseif arg.Mode == "Input" then
-            MainArg.PlaceholderText = arg.Title
-            MainArg.Enter = true
-            MainArg.RemoveTextAfterFocusLost = false
-            if arg.Callback or arg.Id then
-                MainArg.Callback = function(text)
-                    print(text)
-                    if arg.Id then
-                        getgenv().Settings[arg.Id] = text
-                    end
-                end
+                GroupBox:CreateInput(MainArg, arg.Id or arg.Title)
             end
-            GroupBox:CreateInput(MainArg, arg.Id or arg.Title)
         end
     end
-end
 
-local BuildGroup = function(Tab, TabName)
-    local GroupColumn = 1
-    for _, group in pairs(UiIntilize[TabName] or {}) do
-        if GroupColumn >= 3 then
-            GroupColumn = 1
-        end  
+    local BuildGroup = function(Tab, TabName)
+        local GroupColumn = 1
+        for _, group in pairs(UiIntilize[TabName] or {}) do
+            if GroupColumn >= 3 then
+                GroupColumn = 1
+            end  
 
-        local GroupBox = Tab:CreateGroupbox({
-            Name = group.Title,
-            Column = GroupColumn
-        }, group.Title)
+            local GroupBox = Tab:CreateGroupbox({
+                Name = group.Title,
+                Column = GroupColumn
+            }, group.Title)
 
-        GroupColumn += 1
-        task.spawn(function()
-            BuildUi(GroupBox, group.Children)
-        end)
-    end 
-end
-
-local BuildTabSection = function()
-    for _, arg in pairs(UiOrders) do
-        local Tab = TabSection:CreateTab({
-            Name = arg.title,
-            Icon = NebulaIcons:GetIcon(arg.icon, 'Lucide'),
-            Columns = 2
-        }, arg.title)
-
-        task.spawn(function()
-            BuildGroup(Tab, arg.title)
-        end)
+            GroupColumn += 1
+            task.spawn(function()
+                BuildUi(GroupBox, group.Children)
+            end)
+        end 
     end
-end
 
-task.spawn(BuildTabSection)
+    local BuildTabSection = function()
+        for _, arg in pairs(UiOrders) do
+            local Tab = TabSection:CreateTab({
+                Name = arg.title,
+                Icon = NebulaIcons:GetIcon(arg.icon, 'Lucide'),
+                Columns = 2
+            }, arg.title)
+
+            task.spawn(function()
+                BuildGroup(Tab, arg.title)
+            end)
+        end
+    end
+
+    task.spawn(BuildTabSection) 
+end
 
 local SettingsManager = {}
 function SettingsManager:LoadConfigPath()
