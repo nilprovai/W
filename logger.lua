@@ -63,7 +63,7 @@ Modules.Print = function(message, messageType, customColor)
         prefix = `[{messageType}]`
     end
     
-    local formattedMessage = string.format("<font color='rgb(%s)' size='15'>%s</font><font color='rgb(%s)' size='15'> %s</font>", color, prefix, Modules.Colors["WHITE"], tostring(message))
+    local formattedMessage = string.format("<font color='rgb(%s)' size='15'>%s </font>%s", color, prefix, tostring(message))
     print(formattedMessage)
 end
 
