@@ -688,18 +688,12 @@ if not getgenv().NoUi then
     end
 
     local BuildGroup = function(Tab, TabName)
-        local GroupColumn = 1
         for _, group in pairs(UiIntilize[TabName] or {}) do
-            if GroupColumn >= 3 then
-                GroupColumn = 1
-            end  
-
             local GroupBox = Tab:CreateGroupbox({
                 Name = group.Title,
-                Column = GroupColumn
+                Column = 1
             }, group.Title)
 
-            GroupColumn += 1
             task.spawn(function()
                 BuildUi(GroupBox, group.Children)
             end)
