@@ -421,7 +421,8 @@ local UiIntilize = {
         {Title = "Mob Settings", Children={
             {Mode = "Toggle",Title = "Bring Mob",Id = "Bring Mob"},
             {Mode = "Slider",Title = "Bring Mob Radius",Id = "Bring Mob Radius",Default = getgenv().Settings["Bring Mob Radius"] or 200,Min = 200,Max = 500},
-            {Mode = "Toggle",Title = "Patch Ghost Mob (Beta)",Id = "Patch Ghost Mob"}
+            {Mode = "Toggle",Title = "Patch Ghost Mob (Beta)",Id = "Patch Ghost Mob"},
+            {Mode = "Toggle",Title = "Force Destroy Ghost Mob",Id = "Force Destroy Ghost Mob"},
         }},
         {Title = "Combat", Children={
             {Mode = "Toggle",Title = "Auto Click",Id = "Auto Click"},
