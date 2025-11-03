@@ -726,7 +726,7 @@ if not getgenv().NoUi then
 
     local BuildTabSection = function()
         for _, arg in pairs(UiOrders) do
-            if not getgenv().LoadTab[arg.Title] then continue end
+            if not getgenv().LoadTab[arg.title] then continue end
             local Tab = TabSection:CreateTab({
                 Name = arg.title,
                 Icon = NebulaIcons:GetIcon(arg.icon, 'Lucide'),
