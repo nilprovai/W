@@ -1,4 +1,22 @@
 getgenv().SecureMode = true
+getgenv().LoadTab = getgenv().LoadTab and type(getgenv().LoadTab) == "table" and getgenv().LoadTab or {
+    ["Main Farm"] = true,
+    ["Stack Auto Farm"] = true,
+    ["Sub Farming"] = true,
+    ["Vocalnic"] = true,
+    ["Status"] = true,
+    ["Fruit"] = true,
+    ["Local Player"] = true,
+    ["Travel"] = true,
+    ["Pvp-Visual"] = true,
+    ["Raid-Material"] = true,
+    ["RaceV4-Mirage"] = true,
+    ["Sea Events"] = true,
+    ["Sub Class"] = true,
+    ["Shop"] = true,
+    ["Settings"] = true,
+    ["Game-Server"] = true,
+}
 
 repeat task.wait() until getgenv().IslandCaller and getgenv().IslandVariable and game.Players.LocalPlayer
 
@@ -22,7 +40,7 @@ local NebulaIcons = loadstring(game:HttpGet("https://raw.nebulasoftworks.xyz/neb
 
 local UiOrders = {
     { title = "Main Farm", icon = "pickaxe" },
-    { title = "Stack Auto farm", icon = "layers" },
+    { title = "Stack Auto Farm", icon = "layers" },
     { title = "Sub Farming", icon = "leaf" },
     { title = "Vocalnic", icon = "flame" },
     { title = "Status", icon = "chart-no-axes-column" },
@@ -84,7 +102,7 @@ local UiIntilize = {
             {Mode="Button",Title="Fps Boost",Id="Fps Boost"}
         }}
     },
-    ["Stack Auto farm"] = {
+    ["Stack Auto Farm"] = {
         {Title="Halloween Event", Children={
             {Mode="Toggle",Title="Auto Halloween Event", Id="Auto Halloween Event"},
             {Mode="Toggle",Title="Ignore Halloween Boss", Id="Ignore Halloween Boss"},
@@ -389,9 +407,14 @@ local UiIntilize = {
             {Mode = "Toggle",Title = "Auto Buy Bribe",Id = "Auto Buy Bribe"},
             {Mode = "Toggle",Title = "Auto Random Bone",Id = "Auto Random Bone"},
             {Mode = "Toggle",Title = "Auto Random Fruit",Id = "Auto Random Fruit"},
+            {Mode = "Toggle",Title = "Auto Random Halloween",Id = "Auto Random Halloween"},
             {Mode = "Toggle",Title = "Auto Buy Legendary Sword",Id = "Auto Buy Legendary Sword"},
             {Mode = "Toggle",Title = "Auto Buy Haki Color",Id = "Auto Buy Haki Color"},
             {Mode = "Toggle",Title = "Only Buy Legendary Haki Color",Id = "Only Buy Legendary Haki Color"},
+        }},
+        {Title="Fighting Styles", Children={
+            {Mode = "Dropdown",Title = "Melee To Buy",Id = "Melee To Buy",Table = getgenv().IslandVariable.MeleesName[getgenv().IslandVariable["CurrentSea"]] },
+            {Mode = "Button",Title = "Buy Melee",Id="Buy Melee"},
         }},
         {Title="Manual Actions", Children={
             {Mode = "Button", Title = "Redeem All Codes", Callback = getgenv().IslandCaller["Redeem All Codes"]},
@@ -703,6 +726,7 @@ if not getgenv().NoUi then
 
     local BuildTabSection = function()
         for _, arg in pairs(UiOrders) do
+            if not getgenv().LoadTab[arg.Title] then continue end
             local Tab = TabSection:CreateTab({
                 Name = arg.title,
                 Icon = NebulaIcons:GetIcon(arg.icon, 'Lucide'),
