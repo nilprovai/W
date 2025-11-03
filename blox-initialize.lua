@@ -59,7 +59,7 @@ getgenv().IslandVariable.RequestPlacesForFarm = {
         ["Hydra Island"] = CFrame.new(5661.53027, 900.38354, -334.961914),
         ["Temple Of Time"] = CFrame.new(28286.35546875, 14895.3017578125, 102.62469482421875),
         ["Template Of Time Back"] = CFrame.new(3029.064453125, 199.98846435546875, -7324.943359375),
-        ["Tiki Outpost"] = CFrame.new(-16813.439453125, 20.2912712097168, 304.87396240234375),
+        ["Tiki Outpost"] = CFrame.new(-16813.439453125, -10.2912712097168, 304.87396240234375),
         ["Submerged Island"] = CFrame.new(11520.80078125, -2154.98583984375, 9829.513671875)
     }
 }
@@ -1282,6 +1282,53 @@ getgenv().IslandVariable.SpawnPosition = {
         ["Demonic Soul [Lv. 2025]"] = { "-9426.9560546875, 171.95281982421875, 6048.408203125", "-9344.9560546875, 171.95281982421875, 6201.408203125", "-9253.9560546875, 171.95281982421875, 6050.408203125", "-9565.9560546875, 171.95281982421875, 6235.408203125", "-9631.9560546875, 171.95281982421875, 6053.408203125", "-9753.9560546875, 171.95281982421875, 6166.408203125" }
     }
 }
+
+getgenv().IslandVariable.NPCsMelee = {
+    ["Dark Step"] = {
+        ["Sea 1"] = CFrame.new(),
+        ["Sea 2"] = CFrame.new(),
+        ["Sea 3"] = CFrame.new(-5045.60205078125, 370.010986328125, -3182.304931640625),
+    },
+    ["Electro"] = {
+        ["Sea 1"] = CFrame.new(),
+        ["Sea 2"] = CFrame.new(),
+        ["Sea 3"] = CFrame.new(-4996.0517578125, 313.2139587402344, -3201.82373046875),
+    },
+    ["Water Kung Fu"] = {
+        ["Sea 1"] = CFrame.new(),
+        ["Sea 2"] = CFrame.new(),
+        ["Sea 3"] = CFrame.new(-5023.9091796875, 371.0299987792969, -3191.45751953125),
+    },
+    ["Dragon Breath"] = {
+        ["Sea 2"] = CFrame.new(),
+        ["Sea 3"] = CFrame.new(-4981.162109375, 370.010986328125, -3208.3388671875),
+    },
+    ["Superhuman"] = {
+        ["Sea 2"] = CFrame.new(),
+        ["Sea 3"] = CFrame.new(-5004.72119140625, 370.42333984375, -3198.915283203125),
+    },
+    ["Death Step"] = {
+        ["Sea 2"] = CFrame.new(),
+        ["Sea 3"] = CFrame.new(-4999.23046875, 314.0144958496094, -3221.572265625),
+    },
+    ["Sharkman Karate"] = {
+        ["Sea 2"] = CFrame.new(),
+        ["Sea 3"] = CFrame.new(-4971.2060546875, 313.8869323730469, -3223.0791015625),
+    },
+    ["Electric Claw"] = {
+        ["Sea 3"] = CFrame.new(-10371.4716796875, 330.7640075683594, -10131.419921875)
+    },
+    ["Dragon Talon"] = {
+        ["Sea 3"] = CFrame.new(5661.89794921875, 1210.876953125, 863.176025390625)
+    },
+    ["Godhuman"] = {
+        ["Sea 3"] = CFrame.new(-13774.0908203125, 333.7330017089844, -9879.9072265625)
+    },
+    ["Sanguine Art"] = {
+        ["Sea 3"] = CFrame.new()
+    }
+}
+
 getgenv().IslandVariable.ShopItems = {
     ["Abilities"] = {
         {
@@ -1322,7 +1369,7 @@ getgenv().IslandVariable.ShopItems = {
             },
         },
         {
-            ["Name"] = "Eletro",
+            ["Name"] = "Electro",
             ["Args"] = {"BuyElectro"},
             ["Price"] = {
                 ["Beli"] = 500000,
@@ -1366,7 +1413,7 @@ getgenv().IslandVariable.ShopItems = {
             },
         },
         {
-            ["Name"] = "Eletric Claw",
+            ["Name"] = "Electric Claw",
             ["Args"] = {"BuyElectricClaw"},
             ["Price"] = {
                 ["Beli"] = 3000000,
@@ -1391,7 +1438,7 @@ getgenv().IslandVariable.ShopItems = {
             },
         },
         {
-            ["Name"] = "Saguine Art",
+            ["Name"] = "Sanguine Art",
             ["Args"] = {"BuySanguineArt"},
             ["Price"] = {
                 ["Beli"] = 500000,
