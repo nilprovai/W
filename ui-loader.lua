@@ -1,5 +1,5 @@
 getgenv().SecureMode = true
-getgenv().LoadTab = getgenv().LoadTab and type(getgenv().LoadTab) == "table" and getgenv().LoadTab or {
+getgenv().LoadTab = getgenv().LoadTab or {
     ["Main Farm"] = true,
     ["Stack Auto Farm"] = true,
     ["Sub Farming"] = true,
