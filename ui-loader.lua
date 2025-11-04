@@ -68,6 +68,10 @@ local UiIntilize = {
             {Mode="Toggle",Title="Kill Aura",Id="Kill Aura"},
             {Mode="Toggle",Title="Fully Auto Dough King",Id="Fully Auto Dough King"},
         }},
+        {Title="Weapon Settings", Children={
+            {Mode="Dropdown",Title="Weapon For Farm", Id="Weapon For Farm",Table={"Melee", "Sword", "Blox Fruit"}, Default=getgenv().Settings["Weapon For Farm"] or "Melee"},
+            {Mode="Toggle",Title="Switch Sword When Low Health", Id="Switch Sword When Low"},
+        }},
         {Title="Anchor & Position", Children={
             {Mode="Toggle",Title="TP Back Anchor Position",Id="TP Back Anchor Position"},
             {Mode="Button",Title="Set Anchor Position",Callback=function()
@@ -82,14 +86,6 @@ local UiIntilize = {
                 end)
             end},
             {Mode="Dropdown",Title="Distance From Anchor",Table = {400,800,1200,1600,2000,2400,2800,3200,3600,4000},Default=getgenv().Settings["Distance From Anchor"] or 400,Id="Distance From Anchor", IsNumber=true},
-        }},
-        {Title="Weapon Settings", Children={
-            {Mode="Dropdown",Title="Weapon For Farm", Id="Weapon For Farm",Table={"Melee", "Sword", "Blox Fruit"}, Default=getgenv().Settings["Weapon For Farm"] or "Melee"},
-            {Mode="Toggle",Title="Sword Switcher",Id="Sword Switcher"},
-            {Mode="Toggle",Title="Only Switch Max Mastery",Id="Only Switch Max Mastery"},
-            {Mode="Toggle",Title="Switch Sword When Low", Id="Switch Sword When Low"},
-            {Mode="Toggle",Title="Gun Switcher",Id="Gun Switcher"},
-            {Mode="Toggle",Title="Only Switch Max Mastery Gun",Id="Only Switch Max Mastery Gun"},
         }},
         {Title="Mastery Settings", Children={
             {Mode="Toggle",Title="Mastery Farm", Id="Mastery Farm"},
