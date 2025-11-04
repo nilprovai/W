@@ -99,7 +99,8 @@ local UiIntilize = {
             {Mode="Toggle",Title = "Disable Silent Aim",Id = "Disable Silent Aim"},
         }},
         {Title="Other", Children={
-            {Mode="Button",Title="Fps Boost",Id="Fps Boost"}
+            {Mode="Button",Title="Lite Fps Boost",Id="Lite Fps Boost"},
+            {Mode="Button",Title="Super Fps Boost",Id="Super Fps Boost"}
         }}
     },
     ["Stack Auto Farm"] = {
