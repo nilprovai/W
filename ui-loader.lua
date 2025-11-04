@@ -84,7 +84,7 @@ local UiIntilize = {
             {Mode="Dropdown",Title="Distance From Anchor",Table = {400,800,1200,1600,2000,2400,2800,3200,3600,4000},Default=getgenv().Settings["Distance From Anchor"] or 400,Id="Distance From Anchor", IsNumber=true},
         }},
         {Title="Weapon Settings", Children={
-            {Mode="Toggle",Title="Weapon For Farm", Id="Weapon For Farm",Table={"Melee", "Sword", "Blox Fruit"}, Default=getgenv().Settings["Weapon For Farm"] or "Melee"},
+            {Mode="Dropdown",Title="Weapon For Farm", Id="Weapon For Farm",Table={"Melee", "Sword", "Blox Fruit"}, Default=getgenv().Settings["Weapon For Farm"] or "Melee"},
             {Mode="Toggle",Title="Sword Switcher",Id="Sword Switcher"},
             {Mode="Toggle",Title="Only Switch Max Mastery",Id="Only Switch Max Mastery"},
             {Mode="Toggle",Title="Switch Sword When Low", Id="Switch Sword When Low"},
