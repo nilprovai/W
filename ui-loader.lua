@@ -259,7 +259,7 @@ local UiIntilize = {
             {Mode = "Toggle",Title = "Add Stat Defense",Id = "Add Stat Defense"},
             {Mode = "Toggle",Title = "Add Stat Sword",Id = "Add Stat Sword"},
             {Mode = "Toggle",Title = "Add Stat Gun",Id = "Add Stat Gun"},
-            {Mode = "Toggle",Title = "Add Stat Blox Fruit",Id = "Add Stat Blox Fruit"},
+            {Mode = "Toggle",Title = "Add Stat Demon Fruit",Id = "Add Stat Demon Fruit"},
         }}
     },
     ["Travel"] = {
