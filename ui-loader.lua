@@ -84,7 +84,7 @@ local UiIntilize = {
             {Mode="Dropdown",Title="Distance From Anchor",Table = {400,800,1200,1600,2000,2400,2800,3200,3600,4000},Default=getgenv().Settings["Distance From Anchor"] or 400,Id="Distance From Anchor", IsNumber=true},
         }},
         {Title="Weapon Settings", Children={
-            {Mode="Toggle",Title="Use Sword",Id="Use Sword"},
+            {Mode="Toggle",Title="Weapon For Farm", Id="Weapon For Farm",Table={"Melee", "Sword", "Blox Fruit"}, Default=getgenv().Settings["Weapon For Farm"] or "Melee"},
             {Mode="Toggle",Title="Sword Switcher",Id="Sword Switcher"},
             {Mode="Toggle",Title="Only Switch Max Mastery",Id="Only Switch Max Mastery"},
             {Mode="Toggle",Title="Switch Sword When Low", Id="Switch Sword When Low"},
@@ -449,8 +449,10 @@ local UiIntilize = {
         }},
         {Title = "Combat", Children={
             {Mode = "Toggle",Title = "Auto Click",Id = "Auto Click"},
+            {Mode = "Toggle",Title = "Auto M1 Fruit",Id = "Auto M1 Fruit"},
             {Mode = "Toggle",Title = "On Player",Id = "Auto Click On Player"},
             {Mode = "Toggle",Title = "On Mob",Id = "Auto Click On Mob"},
+            {Mode = "Toggle",Title = "On Sea Events",Id = "Auto Click On Sea Events"},
         }},
         {Title = "Mastery Position", Children={
             {Mode = "Slider", Title = "Position X", Id="Position X", Default=getgenv().Settings["Position X"] or 0, Min = 0, Max = 60},
