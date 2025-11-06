@@ -292,10 +292,11 @@ local UiIntilize = {
         }},
         {Title="ESP & Visuals", Children={
             {Mode = "Toggle",Title = "ESP Players",Id = "ESP Players"},
-            {Mode = "Toggle",Title = "ESP Boss",Id = "ESP Boss"},
+            {Mode = "Toggle",Title = "ESP Legendary Sword",Id = "ESP Legendary Sword"},
             {Mode = "Toggle",Title = "ESP Chests",Id = "ESP Chests"},
             {Mode = "Toggle",Title = "ESP Island",Id = "ESP Island"},
-            {Mode = "Toggle",Title = "ESP Fruit",Id = "ESP Fruit"}
+            {Mode = "Toggle",Title = "ESP Fruit",Id = "ESP Fruit"},
+            {Mode = "Toggle",Title = "ESP Gear",Id = "ESP Gear"},
         }}
     },
     ["Raid-Material"] = {
