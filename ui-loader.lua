@@ -630,6 +630,9 @@ if not getgenv().NoUi then
                         end
                     end
                 end
+                if getgenv().Settings[arg.Id] then
+                    MainArg.CurrentValue = getgenv().Settings[arg.Id]
+                end
                 GroupBox:CreateInput(MainArg, arg.Id or arg.Title)
             end
         end
