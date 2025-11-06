@@ -426,6 +426,7 @@ local UiIntilize = {
     },
     ["Webhook"] = {
         {Title = "Webhook Settings", Children={
+            {Mode="Toggle", Title="Enable Webhook", Id="Enable Webhook"},
             {Mode="Input", Title="Webhook URL", Id="Webhook URL"},
             {Mode="Button", Title="Test Webhook", Id="Test Webhook"}
         }},
