@@ -283,14 +283,12 @@ local UiIntilize = {
     ["Pvp-Visual"] = {
         {Title="Player Targeting", Children={
             {Mode="Dropdown",Title="Select Player",Special=1,Id="Selected Player"},
-            {Mode = "Toggle",Title = "Tween To Player",Id = "Tween To Player"},
+            {Mode = "Button",Title = "Tween To Player",Id = "Tween To Player"},
         }},
         {Title="Combat Options", Children={
-            {Mode = "Toggle",Title = "Auto Shoot Gun",Id = "Auto Shoot Gun"},
             {Mode = "Toggle",Title = "Silent Aim Selected",Id = "Silent Aim Selected"},
             {Mode = "Toggle",Title = "Silent Aim Near Player",Id = "Silent Aim Near Player"},
             {Mode = "Toggle",Title = "Auto Kill Near Player",Id = "Auto Kill Near Player"},
-            {Mode = "Toggle",Title = "Only Shoot In Shootable Distance",Id = "Only Shoot In Shootable Distance"},
         }},
         {Title="ESP & Visuals", Children={
             {Mode = "Toggle",Title = "ESP Players",Id = "ESP Players"},
