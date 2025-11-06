@@ -283,7 +283,7 @@ local UiIntilize = {
     ["Pvp-Visual"] = {
         {Title="Player Targeting", Children={
             {Mode="Dropdown",Title="Select Player",Special=1,Id="Selected Player"},
-            {Mode = "Button",Title = "Tween To Player",Id = "Tween To Player"},
+            {Mode = "Toggle",Title = "Tween To Player",Id = "Tween To Player"},
         }},
         {Title="Combat Options", Children={
             {Mode = "Toggle",Title = "Silent Aim Selected",Id = "Silent Aim Selected"},
