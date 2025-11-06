@@ -14,19 +14,16 @@ getgenv().LoadTab = getgenv().LoadTab or {
     ["Sea Events"] = true,
     ["Sub Class"] = true,
     ["Shop"] = true,
+    ["Webhook"] = true,
     ["Settings"] = true,
     ["Game-Server"] = true,
 }
 
 repeat task.wait() until getgenv().IslandCaller and getgenv().IslandVariable and game.Players.LocalPlayer
 
-local CoreGui = game.CoreGui
 local JobId = game.JobId
 
-local TweenService = game:GetService("TweenService")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local VirtualInputManager = game:GetService("VirtualInputManager")
-local UserInputService = game:GetService("UserInputService")
 local HttpService = game:GetService("HttpService")
 
 local Remotes = ReplicatedStorage:WaitForChild("Remotes")
@@ -53,6 +50,7 @@ local UiOrders = {
     { title = "Sea Events", icon = "waves" },
     { title = "Sub Class", icon = "book-open" },
     { title = "Shop", icon = "shopping-cart" },
+    { title = "Webhook", icon = "bell-dot" },
     { title = "Settings", icon = "cog" },
     { title = "Game-Server", icon = "server" },
 }
@@ -189,7 +187,7 @@ local UiIntilize = {
         {Title="Volcanic Activities", Children={
             {Mode = "Toggle",Title = "Auto Dojo Trainer",Id = "Auto Dojo Trainer"},
             {Mode = "Toggle",Title = "Auto Ember",Id = "Auto Ember"},
-            {Mode = "Toggle",Title = "Auto Find PrehistoricIsland",Id = "Auto Find PrehistoricIsland"},
+            {Mode = "Toggle",Title = "Auto Find Prehistoric Island",Id = "Auto Find Prehistoric Island"},
         }},
         {Title="Berry Activites", Children={
             {Mode = "Toggle",Title = "Auto Collect Berry",Id = "Auto Collect Berry"},
@@ -337,8 +335,8 @@ local UiIntilize = {
             {Mode = "Toggle",Title = "Auto Escape Rough Sea",Id = "Auto Escape Rough Sea"},
         }},
         {Title = "Leviathan", Children={
-            {Mode = "Button",Title = "Tp To Frozen island",Id="TP Leviathan Island"},
-            {Mode = "Toggle",Title = "Auto Find Leviathan",Id = "Auto Find Leviathan"},
+            {Mode = "Button",Title = "Tp To Frozen Island",Id="TP Frozen Island"},
+            {Mode = "Toggle",Title = "Auto Find Frozen Island",Id = "Auto Find Frozen Island"},
             {Mode = "Toggle",Title = "Auto Leviathan",Id = "Auto Leviathan"},
             {Mode = "Toggle",Title = "Multi Segments Attack",Id = "Multi Segments Attack"},
         }},
@@ -424,6 +422,20 @@ local UiIntilize = {
             {Mode = "Button",Title = "Change Race To Cyborg",Callback = function()
                 CommF:InvokeServer("CyborgTrainer", "Buy")
             end}
+        }}
+    },
+    ["Webhook"] = {
+        {Title = "Webhook Settings", Children={
+            {Mode="Input", Title="Webhook URL", Id="Webhook URL"},
+            {Mode="Button", Title="Test Webhook", Id="Test Webhook"}
+        }},
+        {Title = "Webhook Notify", Children={
+            {Mode="Toggle", Title = "Store Fruit", Id="Webhook Store Fruit"},
+            {Mode="Toggle", Title = "Fullmoon", Id="Webhook Fullmoon"},
+            {Mode="Toggle", Title = "Prehistoric Island", Id="Webhook Prehistoric Island"},
+            {Mode="Toggle", Title = "Frozen Island", Id="Webhook Frozen Island"},
+            {Mode="Toggle", Title = "Kitsune Island", Id="Webhook Kitsune Island"},
+            {Mode="Toggle", Title = "Special Items", Id="Webhook Special Items"}
         }}
     },
     ["Settings"] = {
