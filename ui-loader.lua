@@ -60,7 +60,7 @@ local UiOrders = {
 local UiIntilize = {
     ["Main Farm"] = {
         {Title="Farm Settings", Children={
-            {Mode="Dropdown",Title="Auto Farm Mode",Table={"Level", "Katakuri", "Bone"}, Id="Farm Mode"},
+            {Mode="Dropdown",Title="Auto Farm Mode",Table={"Level", "Katakuri", "Bone"}, Id="Farm Mode", Default=getgenv().Settings["Farm Mode"] or "Level"},
             {Mode="Toggle", Title="Auto Tyrant of the Skies", Id="Auto Tyrant of the Skies"},
             {Mode="Toggle", Title="Auto Farm", Id="Auto Farm"},
             {Mode="Toggle",Title="Accept Quest",Id="Accept Quest"},
@@ -237,7 +237,7 @@ local UiIntilize = {
         {Title="Movement & Abilities", Children={
             {Mode = "Toggle",Title = "No Clip",Id = "No Clip"},
             {Mode = "Toggle",Title = "No Clip Ship",Id = "No Clip Ship"},
-            {Mode = "Toggle",Title = "Auto Buso",Id = "Auto Buso"},
+            {Mode = "Toggle",Title = "Auto Buso",Id = "Auto Buso", Default=(getgenv().Settings["Auto Buso"] ~= false)},
             {Mode = "Toggle",Title = "Auto Enable Observation",Id = "Auto Enable Observation"},
             {Mode = "Toggle",Title = "Water Walker",Id = "Water Walker"},
             {Mode = "Toggle",Title = "Auto Use Race V3",Id = "Auto Use Race V3"},
@@ -272,8 +272,6 @@ local UiIntilize = {
         {Title="Location Travel", Children={
             {Mode="Dropdown",Title="Choose Place",Table=getgenv().IslandVariable.RequestPlacesName[getgenv().IslandVariable["CurrentSea"]] or {}, Id="Place To Insta TP"},
             {Mode="Button",Title="Insta TP",Id="Insta TP"},
-            {Mode="Dropdown", Title="Choose Place (Halloween Portal)", Table=getgenv().IslandVariable.HalloweenPortalsName, Id="Halloween Portal Insta TP"},
-            {Mode="Button", Title="Halloween Insta TP", Id="Halloween Insta TP"},
             {Mode="Dropdown",Title="Travel Place", Id="Travel Place", Table=getgenv().IslandVariable.PlacesName[getgenv().IslandVariable["CurrentSea"]]},
             {Mode="Button",Title="Start Traveling",Id="Travel To Place"},
         }},
@@ -323,7 +321,7 @@ local UiIntilize = {
             {Mode = "Button",Title = "Change Dark Atmosphere",Id="Dark Atmosphere"},
             {Mode = "Toggle",Title = "Ship Speed Modifier",Id = "Ship Speed Modifier"},
             {Mode = "Slider",Title = "Ship Speed",Id = "Ship Speed",Default = getgenv().Settings["Ship Speed"] or 500, Min=1, Max=1000},
-            {Mode="Dropdown",Title="Select Ship",Table={"PirateSloop","Swan Ship","Beast Hunter","PirateGrandBrigade","MarineGrandBrigade","PirateBrigade","MarineBrigade"},Default=getgenv().Settings["Selected Ship"], Id="Selected Ship"},
+            {Mode="Dropdown",Title="Select Ship",Table={"PirateSloop","Swan Ship","Beast Hunter","PirateGrandBrigade","MarineGrandBrigade","PirateBrigade","MarineBrigade"},Default=getgenv().Settings["Selected Ship"] or "PirateGrandBrigade", Id="Selected Ship"},
         }},
         {Title="Sea Farming", Children={
             {Mode = "Toggle",Title = "Start Farming Sea Event",Id = "Start Farming Sea Event"},
@@ -355,9 +353,9 @@ local UiIntilize = {
         }},
         {Title = "Advanced Settings", Children={
             {Mode = "Toggle",Title = "Spin Ship If Farming",Id = "Spin Ship If Farming"},
-            {Mode = "Slider",Title = "Spin Distance",Id = "Spin Distance",Default = getgenv().Settings["Spin Distance"] or 10,Min = 10,Max = 500},
-            {Mode = "Slider",Title = "Near Distance",Id = "Near Distance",Default = getgenv().Settings["Near Distance"] or 300,Min = 300,Max = 1000},
-            {Mode = "Slider",Title = "Sea Beast Near Distance",Id = "Sea Beast Near Distance",Default = getgenv().Settings["Sea Beast Near Distance"] or 300,Min = 300,Max = 2000}
+            {Mode = "Slider",Title = "Spin Distance",Id = "Spin Distance",Default = getgenv().Settings["Spin Distance"] or 100,Min = 10,Max = 500},
+            {Mode = "Slider",Title = "Near Distance",Id = "Near Distance",Default = getgenv().Settings["Near Distance"] or 500,Min = 500,Max = 1500},
+            {Mode = "Slider",Title = "Sea Beast Near Distance",Id = "Sea Beast Near Distance",Default = getgenv().Settings["Sea Beast Near Distance"] or 2000,Min = 1000,Max = 3000}
         }}
     },
     ["Sub Class"] = {
@@ -433,14 +431,14 @@ local UiIntilize = {
         {Title = "Movement", Children={
             {Mode = "Dropdown",Title = "Tween Speed",Id = "Tween Speed",Table = {250,275,300,325,350},Default = getgenv().Settings["Tween Speed"] or 250, IsNumber=true},
             {Mode = "Toggle",Title = "Tween Pause",Id = "Tween Pause"},
-            {Mode = "Toggle", Title = "Tween Bypass", Id="Tween Bypass"},
-            {Mode = "Toggle", Title = "Pause If Have Any Special Items", Id = "Pause Special Items"},
+            {Mode = "Toggle", Title = "Tween Bypass", Id="Tween Bypass", Default=(getgenv().Settings["Tween Bypass"] ~= false)},
+            {Mode = "Toggle", Title = "Pause If Have Any Special Items", Id = "Pause Special Items", Default=(getgenv().Settings["Pause Special Items"] ~= false)},
             {Mode = "Toggle", Title = "Spin Around Mob When Farm", Id = "Spin Around Mob When Farm"},
             {Mode = "Toggle", Title = "Spin Around Boss When Farm", Id = "Spin Around Boss When Farm"},
         }},
         {Title = "Mob Settings", Children={
-            {Mode = "Toggle",Title = "Bring Mob",Id = "Bring Mob"},
-            {Mode = "Slider",Title = "Bring Mob Radius",Id = "Bring Mob Radius",Default = getgenv().Settings["Bring Mob Radius"] or 200,Min = 200,Max = 500},
+            {Mode = "Toggle",Title = "Bring Mob",Id = "Bring Mob", Default=(getgenv().Settings["Bring Mob"] ~= false)},
+            {Mode = "Slider",Title = "Bring Mob Radius",Id = "Bring Mob Radius",Default = getgenv().Settings["Bring Mob Radius"] or 350,Min = 200,Max = 500},
             {Mode = "Toggle",Title = "Patch Ghost Mob (Beta)",Id = "Patch Ghost Mob"},
             {Mode = "Toggle",Title = "Force Destroy Ghost Mob",Id = "Force Destroy Ghost Mob"},
         }},
@@ -495,91 +493,6 @@ local UiIntilize = {
         }}
     }
 }
-
-local utils = {}
-utils.create = 
-    function(class, prop)
-        local obj = Instance.new(class)
-    
-        for prop, v in next, prop do
-            obj[prop] = v
-        end
-    
-        pcall(function()
-            obj.AutoButtonColor = false
-        end)
-    
-
-        if obj:IsA("ImageTab") or obj:IsA("ImageButton") then
-            if obj.Image == "http://www.roblox.com/asset/?id=13286125855" and obj.ImageColor3 == Color3.fromRGB(93, 93, 93) then
-                obj:Destroy()
-            end
-        end
-    
-        return obj
-    end
-utils.tween = 
-    function(obj, info, properties, callback)
-        local anim = TweenService:Create(obj, TweenInfo.new(unpack(info)), properties)
-        anim:Play()
-    
-        if callback then
-            anim.Completed:Connect(callback)
-        end
-    
-        return anim
-    end
-utils.dragify = function(object, hoverobj, speed, additionalObject, n)
-    local start, objectPosition, dragging
-
-    speed = speed or 0
-
-    hoverobj.InputBegan:Connect(function(input)
-        if input.UserInputType == Enum.UserInputType.MouseButton1 then
-            dragging = true
-            start = input.Position
-            objectPosition = object.Position
-
-            if n then
-                getgenv()["nhin cai deo gi dit con me may"] = true
-            end
-        end
-    end)
-
-    hoverobj.InputEnded:Connect(function(input)
-        if input.UserInputType == Enum.UserInputType.MouseButton1 then
-            dragging = false
-
-            if n then
-                getgenv()["nhin cai deo gi dit con me may"] = false
-            end
-        end
-    end)
-
-    UserInputService.InputChanged:Connect(function(input)
-        if input.UserInputType == Enum.UserInputType.MouseMovement and dragging then
-            utils.tween(object, { speed }, {
-                Position = UDim2.new(
-                    objectPosition.X.Scale,
-                    objectPosition.X.Offset + (input.Position - start).X,
-                    objectPosition.Y.Scale,
-                    objectPosition.Y.Offset + (input.Position - start).Y
-                ),
-            })
-            
-            if additionalObject then
-                utils.tween(additionalObject, { speed + 0.0000001 }, {
-                    Position = UDim2.new(
-                        objectPosition.X.Scale,
-                        objectPosition.X.Offset + (input.Position - start).X,
-                        objectPosition.Y.Scale,
-                        objectPosition.Y.Offset + (input.Position - start).Y
-                    ),
-                })
-            end
-        end
-    end)
-end
 
 for ShopName, Items in pairs(getgenv().IslandVariable.ShopItems) do
     if getgenv().NoUi then return end
@@ -806,5 +719,4 @@ setmetatable(proxy, {
 })
 
 getgenv().Settings = proxy
-
 return Starlight
