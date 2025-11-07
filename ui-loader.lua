@@ -331,14 +331,14 @@ local UiIntilize = {
             {Mode = "Toggle",Title = "Auto Escape Rough Sea",Id = "Auto Escape Rough Sea"},
         }},
         {Title = "Leviathan", Children={
-            {Mode = "Button",Title = "Tp To Frozen Island",Id="TP Frozen Island"},
             {Mode = "Toggle",Title = "Auto Find Frozen Island",Id = "Auto Find Frozen Island"},
+            {Mode = "Button",Title = "Tp To Frozen Island",Id="TP Frozen Island"},
             {Mode = "Toggle",Title = "Auto Leviathan",Id = "Auto Leviathan"},
             {Mode = "Toggle",Title = "Multi Segments Attack",Id = "Multi Segments Attack"},
         }},
         {Title = "Kitsune Island", Children={
-            {Mode = "Button",Title = "Tween To Kitsune Island"},
             {Mode = "Toggle",Title = "Auto Find Kitsune Island",Id = "Auto Find Kitsune Island"},
+            {Mode = "Button",Title = "Tp To Kitsune Island"},
             {Mode = "Toggle",Title = "Auto Start Kitsune When In Island",Id = "Auto Start Kitsune When In Island"},
             {Mode = "Toggle",Title = "Auto Collect Azure Wisp",Id = "Auto Collect Azure Wisp"},
             {Mode = "Dropdown",Title = "Azure Trade Min",Id = "Azure Ember Limit",Table = {15,20,25,30},Default = getgenv().Settings["Azure Ember Limit"] or 30,IsNumber=true},
@@ -361,6 +361,9 @@ local UiIntilize = {
     },
     ["RaceV4-Mirage"] = {
         {Title="Mirage Navigation", Children={
+            {Mode="Toggle", Title="Auto Find Mirage Island", Id="Auto Find Mirage Island"},
+            {Mode="Toggle", Title="Tp To Mirage Island", Id="TP Mirage Island"},
+            {Mode="Toggle", Title="Auto Mirage Chests", Id="Auto Mirage Chests"},
             {Mode = "Button",Title = "TP To Gear", Id="Tween To Gear"},
             {Mode = "Button",Title = "TP To Advandced Fruit Dealer",Id="Tween Fruit Dealer"},
             {Mode = "Button",Title = "Tween To Highest Place Mirage",Id="Tween Highest Place"},
@@ -429,6 +432,7 @@ local UiIntilize = {
             {Mode="Toggle", Title = "Store Fruit", Id="Webhook Store Fruit"},
             {Mode="Toggle", Title = "Snipe Fruit", Id="Webhook Snipe Fruit"},
             {Mode="Toggle", Title = "Fullmoon", Id="Webhook Fullmoon"},
+            {Mode="Toggle", Title = "Mirage Island", Id="Webhook Mirage Island"},
             {Mode="Toggle", Title = "Prehistoric Island", Id="Webhook Prehistoric Island"},
             {Mode="Toggle", Title = "Frozen Island", Id="Webhook Frozen Island"},
             {Mode="Toggle", Title = "Kitsune Island", Id="Webhook Kitsune Island"},
