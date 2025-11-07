@@ -362,8 +362,8 @@ local UiIntilize = {
     ["RaceV4-Mirage"] = {
         {Title="Mirage Navigation", Children={
             {Mode="Toggle", Title="Auto Find Mirage Island", Id="Auto Find Mirage Island"},
-            {Mode="Toggle", Title="Tp To Mirage Island", Id="TP Mirage Island"},
             {Mode="Toggle", Title="Auto Mirage Chests", Id="Auto Mirage Chests"},
+            {Mode="Button", Title="Tp To Mirage Island", Id="TP Mirage Island"},
             {Mode = "Button",Title = "TP To Gear", Id="Tween To Gear"},
             {Mode = "Button",Title = "TP To Advandced Fruit Dealer",Id="Tween Fruit Dealer"},
             {Mode = "Button",Title = "Tween To Highest Place Mirage",Id="Tween Highest Place"},
