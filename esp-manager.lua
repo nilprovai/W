@@ -12,7 +12,7 @@ local eventIslandNames = {
     "Kitsune Island"
 }
 
-local function createEventIslandESP()
+local function createIslandESP()
     if not Locations then return end
     
     for _, location in pairs(Locations:GetChildren()) do
@@ -47,6 +47,33 @@ local function createEventIslandESP()
                     else
                         local playerHead = LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("Head")
                         if playerHead then
+                            local distance = (playerHead.Position - location.Position).Magnitude
+                            local distanceInMeters = math.round(distance / 3)
+                            location.NameEsp.TextLabel.Text = string.format("%s\n%d M", location.Name, distanceInMeters)
+                        end
+                    end
+                else
+                    if location.Name ~= "Sea" then
+                        if not location:FindFirstChild("NameEsp") then
+                            local billboardGui = Instance.new("BillboardGui", location)
+                            billboardGui.Name = "NameEsp"
+                            billboardGui.ExtentsOffset = Vector3.new(0, 1, 0)
+                            billboardGui.Size = UDim2.new(1, 200, 1, 30)
+                            billboardGui.Adornee = location
+                            billboardGui.AlwaysOnTop = true
+                            
+                            local textLabel = Instance.new("TextLabel", billboardGui)
+                            textLabel.Font = Enum.Font.Code
+                            textLabel.TextSize = 14
+                            textLabel.TextWrapped = true
+                            textLabel.Size = UDim2.new(1, 0, 1, 0)
+                            textLabel.TextYAlignment = Enum.TextYAlignment.Top
+                            textLabel.BackgroundTransparency = 1
+                            textLabel.TextStrokeTransparency = 0.5
+                            textLabel.TextColor3 = Color3.fromRGB(98, 252, 252)
+                        end
+                        local playerHead = LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("Head")
+                        if playerHead and location:FindFirstChild("NameEsp") then
                             local distance = (playerHead.Position - location.Position).Magnitude
                             local distanceInMeters = math.round(distance / 3)
                             location.NameEsp.TextLabel.Text = string.format("%s\n%d M", location.Name, distanceInMeters)
@@ -232,48 +259,6 @@ local function createChestESP()
     end
 end
 
-local function createIslandLocationESP()
-    if not Locations then return end
-    
-    for _, location in pairs(Locations:GetChildren()) do
-        pcall(function()
-            if getgenv().Settings["ESP Island"] then
-                if location.Name ~= "Sea" then
-                    if not location:FindFirstChild("NameEsp") then
-                        local billboardGui = Instance.new("BillboardGui", location)
-                        billboardGui.Name = "NameEsp"
-                        billboardGui.ExtentsOffset = Vector3.new(0, 1, 0)
-                        billboardGui.Size = UDim2.new(1, 200, 1, 30)
-                        billboardGui.Adornee = location
-                        billboardGui.AlwaysOnTop = true
-                        
-                        local textLabel = Instance.new("TextLabel", billboardGui)
-                        textLabel.Font = Enum.Font.Code
-                        textLabel.TextSize = 14
-                        textLabel.TextWrapped = true
-                        textLabel.Size = UDim2.new(1, 0, 1, 0)
-                        textLabel.TextYAlignment = Enum.TextYAlignment.Top
-                        textLabel.BackgroundTransparency = 1
-                        textLabel.TextStrokeTransparency = 0.5
-                        textLabel.TextColor3 = Color3.fromRGB(98, 252, 252)
-                    end
-                    local playerHead = LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("Head")
-                    if playerHead and location:FindFirstChild("NameEsp") then
-                        local distance = (playerHead.Position - location.Position).Magnitude
-                        local distanceInMeters = math.round(distance / 3)
-                        location.NameEsp.TextLabel.Text = string.format("%s\n%d M", location.Name, distanceInMeters)
-                    end
-                end
-            else
-                local espElement = location:FindFirstChild("NameEsp")
-                if espElement then
-                    espElement:Destroy()
-                end
-            end
-        end)
-    end
-end
-
 local function createDevilFruitESP()    
     for _, object in pairs(workspace:GetChildren()) do
         pcall(function()
@@ -373,12 +358,11 @@ end
 
 task.spawn(function()
 	while task.wait(.5) do
-		createEventIslandESP()
 		createPlayerESP()
 		createGearESP()
 		createChestESP()
-		createEventIslandESP()
 		createDevilFruitESP()
+        createIslandESP()
 		createLegendarySwordESP()
 	end
 end)
