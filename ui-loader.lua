@@ -1,7 +1,3 @@
-getgenv().Settings = getgenv().Settings or {}
-getgenv().IslandCaller = {}
-loadstring(game:HttpGet("https://raw.githubusercontent.com/nilprovai/W/refs/heads/main/blox-initialize.lua"))()
-
 getgenv().SecureMode = true
 getgenv().LoadTab = getgenv().LoadTab or {
     ["Main Farm"] = true,
@@ -206,7 +202,7 @@ local UiIntilize = {
             {Mode="Label",Title="Server Haki Color"},
             {Mode="Label",Title="Elite Status"},
             {Mode="Label",Title="Mirage Status"},
-            {Mode="Label",Title="PrehistoricIsland Status"},
+            {Mode="Label",Title="Prehistoric Island Status"},
             {Mode="Label",Title="Kitsune Status"},
             {Mode="Label",Title="FullMoon Status"},
         }}
