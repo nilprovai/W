@@ -1,3 +1,7 @@
+getgenv().Settings = getgenv().Settings or {}
+getgenv().IslandCaller = {}
+loadstring(game:HttpGet("https://raw.githubusercontent.com/nilprovai/W/refs/heads/main/blox-initialize.lua"))()
+
 getgenv().SecureMode = true
 getgenv().LoadTab = getgenv().LoadTab or {
     ["Main Farm"] = true,
@@ -184,6 +188,8 @@ local UiIntilize = {
             {Mode = "Toggle",Title = "Auto Dojo Trainer",Id = "Auto Dojo Trainer"},
             {Mode = "Toggle",Title = "Auto Ember",Id = "Auto Ember"},
             {Mode = "Toggle",Title = "Auto Find Prehistoric Island",Id = "Auto Find Prehistoric Island"},
+            {Mode = "Toggle",Title = "Tp To Prehistoric Island",Id = "Tp To Prehistoric Island"},
+            {Mode="Toggle",Title="Auto Patch Volcano", Id="Auto Patch Volcano"}
         }},
         {Title="Berry Activites", Children={
             {Mode = "Toggle",Title = "Auto Collect Berry",Id = "Auto Collect Berry"},
@@ -336,19 +342,18 @@ local UiIntilize = {
             {Mode = "Toggle",Title = "Auto Leviathan",Id = "Auto Leviathan"},
             {Mode = "Toggle",Title = "Multi Segments Attack",Id = "Multi Segments Attack"},
         }},
-        {Title = "Kitsune Island", Children={
-            {Mode = "Toggle",Title = "Auto Find Kitsune Island",Id = "Auto Find Kitsune Island"},
-            {Mode = "Button",Title = "Tp To Kitsune Island"},
-            {Mode = "Toggle",Title = "Auto Start Kitsune When In Island",Id = "Auto Start Kitsune When In Island"},
-            {Mode = "Toggle",Title = "Auto Collect Azure Wisp",Id = "Auto Collect Azure Wisp"},
-            {Mode = "Dropdown",Title = "Azure Trade Min",Id = "Azure Ember Limit",Table = {15,20,25,30},Default = getgenv().Settings["Azure Ember Limit"] or 30,IsNumber=true},
-            {Mode = "Toggle",Title = "Auto Trade Azure Wisp",Id = "Auto Trade Azure Wisp"},
-        }},
+        -- {Title = "Kitsune Island", Children={
+        --     {Mode = "Toggle",Title = "Auto Find Kitsune Island",Id = "Auto Find Kitsune Island"},
+        --     {Mode = "Button",Title = "Tp To Kitsune Island"},
+        --     {Mode = "Toggle",Title = "Auto Start Kitsune When In Island",Id = "Auto Start Kitsune When In Island"},
+        --     {Mode = "Toggle",Title = "Auto Collect Azure Wisp",Id = "Auto Collect Azure Wisp"},
+        --     {Mode = "Dropdown",Title = "Azure Trade Min",Id = "Azure Ember Limit",Table = {15,20,25,30},Default = getgenv().Settings["Azure Ember Limit"] or 30,IsNumber=true},
+        --     {Mode = "Toggle",Title = "Auto Trade Azure Wisp",Id = "Auto Trade Azure Wisp"},
+        -- }},
         {Title = "Advanced Settings", Children={
             {Mode = "Toggle",Title = "Spin Ship If Farming",Id = "Spin Ship If Farming"},
             {Mode = "Slider",Title = "Spin Distance",Id = "Spin Distance",Default = getgenv().Settings["Spin Distance"] or 100,Min = 10,Max = 500},
-            {Mode = "Slider",Title = "Near Distance",Id = "Near Distance",Default = getgenv().Settings["Near Distance"] or 500,Min = 500,Max = 1500},
-            {Mode = "Slider",Title = "Sea Beast Near Distance",Id = "Sea Beast Near Distance",Default = getgenv().Settings["Sea Beast Near Distance"] or 2000,Min = 1000,Max = 3000}
+            {Mode = "Slider",Title="Ship Fly Y Position", Id="Ship Fly Y Position",Min=30,Max=200,Default=getgenv().Settings["Ship Fly Y Position"] or 125}
         }}
     },
     ["Sub Class"] = {
@@ -465,11 +470,11 @@ local UiIntilize = {
             {Mode = "Slider", Title = "Position X", Id="Position X", Default=getgenv().Settings["Position X"] or 0, Min = 0, Max = 60},
             {Mode = "Slider", Title = "Position Y", Id="Position Y", Default=getgenv().Settings["Position Y"] or 30, Min = 0, Max = 60},
             {Mode = "Slider", Title = "Position Z", Id="Position Z", Default=getgenv().Settings["Position Z"] or 0, Min = 0, Max = 60},
-            {Mode = "Dropdown",Title = "Weapon For Sea Events",Id = "Weapon For Sea Events",Multi = true,Table = {"Melee","Blox Fruit","Sword","Gun"},Default = getgenv().Settings["Weapon For Sea Events"] or {}},
+            {Mode = "Dropdown",Title = "Weapon For Sea Events",Id = "Weapon For Sea Events",Multi = true,Table = {"Melee","Blox Fruit","Sword","Gun"},Default = getgenv().Settings["Weapon For Sea Events"] or {"Melee", "Blox Fruit", "Sword", "Gun"}},
         }},
         {Title = "Fruit Skills", Children={
             {Mode = "Toggle",Title = "Click For fruit",Id = "Click For fruit"},
-            {Mode = "Dropdown",Title = "Skills For Fruit",Id = "Skills For Fruit",Multi = true,Table = {"Z","X","C","V","F"},Default = getgenv().Settings["Skills For fruit"]},
+            {Mode = "Dropdown",Title = "Skills For Fruit",Id = "Skills For Fruit",Multi = true,Table = {"Z","X","C","V","F"},Default = getgenv().Settings["Skills For fruit"] or {"Z","X","C","V","F"}},
             {Mode = "Dropdown", Title="Skill Hold Time Z", Table={0,0.25,0.5,1,2,3},Default=getgenv().Settings["Skill Hold Time Z"] or 0, Id="Skill Hold Time Z"},
             {Mode = "Dropdown", Title="Skill Hold Time X", Table={0,0.25,0.5,1,2,3},Default=getgenv().Settings["Skill Hold Time X"] or 0, Id="Skill Hold Time X"},
             {Mode = "Dropdown", Title="Skill Hold Time C", Table={0,0.25,0.5,1,2,3},Default=getgenv().Settings["Skill Hold Time C"] or 0, Id="Skill Hold Time C"},
@@ -542,6 +547,8 @@ for ShopName, Items in pairs(getgenv().IslandVariable.ShopItems) do
 end
 
 if not getgenv().NoUi then
+    getgenv().UiElements = {}
+    
     Starlight:SetTheme("W-azure")
     local Window = Starlight:CreateWindow({
         Name = "W-azure",
@@ -575,7 +582,7 @@ if not getgenv().NoUi then
                 else
                     MainArg.Callback = getgenv().IslandCaller[arg.Id]
                 end
-                GroupBox:CreateButton(MainArg, arg.Id or arg.Title)
+                getgenv().UiElements[arg.Id or arg.Title] = GroupBox:CreateButton(MainArg, arg.Id or arg.Title)
             elseif arg.Mode == "Toggle" then
                 MainArg.CurrentValue = getgenv().Settings[arg.Id] or arg.Default or false
                 MainArg.Callback = function(value)
@@ -583,7 +590,7 @@ if not getgenv().NoUi then
                         getgenv().Settings[arg.Id] = value
                     end
                 end
-                GroupBox:CreateToggle(MainArg, arg.Id or arg.Title)
+                getgenv().UiElements[arg.Id or arg.Title] = GroupBox:CreateToggle(MainArg, arg.Id or arg.Title)
             elseif arg.Mode == "Slider" then
                 MainArg.CurrentValue = getgenv().Settings[arg.Id] or arg.Default or 1
                 MainArg.Range = {arg.Min or 1, arg.Max or 100}
@@ -592,7 +599,7 @@ if not getgenv().NoUi then
                         getgenv().Settings[arg.Id] = value
                     end
                 end
-                GroupBox:CreateSlider(MainArg, arg.Id or arg.Title)
+                getgenv().UiElements[arg.Id or arg.Title] = GroupBox:CreateSlider(MainArg, arg.Id or arg.Title)
             elseif arg.Mode == "Dropdown" then
                 local Label = GroupBox:CreateLabel(MainArg, arg.Id or arg.Title)
                 local Default = {}
@@ -621,9 +628,9 @@ if not getgenv().NoUi then
                         end
                     end
                 }
-                Label:AddDropdown(DropdownArg, (arg.Id or arg.Title) .. "dropdown")
+                getgenv().UiElements[arg.Id or arg.Title] = Label:AddDropdown(DropdownArg, (arg.Id or arg.Title) .. "dropdown")
             elseif arg.Mode == "Label" then
-                GroupBox:CreateLabel(MainArg, arg.Id or arg.Title)
+                getgenv().UiElements[arg.Id or arg.Title] = GroupBox:CreateLabel(MainArg, arg.Id or arg.Title)
             elseif arg.Mode == "Input" then
                 MainArg.PlaceholderText = arg.Title
                 MainArg.Enter = true
@@ -639,7 +646,7 @@ if not getgenv().NoUi then
                 if getgenv().Settings[arg.Id] then
                     MainArg.CurrentValue = getgenv().Settings[arg.Id]
                 end
-                GroupBox:CreateInput(MainArg, arg.Id or arg.Title)
+                getgenv().UiElements[arg.Id or arg.Title] = GroupBox:CreateInput(MainArg, arg.Id or arg.Title)
             end
         end
     end
