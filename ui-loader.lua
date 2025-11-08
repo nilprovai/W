@@ -199,7 +199,6 @@ local UiIntilize = {
     ["Status"] = {
         {Title="Game Status", Children={
             {Mode="Label",Title="Client Time"},
-            {Mode="Label",Title="Farming Status"},
             {Mode="Label",Title="Dimension Kill"},
             {Mode="Label",Title="Bribe Status"},
         }},
