@@ -180,12 +180,18 @@ local UiIntilize = {
         }}
     },
     ["Vocalnic"] = {
+        {Title="Prehistoric Island", Children={
+            {Mode="Button",Title="Remove Lava",Id="Remove Lava"},
+            {Mode="Button",Title="Tp To Prehistoric Island",Id="Tp To Prehistoric Island"},
+            {Mode="Toggle",Title="Auto Craft Volcanic Magnet",Id="Auto Craft Volcanic Magnet"},
+            {Mode="Toggle",Title="Auto Find Prehistoric Island",Id="Auto Find Prehistoric Island"},
+            {Mode="Toggle",Title="Auto Patch Volcano", Id="Auto Patch Volcano"},
+            {Mode="Toggle",Title="Auto Collect Dragon Eggs",Id="Auto Collect Dragon Eggs"},
+            {Mode="Toggle",Title="Auto Collect Dino Bones",Id="Auto Collect Dino Bones"}
+        }},
         {Title="Volcanic Activities", Children={
             {Mode = "Toggle",Title = "Auto Dojo Trainer",Id = "Auto Dojo Trainer"},
             {Mode = "Toggle",Title = "Auto Ember",Id = "Auto Ember"},
-            {Mode = "Toggle",Title = "Auto Find Prehistoric Island",Id = "Auto Find Prehistoric Island"},
-            {Mode = "Toggle",Title = "Tp To Prehistoric Island",Id = "Tp To Prehistoric Island"},
-            {Mode="Toggle",Title="Auto Patch Volcano", Id="Auto Patch Volcano"}
         }},
         {Title="Berry Activites", Children={
             {Mode = "Toggle",Title = "Auto Collect Berry",Id = "Auto Collect Berry"},
@@ -203,7 +209,7 @@ local UiIntilize = {
             {Mode="Label",Title="Elite Status"},
             {Mode="Label",Title="Mirage Status"},
             {Mode="Label",Title="Prehistoric Island Status"},
-            {Mode="Label",Title="Kitsune Status"},
+            -- {Mode="Label",Title="Kitsune Status"},
             {Mode="Label",Title="FullMoon Status"},
         }}
     },
