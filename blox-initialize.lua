@@ -2055,3 +2055,7 @@ getgenv().IslandVariable.BlacklistedItems = getgenv().IslandVariable.Blacklisted
     "Fist of Darkness",
     "Core Brain"
 }
+
+getgenv().IslandVariable.FishingBaits = {
+    "Basic Bait"
+}
