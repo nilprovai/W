@@ -3,6 +3,7 @@ getgenv().LoadTab = getgenv().LoadTab or {
     ["Main Farm"] = true,
     ["Stack Auto Farm"] = true,
     ["Sub Farming"] = true,
+    ["Fishing"] = true,
     ["Vocalnic"] = true,
     ["Status"] = true,
     ["Fruit"] = true,
@@ -39,6 +40,7 @@ local UiOrders = {
     { title = "Main Farm", icon = "pickaxe" },
     { title = "Stack Auto Farm", icon = "layers" },
     { title = "Sub Farming", icon = "leaf" },
+    { title = "Fishing", icon = "fish"},
     { title = "Vocalnic", icon = "flame" },
     { title = "Status", icon = "chart-no-axes-column" },
     { title = "Fruit", icon = "apple" },
@@ -177,6 +179,17 @@ local UiIntilize = {
             {Mode="Toggle",Title="Citizen Quest Hop",Id = "Citizen Quest Hop"},
             {Mode="Toggle",Title="Auto Get Rainbow Haki",Id = "Auto Get Rainbow Haki"},
             {Mode="Toggle",Title="Rainbow Haki Hop",Id = "Rainbow Haki Hop"},
+        }}
+    },
+    ["Fishing"] = {
+        {Title="Fishing", Children={
+            {Mode="Button",Title="TP To Fishing Spot", Id="TP To Fishing Spot"},
+            {Mode="Toggle",Title="Auto Fishing",Id="Auto Fishing"}
+        }},
+        {Title="Bait", Children={
+            {Mode="Dropdown",Title="Select Bait To Buy",Id="Selected Bait",Table=getgenv().IslandVariable.FishingBaits,Default=getgenv().Settings["Selected Bait"] or "Basic Bait"},
+            {Mode="Button",Title="Buy Bait",Id="Buy Bait"},
+            {Mode="Toggle",Title="Auto Buy Bait",Id="Auto Buy Bait"}
         }}
     },
     ["Vocalnic"] = {
