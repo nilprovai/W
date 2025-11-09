@@ -1,7 +1,3 @@
-loadstring(game:HttpGet("https://raw.githubusercontent.com/nilprovai/W/refs/heads/main/blox-initialize.lua"))()
-getgenv().Settings = getgenv().Settings or {}
-getgenv().IslandCaller = {}
-
 getgenv().SecureMode = true
 getgenv().LoadTab = getgenv().LoadTab or {
     ["Main Farm"] = true,
