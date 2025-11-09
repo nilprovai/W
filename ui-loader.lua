@@ -1,3 +1,7 @@
+loadstring(game:HttpGet("https://raw.githubusercontent.com/nilprovai/W/refs/heads/main/blox-initialize.lua"))()
+getgenv().Settings = getgenv().Settings or {}
+getgenv().IslandCaller = {}
+
 getgenv().SecureMode = true
 getgenv().LoadTab = getgenv().LoadTab or {
     ["Main Farm"] = true,
@@ -32,7 +36,7 @@ local CommF = Remotes:WaitForChild("CommF_")
 local Players = game.Players
 local LocalPlayer = Players.LocalPlayer
 
-local Starlight = loadstring(game:HttpGet("https://raw.githubusercontent.com/nilprovai/W/refs/heads/main/starlight-ui.lua"))()  
+local Starlight = loadstring(game:HttpGet("https://raw.githubusercontent.com/nilprovai/W/refs/heads/main/starlight-ui.lua"))() 
 local NebulaIcons = loadstring(game:HttpGet("https://raw.nebulasoftworks.xyz/nebula-icon-library-loader"))()
 
 local UiOrders = {
@@ -472,6 +476,7 @@ local UiIntilize = {
             {Mode = "Slider", Title = "Position Y", Id="Position Y", Default=getgenv().Settings["Position Y"] or 30, Min = 0, Max = 60},
             {Mode = "Slider", Title = "Position Z", Id="Position Z", Default=getgenv().Settings["Position Z"] or 0, Min = 0, Max = 60},
             {Mode = "Dropdown",Title = "Weapon For Sea Events",Id = "Weapon For Sea Events",Multi = true,Table = {"Melee","Blox Fruit","Sword","Gun"},Default = getgenv().Settings["Weapon For Sea Events"] or {"Melee", "Blox Fruit", "Sword", "Gun"}},
+            {Mode = "Dropdown",Title = "Weapon For Prehistoric Events",Id = "Weapon For Prehistoric Events",Multi = true,Table = {"Melee","Blox Fruit","Sword","Gun"},Default = getgenv().Settings["Weapon For Prehistoric Events"] or {"Melee", "Blox Fruit", "Sword", "Gun"}},
         }},
         {Title = "Fruit Skills", Children={
             {Mode = "Toggle",Title = "Click For fruit",Id = "Click For fruit"},
