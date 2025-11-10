@@ -486,6 +486,7 @@ local UiIntilize = {
             {Mode = "Slider", Title = "Position Y", Id="Position Y", Default=getgenv().Settings["Position Y"] or 30, Min = 0, Max = 60},
             {Mode = "Slider", Title = "Position Z", Id="Position Z", Default=getgenv().Settings["Position Z"] or 0, Min = 0, Max = 60},
             {Mode="Toggle",Title="Only Use M1 Fruit For Sea Events",Id="Only Use 1M Fruit For Sea Events"},
+            {Mode="Toggle",Title="Use Stack With Melee/Sword", Id="Use Stack Weapon"},
             {Mode = "Dropdown",Title = "Weapon For Sea Events",Id = "Weapon For Sea Events",Multi = true,Table = {"Melee","Blox Fruit","Sword","Gun"},Default = getgenv().Settings["Weapon For Sea Events"] or {"Melee", "Blox Fruit", "Sword", "Gun"}},
             {Mode = "Dropdown",Title = "Weapon For Prehistoric Events",Id = "Weapon For Prehistoric Events",Multi = true,Table = {"Melee","Blox Fruit","Sword","Gun"},Default = getgenv().Settings["Weapon For Prehistoric Events"] or {"Melee", "Blox Fruit", "Sword", "Gun"}},
         }},
