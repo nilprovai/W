@@ -470,8 +470,8 @@ local UiIntilize = {
         {Title = "Mob Settings", Children={
             {Mode = "Toggle",Title = "Bring Mob",Id = "Bring Mob", Default=(getgenv().Settings["Bring Mob"] ~= false)},
             {Mode = "Slider",Title = "Bring Mob Radius",Id = "Bring Mob Radius",Default = getgenv().Settings["Bring Mob Radius"] or 350,Min = 200,Max = 500},
-            {Mode = "Toggle",Title = "Patch Ghost Mob (Beta)",Id = "Patch Ghost Mob"},
-            {Mode = "Toggle",Title = "Force Destroy Ghost Mob",Id = "Force Destroy Ghost Mob"},
+            {Mode = "Toggle",Title = "Patch Ghost Mob (Beta)",Id = "Patch Ghost Mob",Default=(getgenv().Settings["Patch Ghost Mob"] ~= false)},
+            {Mode = "Toggle",Title = "Force Destroy Ghost Mob",Id = "Force Destroy Ghost Mob",Default=(getgenv().Settings["Force Destroy Ghost Mob"] ~= false)},
         }},
         {Title = "Combat", Children={
             {Mode = "Toggle",Title = "Auto Click",Id = "Auto Click"},
@@ -484,6 +484,7 @@ local UiIntilize = {
             {Mode = "Slider", Title = "Position X", Id="Position X", Default=getgenv().Settings["Position X"] or 0, Min = 0, Max = 60},
             {Mode = "Slider", Title = "Position Y", Id="Position Y", Default=getgenv().Settings["Position Y"] or 30, Min = 0, Max = 60},
             {Mode = "Slider", Title = "Position Z", Id="Position Z", Default=getgenv().Settings["Position Z"] or 0, Min = 0, Max = 60},
+            {Mode="Toggle",Title="Only Use M1 Fruit For Sea Events",Id="Only Use 1M Fruit For Sea Events"},
             {Mode = "Dropdown",Title = "Weapon For Sea Events",Id = "Weapon For Sea Events",Multi = true,Table = {"Melee","Blox Fruit","Sword","Gun"},Default = getgenv().Settings["Weapon For Sea Events"] or {"Melee", "Blox Fruit", "Sword", "Gun"}},
             {Mode = "Dropdown",Title = "Weapon For Prehistoric Events",Id = "Weapon For Prehistoric Events",Multi = true,Table = {"Melee","Blox Fruit","Sword","Gun"},Default = getgenv().Settings["Weapon For Prehistoric Events"] or {"Melee", "Blox Fruit", "Sword", "Gun"}},
         }},
