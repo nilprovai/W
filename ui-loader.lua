@@ -347,6 +347,7 @@ local UiIntilize = {
             {Mode = "Toggle",Title = "Auto Shark",Id = "Auto Shark"},
             {Mode = "Toggle",Title = "Auto Piranha",Id = "Auto Piranha"},
             {Mode = "Toggle",Title = "Auto Fish Crew Member",Id = "Auto Fish Crew Member"},
+            {Mode="Toggle",Title="Auto Haunted Crew Member",Id="Auto Haunted Crew Member"},
             {Mode = "Toggle",Title = "Safe Mode",Id = "Safe Mode"},
             {Mode = "Toggle",Title = "Auto Escape Rough Sea",Id = "Auto Escape Rough Sea"},
         }},
