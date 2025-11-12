@@ -86,51 +86,25 @@ local UiIntilize = {
             {Mode="Dropdown",Title = "x Chest To Hop",Id = "Limit Chest",Table = {20,25,30,35,40,45,50,60,70},Default = getgenv().Settings["LimitChest"] or 50,IsNumber = true},        
             {Mode="Toggle",Title="Insta Tp Chest",Id="Insta Tp Chest"},
         }},
-    },
-    ["Stack Farming"] = {
-        {Title="Boss Farming", Children={
+        {Title="Auto Bosses", Children={
             {Mode="Toggle", Title="Auto Tyrant of the Skies", Id="Auto Tyrant of the Skies"},
             {Mode="Toggle",Title="Fully Auto Dough King",Id="Fully Auto Dough King"},
             {Mode="Toggle",Title="Auto Dough King", Id = "Auto Dough King"},
-            {Mode="Toggle",Title="Auto Cake Prince",Id = "Auto Cake Prince"},
             {Mode="Toggle",Title="Auto Spawn Soul Reaper",Id = "Auto Spawn Soul Reaper"},
             {Mode="Toggle",Title="Auto Soul Reaper",Id = "Auto Soul Reaper"},
-            {Mode="Toggle",Title="Auto Elite",Id="Auto Elite"},
-            {Mode="Toggle",Title="Auto Law",Id="Auto Law"},
-            {Mode="Toggle",Title="Auto Factory",Id = "Auto Factory"},
-            {Mode="Toggle",Title="Auto Spawn Black Beard", Id = "Auto Spawn Black Beard"},
-            {Mode="Toggle",Title="Auto Black Beard", Id = "Auto Black Beard"},
-            {Mode="Toggle",Title="Auto Rip Indra",Id="Auto Rip Indra"}
         }},
-        {Title="Boss Snipe", Children={
-            {Mode="Dropdown",Title = "Select Boss To Snipe",Id = "Selected Boss To Snipe",Multi = true,Table = getgenv().IslandVariable.AllBoss[getgenv().IslandVariable["CurrentSea"]],Default = getgenv().Settings["Selected Boss To Snipe"] or {}},
-            {Mode="Toggle",Title="Start Boss Snipe",Id="Start Boss Snipe"},
-            {Mode="Toggle",Title="Boss Snipe Hop",Id="Boss Snipe Hop"},
-        }},
-        {Title="Sea 3 Functions", Children={
-            {Mode="Toggle",Title="Auto Pirate Raid",Id="Auto Pirate Raid"},
-            {Mode="Toggle",Title="Auto Open Haki Pad",Id="Auto Open Haki Pad"},
-            {Mode="Toggle",Title="Auto Spawn Rip Indra", Id = "Auto Spawn Rip Indra"},
-            {Mode="Toggle",Title="Auto Tushita",Id="Auto Tushita"},
-            {Mode="Toggle",Title="Do Puzzle Electric Claw",Id="Do Puzzle Electric Claw"},
-        }},
-        {Title="Sea 2 Functions", Children={
-            {Mode="Toggle",Title="Auto Bartilo Quest",Id = "Auto Bartilo Quest"},
-            {Mode="Toggle",Title="Auto Race Evolve",Id = "Auto Race Evolve"},
-            {Mode="Toggle",Title="Auto Factory",Id = "Auto Factory"},
-            {Mode="Toggle",Title="Auto Spawn Black Beard", Id = "Auto Spawn Black Beard"},
-            {Mode="Toggle",Title="Auto Black Beard", Id = "Auto Black Beard"},
-        }},
-    },
-    ["Sub Farming"] = {
         {Title="Special Farms", Children={
-            {Mode="Toggle",Title="Auto Ghoul", Id = "Auto Ghoul"},
-            {Mode="Toggle",Title="Auto Cyborg",Id="Auto Cyborg"},
+            {Mode="Button",Title="Upgrade Yoru V2",Id="Upgrade Your V2"},
             {Mode="Toggle",Title="Auto Soul Guitar",Id = "Auto Soul Guitar"},
             {Mode="Toggle",Title="Auto Soul Guitar Material",Id = "Auto Soul Guitar Material"},
             {Mode="Toggle",Title="Auto CDK",Id = "Auto CDK"},
-            {Mode="Button",Title="Upgrade Yoru V2",Id="Upgrade Your V2"},
             {Mode="Toggle",Title="Auto Shark Anchor",Id = "Auto Shark Anchor"},
+        }},
+        {Title="Auto Special Races", Children={
+            {Mode="Toggle",Title="Auto Ghoul", Id = "Auto Ghoul"},
+            {Mode="Toggle",Title="Auto Ghoul Hop",Id="Auto Ghoul Hop"},
+            {Mode="Toggle",Title="Auto Cyborg",Id="Auto Cyborg"},
+            {Mode="Toggle",Title="Auto Cyborg Hop",Id="Auto Cyborg Hop"},
         }},
         {Title="Observation & Quests", Children={
             {Mode="Toggle",Title="Auto Level Observation",Id="Auto Level Observation"},
@@ -145,10 +119,52 @@ local UiIntilize = {
             {Mode="Toggle",Title="Auto Citizen Quest",Id = "Auto Citizen Quest"},
             {Mode="Toggle",Title="Citizen Quest Hop",Id = "Citizen Quest Hop"},
         }},
-        {Title="Race & SubClass", Children={
-            {Mode = "Toggle",Title = "Auto Race Evolve",Id = "Auto Race Evolve"},
+        {Title="SubClass", Children={
             {Mode = "Toggle",Title = "Start Unlocking SubClass",Id = "Start Unlocking SubClass"},
             {Mode = "Toggle",Title = "Shipwright",Id = "Shipwright"},
+        }},
+        {Title="Blacksmith", Children={
+            {Mode="Toggle",Title="Auto BlackSmith",Id = "Auto BlackSmith"},
+            {Mode="Toggle",Title="BlackSmith Sword Gun Toggle",Id = "BlackSmith Sword Gun Toggle"},
+        }},
+    },
+    ["Sub Farming"] = {
+        {Title="Fruit Management", Children={
+            {Mode = "Toggle",Title = "Auto Collect Fruit",Id = "Collect Fruit"},
+            {Mode = "Toggle",Title = "Auto Store Fruit",Id = "Auto Store Fruit"},
+            {Mode = "Toggle",Title = "Snipe Fruit",Id = "Snipe Fruit"},
+            {Mode = "Toggle",Title = "Snipe Mirage Fruit",Id = "Snipe Mirage Fruit"},
+            {Mode = "Dropdown",Title = "Select Fruit To Snipe",Id = "Fruit To Snipe",Multi = true,Table = getgenv().IslandVariable.FruitTable or {}, Default = getgenv().Settings["Fruits To Snipe"] or {}},
+            {Mode = "Toggle", Title = "Auto Skip Random Fruit Gui", Id = "Remove Random Fruit Gui"}
+        }},
+        {Title="Sea 3 Functions", Children={
+            {Mode="Toggle",Title="Auto Elite",Id="Auto Elite"},
+            {Mode="Toggle",Title="Auto Elite Hop",Id = "Auto Elite Hop"},
+            {Mode="Toggle",Title="Auto Rip Indra",Id="Auto Rip Indra"},
+            {Mode="Toggle",Title="Rip Indra Hop",Id = "Rip Indra Hop"},
+            {Mode="Toggle",Title="Auto Open Haki Pad",Id="Auto Open Haki Pad"},
+            {Mode="Toggle",Title="Auto Spawn Rip Indra", Id = "Auto Spawn Rip Indra"},
+            {Mode="Toggle",Title="Auto Tushita",Id="Auto Tushita"},
+            {Mode="Toggle",Title="Tushita Hop",Id="Tushita Hop"},
+            {Mode="Toggle",Title="Do Puzzle Electric Claw",Id="Do Puzzle Electric Claw"},
+        }},
+        {Title="Sea 2 Functions", Children={
+            {Mode="Toggle",Title="Auto Factory",Id = "Auto Factory"},
+            {Mode="Toggle",Title="Auto Bartilo Quest",Id = "Auto Bartilo Quest"},
+            {Mode="Toggle",Title="Auto Race Evolve",Id = "Auto Race Evolve"},
+            {Mode="Toggle",Title="Race Evolve Hop",Id = "Race Evolve Hop"},
+            {Mode="Toggle",Title="Auto Spawn Black Beard", Id = "Auto Spawn Black Beard"},
+            {Mode="Toggle",Title="Auto Black Beard", Id = "Auto Black Beard"},
+            {Mode="Toggle",Title="Black Beard Hop",Id="Black Beard Hop"},
+        }},
+        {Title="Berry Activities", Children={
+            {Mode = "Toggle",Title = "Auto Collect Berry",Id = "Auto Collect Berry"},
+            {Mode = "Toggle",Title = "Auto Berry Hop",Id = "Auto Berry Hop"}
+        }},
+        {Title="Auto Bosses", Children={
+            {Mode="Dropdown",Title = "Select Boss To Snipe",Id = "Selected Boss To Snipe",Multi = true,Table = getgenv().IslandVariable.AllBoss[getgenv().IslandVariable["CurrentSea"]],Default = getgenv().Settings["Selected Boss To Snipe"] or {}},
+            {Mode="Toggle",Title="Start Boss Snipe",Id="Start Boss Snipe"},
+            {Mode="Toggle",Title="Boss Snipe Hop",Id="Boss Snipe Hop"},
         }},
     },
     ["Misc Farming"] = {
@@ -173,14 +189,6 @@ local UiIntilize = {
         {Title="Halloween Event", Children={
             {Mode="Toggle",Title="Auto Halloween Event", Id="Auto Halloween Event"},
             {Mode="Toggle",Title="Ignore Halloween Boss", Id="Ignore Halloween Boss"},
-        }},
-        {Title="Blacksmith", Children={
-            {Mode="Toggle",Title="Auto BlackSmith",Id = "Auto BlackSmith"},
-            {Mode="Toggle",Title="BlackSmith Sword Gun Toggle",Id = "BlackSmith Sword Gun Toggle"},
-        }},
-        {Title="Berry Activities", Children={
-            {Mode = "Toggle",Title = "Auto Collect Berry",Id = "Auto Collect Berry"},
-            {Mode = "Toggle",Title = "Auto Berry Hop",Id = "Auto Berry Hop"}
         }}
     },
     ["Sea Events"] = {
@@ -232,6 +240,7 @@ local UiIntilize = {
             {Mode = "Button",Title = "TP To Gear", Id="Tween To Gear"},
             {Mode = "Button",Title = "TP To Advandced Fruit Dealer",Id="Tween Fruit Dealer"},
             {Mode = "Button",Title = "Tween To Highest Place Mirage",Id="Tween Highest Place"},
+            {Mode = "Toggle", Title="Auto Pull Lever", Id="Auto Pull Lever"}
         }},
         {Title="Ship & Farm Settings", Children={
             {Mode = "Button",Title = "Tp Your Ship To Current Pos",Id="TP Current Ship"},
@@ -251,6 +260,11 @@ local UiIntilize = {
         }}
     },
     ["Race V4"] = {
+        {Title="TP", Children={
+            {Mode = "Button",Title = "TP To Temple Of Time",Id="TPTempleOfTime"},
+            {Mode = "Button",Title = "TP To Acient Clock",Id="TPAcientClock"},
+            {Mode = "Button",Title = "TP Current Race Entrance",Id="TPCurrentEntrance"},
+        }},
         {Title="Trial Activities", Children={
             {Mode = "Toggle",Title = "Start Trial With Team",Id = "Start Trial With Team"},
             {Mode="Dropdown",Title="Team Trial Player 1",Special=1,Default=getgenv().Settings["Trial Player 1"], Id="Trial Player 1"},
@@ -264,11 +278,6 @@ local UiIntilize = {
             {Mode = "Toggle",Title = "Auto Choose Gear",Id = "Auto Choose Gear"},
             {Mode = "Toggle",Title = "Auto Kill After Trial",Id = "Auto Kill After Trial"},
             {Mode = "Toggle",Title = "Auto Reset After Trial",Id = "Auto Reset After Trial"},
-        }},
-        {Title="TP", Children={
-            {Mode = "Button",Title = "TP To Temple Of Time",Id="TPTempleOfTime"},
-            {Mode = "Button",Title = "TP To Acient Clock",Id="TPAcientClock"},
-            {Mode = "Button",Title = "TP Current Race Entrance",Id="TPCurrentEntrance"},
         }},
         {Title="Trial Settings", Children={
             {Mode = "Toggle",Title = "Use Weapon In Kill Trial",Id = "Use Weapon In Kill Trial"},
@@ -349,18 +358,6 @@ local UiIntilize = {
             {Mode = "Toggle",Title = "Auto Kill Near Player",Id = "Auto Kill Near Player"},
         }},
     },
-    ["Fruit"] = {
-        {Title="Fruit Management", Children={
-            {Mode = "Toggle",Title = "Auto Collect Fruit",Id = "Collect Fruit"},
-            {Mode = "Toggle",Title = "Auto Store Fruit",Id = "Auto Store Fruit"},
-            {Mode = "Toggle", Title = "Remove Random Fruit Gui", Id = "Remove Random Fruit Gui"}
-        }},
-        {Title="Auto Snipe Fruit", Children={
-            {Mode = "Toggle",Title = "Snipe Fruit",Id = "Snipe Fruit"},
-            {Mode = "Toggle",Title = "Snipe Mirage Fruit",Id = "Snipe Mirage Fruit"},
-            {Mode = "Dropdown",Title = "Select Fruit To Snipe",Id = "Fruit To Snipe",Multi = true,Table = getgenv().IslandVariable.FruitTable or {}, Default = getgenv().Settings["Fruits To Snipe"] or {}}
-        }}
-    },
     ["Travel"] = {
         {Title="Quick Travel", Children={
             {Mode="Button",Title="Stop Tween",Id="Stop Tween"},
@@ -429,17 +426,7 @@ local UiIntilize = {
             {Mode = "Button",Title = "Rejoin",Callback = function ()
                 ReplicatedStorage["__ServerBrowser"]:InvokeServer("teleport",JobId)
             end},
-        }},
-        {Title="Server Hopping Triggers", Children={
-            {Mode="Toggle",Title="Rip Indra Hop",Id = "Rip Indra Hop"},
-            {Mode="Toggle",Title="Race Evolve Hop",Id = "Race Evolve Hop"},
-            {Mode="Toggle",Title="Auto Elite Hop",Id = "Auto Elite Hop"},
-            {Mode="Toggle",Title="Black Beard Hop",Id="Black Beard Hop"},
-            {Mode="Toggle",Title="Tushita Hop",Id="Tushita Hop"},
-            {Mode="Toggle",Title="Hybrid Fruit Hop",Id="Hybrid Fruit Hop"},
-            {Mode="Toggle",Title="Raid Fruit Hop",Id="Raid Fruit Hop"},
-            {Mode="Toggle",Title="Auto Ghoul Hop",Id="Auto Ghoul Hop"},
-        }},
+        }}
     },
     ["Visuals & Boost"] = {
         {Title="ESP", Children={
