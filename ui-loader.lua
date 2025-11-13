@@ -114,6 +114,7 @@ local UiIntilize = {
             {Mode="Toggle",Title="Auto Get Rainbow Haki",Id = "Auto Get Rainbow Haki"},
             {Mode="Toggle",Title="Rainbow Haki Hop",Id = "Rainbow Haki Hop"},
             {Mode="Toggle",Title="Auto Bartilo Quest",Id = "Auto Bartilo Quest"},
+            {Mode="Toggle",Title="Auto Bartilo Hop",Id = "Auto Bartilo Hop"},
             {Mode="Toggle",Title="Auto Citizen Quest",Id = "Auto Citizen Quest"},
             {Mode="Toggle",Title="Citizen Quest Hop",Id = "Citizen Quest Hop"},
         }},
