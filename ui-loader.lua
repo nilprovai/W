@@ -631,6 +631,7 @@ if not getgenv().NoUi then
                 }
                 getgenv().UiElements[arg.Id or arg.Title] = Label:AddDropdown(DropdownArg, (arg.Id or arg.Title) .. "dropdown")
             elseif arg.Mode == "Label" then
+                MainArg.Content = "Ph anh"
                 getgenv().UiElements[arg.Id or arg.Title] = GroupBox:CreateParagraph(MainArg, arg.Id or arg.Title)
             elseif arg.Mode == "Input" then
                 MainArg.PlaceholderText = arg.Title
