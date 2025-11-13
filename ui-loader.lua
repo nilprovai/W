@@ -332,9 +332,9 @@ local UiIntilize = {
     },
     ["Status"] = {
         {Title="Game Status", Children={
-            {Mode="Paragraph",Title="Client Time"},
-            {Mode="Paragraph",Title="Dimension Kill"},
-            {Mode="Paragraph",Title="Bribe Status"},
+            {Mode="Label",Title="Client Time"},
+            {Mode="Label",Title="Dimension Kill"},
+            {Mode="Label",Title="Bribe Status"},
         }},
         {Title="Server Status", Children={
             {Mode="Label",Title="Server Haki Color"},
@@ -631,7 +631,7 @@ if not getgenv().NoUi then
                 }
                 getgenv().UiElements[arg.Id or arg.Title] = Label:AddDropdown(DropdownArg, (arg.Id or arg.Title) .. "dropdown")
             elseif arg.Mode == "Label" then
-                MainArg.Content = "Ph anh"
+                MainArg.Content = getgenv().OnDebugMode and "Phuong Anh ~" or "Unknow"
                 getgenv().UiElements[arg.Id or arg.Title] = GroupBox:CreateParagraph(MainArg, arg.Id or arg.Title)
             elseif arg.Mode == "Input" then
                 MainArg.PlaceholderText = arg.Title
