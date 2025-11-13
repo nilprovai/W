@@ -1,7 +1,6 @@
 getgenv().SecureMode = true
 getgenv().LoadTab = getgenv().LoadTab or {
     ["Farming"] = true,
-    ["Stack Farming"] = true,
     ["Sub Farming"] = true,
     ["Misc Farming"] = true,
     ["Sea Events"] = true,
@@ -37,7 +36,6 @@ local NebulaIcons = loadstring(game:HttpGet("https://raw.nebulasoftworks.xyz/neb
 
 local UiOrders = {
     { title = "Farming", icon = "pickaxe" },
-    { title = "Stack Farming", icon = "layers" },
     { title = "Sub Farming", icon = "leaf" },
     { title = "Misc Farming", icon = "axe" },
     { title = "Sea Events", icon = "waves" },
@@ -334,9 +332,9 @@ local UiIntilize = {
     },
     ["Status"] = {
         {Title="Game Status", Children={
-            {Mode="Label",Title="Client Time"},
-            {Mode="Label",Title="Dimension Kill"},
-            {Mode="Label",Title="Bribe Status"},
+            {Mode="Paragraph",Title="Client Time"},
+            {Mode="Paragraph",Title="Dimension Kill"},
+            {Mode="Paragraph",Title="Bribe Status"},
         }},
         {Title="Server Status", Children={
             {Mode="Label",Title="Server Haki Color"},
@@ -345,6 +343,9 @@ local UiIntilize = {
             {Mode="Label",Title="Prehistoric Island Status"},
             {Mode="Label",Title="Kitsune Status"},
             {Mode="Label",Title="FullMoon Status"},
+        }},
+        {Title="Account Status", Children={
+            {Mode="Label", Title="Account Flagged"}
         }}
     },
     ["PVP"] = {
@@ -601,7 +602,7 @@ if not getgenv().NoUi then
                 end
                 getgenv().UiElements[arg.Id or arg.Title] = GroupBox:CreateSlider(MainArg, arg.Id or arg.Title)
             elseif arg.Mode == "Dropdown" then
-                local Label = GroupBox:CreateLabel(MainArg, arg.Id or arg.Title)
+                local Label = GroupBox:CreateParagraph(MainArg, arg.Id or arg.Title)
                 local Default = {}
                 local ArgDefaut = getgenv().Settings[arg.Id] or arg.Default or {}
                 if ArgDefaut then
